@@ -97,7 +97,7 @@ struct LesChoix {
     }
 
     OptArg& operator[](const string& name){
-        for (int i=0;i<vec.size();++i){
+        for (size_t i=0;i<vec.size();++i){
             if (vec[i].name==name)
                 return vec[i].args.at(0);
         }
