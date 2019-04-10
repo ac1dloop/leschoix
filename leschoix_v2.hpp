@@ -87,6 +87,14 @@ struct lesopt {
     string default_value;
 };
 
+/**
+ * @brief Entry point to parse.
+ * This class should be instantiated with argc and argv
+ * When instantiated it parser input
+ *
+ * Here goes long description
+ */
+
 struct LesChoix {
 
     LesChoix(int argc, char **argv){
