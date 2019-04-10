@@ -1,5 +1,6 @@
 #include <iostream>
 #include "leschoix.hpp"
+#include "leschoix_v2.hpp"
 
 using namespace std;
 
@@ -13,11 +14,10 @@ void testhandler(string opt, vector<string> args){
     cout << endl;
 }
 
-std::map<std::string, std::function<void()>> Y::LesChoix::special_handlers{
-{"help", [](){
-    cout << "Default help message" << endl;
-}},
-                                             };
+vector<YY::lesopt> YY::LesChoix::values{
+{'p', "", "8080"},
+{'a', "option", "option"},
+};
 
 int main(int argc, char **argv)
 {
@@ -27,9 +27,23 @@ int main(int argc, char **argv)
         }
     };
 
-    Y::LesChoix choix2(argc, argv);
+//    Y::LesChoix choix2(argc, argv);
+    YY::LesChoix choix(argc, argv);
 
-    cout << choix2["port"].get<uint32_t>();
+//    for (auto x: choix.values){
+//        cout << "opt: " << x.opt << " alias: " << x.alias << " values: ";
+//        for (auto j: x.strArgs())
+//            cout << j << " ";
+//        cout << endl;
+//    }
+
+    unsigned port=choix['p'].getArg<uint16_t>();
+    string option=choix["option"].getArg();
+
+    cout << "port: " << port << endl;
+    cout << "option: " << option << endl;
+
+//    cout << choix2["port"].get<uint32_t>();
 
 //    cout << typeid(uint8_t).name() << "\n";
 //    cout << typeid(uint16_t).name() << "\n";
