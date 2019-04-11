@@ -1,3161 +1,0 @@
-
-U-Boot SPL 2016.01mcsov (Apr 11 2019 - 13:03:44)
-mmc boot
-Trying to boot from MMC
-reading fpga.bin
-spl_load_image_fat: error reading image fpga.bin, err - -1
-spl: error reading image fpga.bin, err - 1
-reading system.dtb
-spl_load_image_fat_os: error reading image system.dtb, err - -1
-reading u-boot.img
-reading u-boot.img
-
-
-U-Boot 2016.01mcsov (Apr 11 2019 - 13:03:44 +0300)
-
-Board: Xilinx Zynq
-DRAM:  ECC disabled 1 GiB
-MMC:   mmc@e0100000: 0
-SF: Detected N25Q1024 with page size 256 Bytes, erase size 4 KiB, total 128 MiB
-In:    serial@e0000000
-Out:   serial@e0000000
-Err:   serial@e0000000
-Board: Xilinx Zynq
-Net:   ZYNQ GEM: e000b000, phyaddr -1, interface rgmii-id
-eth0: ethernet@e000b000
-Hit any key to stop autoboot:  3  2  1  0 
-Booting UMCOS board...
-reading uImage
-3169424 bytes read in 181 ms (16.7 MiB/s)
-reading devicetree.dtb
-11164 bytes read in 17 ms (640.6 KiB/s)
-reading rootfs.cpio.uboot
-5395952 bytes read in 296 ms (17.4 MiB/s)
-reading top.bin
-5979916 bytes read in 328 ms (17.4 MiB/s)
-zynq_align_dma_buffer: Bitstream is not swapped(1) - swap it
-## Booting kernel from Legacy Image at 04000000 ...
-   Image Name:   Linux-4.14.0-mcsov
-   Image Type:   ARM Linux Kernel Image (uncompressed)
-   Data Size:    3169360 Bytes = 3 MiB
-   Load Address: 00008000
-   Entry Point:  00008000
-   Verifying Checksum ... OK
-## Loading init Ramdisk from Legacy Image at 02000000 ...
-   Image Name:   
-   Image Type:   ARM Linux RAMDisk Image (uncompressed)
-   Data Size:    5395888 Bytes = 5.1 MiB
-   Load Address: 00000000
-   Entry Point:  00000000
-   Verifying Checksum ... OK
-## Flattened Device Tree blob at 03e00000
-   Booting using the fdt blob at 0x3e00000
-   Loading Kernel Image ... OK
-   Loading Ramdisk to 1fada000, end 1ffff5b0 ... OK
-   Loading Device Tree to 1fad4000, end 1fad9b9b ... OK
-
-Starting kernel ...
-
-Booting Linux on physical CPU 0x0
-Linux version 4.14.0-mcsov (zynq@server) (gcc version 5.5.0 (Buildroot 2018.02)) #4 SMP PREEMPT Thu Apr 4 17:29:31 MSK 2019
-CPU: ARMv7 Processor [413fc090] revision 0 (ARMv7), cr=18c5387d
-CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
-OF: fdt: Machine model: xlnx,zynq-7000
-earlycon: cdns0 at MMIO 0xe0000000 (options '115200n8')
-bootconsole [cdns0] enabled
-Memory policy: Data cache writealloc
-cma: Reserved 16 MiB at 0x3f000000
-random: fast init done
-percpu: Embedded 16 pages/cpu @ef7ce000 s33868 r8192 d23476 u65536
-Built 1 zonelists, mobility grouping on.  Total pages: 260608
-Kernel command line: console=ttyPS0,115200 root=/dev/ram0 rw rootwait earlyprintk earlycon
-PID hash table entries: 4096 (order: 2, 16384 bytes)
-Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
-Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
-Memory: 1008680K/1048576K available (5120K kernel code, 198K rwdata, 1204K rodata, 1024K init, 130K bss, 23512K reserved, 16384K cma-reserved, 245760K highmem)
-Virtual kernel memory layout:
-    vector  : 0xffff0000 - 0xffff1000   (   4 kB)
-    fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
-    vmalloc : 0xf0800000 - 0xff800000   ( 240 MB)
-    lowmem  : 0xc0000000 - 0xf0000000   ( 768 MB)
-    pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
-    modules : 0xbf000000 - 0xbfe00000   (  14 MB)
-      .text : 0xc0008000 - 0xc0600000   (6112 kB)
-      .init : 0xc0800000 - 0xc0900000   (1024 kB)
-      .data : 0xc0900000 - 0xc0931840   ( 199 kB)
-       .bss : 0xc0936c28 - 0xc0957564   ( 131 kB)
-Preemptible hierarchical RCU implementation.
-	RCU restricting CPUs from NR_CPUS=4 to nr_cpu_ids=2.
-	Tasks RCU enabled.
-RCU: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=2
-NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
-efuse mapped to f0800000
-slcr mapped to f0802000
-L2C: platform modifies aux control register: 0x02060000 -> 0x32460000
-L2C: DT/platform modifies aux control register: 0x02060000 -> 0x32460000
-L2C-310 erratum 769419 enabled
-L2C-310 enabling early BRESP for Cortex-A9
-L2C-310 full line of zeros enabled for Cortex-A9
-L2C-310 dynamic clock gating enabled, standby mode enabled
-L2C-310 cache controller enabled, 8 ways, 512 kB
-L2C-310: CACHE_ID 0x410000c8, AUX_CTRL 0x46460001
-zynq_clock_init: clkc starts at f0802100
-Zynq clock init
-sched_clock: 64 bits at 333MHz, resolution 3ns, wraps every 4398046511103ns
-clocksource: arm_global_timer: mask: 0xffffffffffffffff max_cycles: 0x4ce07af025, max_idle_ns: 440795209040 ns
-Switching to timer-based delay loop, resolution 3ns
-clocksource: ttc_clocksource: mask: 0xffff max_cycles: 0xffff, max_idle_ns: 537538477 ns
-timer #0 at f080a000, irq=17
-Console: colour dummy device 80x30
-Calibrating delay loop (skipped), value calculated using timer frequency.. 666.66 BogoMIPS (lpj=3333333)
-pid_max: default: 32768 minimum: 301
-Mount-cache hash table entries: 2048 (order: 1, 8192 bytes)
-Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes)
-CPU: Testing write buffer coherency: ok
-CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
-Setting up static identity map for 0x100000 - 0x10003c
-Hierarchical SRCU implementation.
-smp: Bringing up secondary CPUs ...
-CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
-smp: Brought up 1 node, 2 CPUs
-SMP: Total of 2 processors activated (1333.33 BogoMIPS).
-CPU: All CPU(s) started in SVC mode.
-devtmpfs: initialized
-VFP support v0.3: implementor 41 architecture 3 part 30 variant 9 rev 4
-clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
-futex hash table entries: 512 (order: 3, 32768 bytes)
-pinctrl core: initialized pinctrl subsystem
-NET: Registered protocol family 16
-DMA: preallocated 256 KiB pool for atomic coherent allocations
-cpuidle: using governor menu
-hw-breakpoint: found 5 (+1 reserved) breakpoint and 1 watchpoint registers.
-hw-breakpoint: maximum watchpoint size is 4 bytes.
-zynq-ocm f800c000.ocmc: ZYNQ OCM pool: 256 KiB @ 0xf0880000
-zynq-pinctrl 700.pinctrl: zynq pinctrl initialized
-e0000000.serial: ttyPS0 at MMIO 0xe0000000 (irq = 25, base_baud = 6249999) is a xuartps`¨ÀkΩ±ïÅm——ÂAM¡uÅïπÖâ±ïë5)çΩπÕΩ±ïÅm——ÂAM¡uÅïπÖâ±ïë5)âΩΩ—çΩπÕΩ±ïÅmçëπÕ¡uÅë•ÕÖâ±ïë5)âΩΩ—çΩπÕΩ±ïÅmçëπÕ¡uÅë•ÕÖâ±ïë5)ˇSCSI subsystem initialized
-pps_core: LinuxPPS API ver. 1 registered
-pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
-PTP clock support registered
-clocksource: Switched to clocksource arm_global_timer
-NET: Registered protocol family 2
-TCP established hash table entries: 8192 (order: 3, 32768 bytes)
-TCP bind hash table entries: 8192 (order: 4, 65536 bytes)
-TCP: Hash tables configured (established 8192 bind 8192)
-UDP hash table entries: 512 (order: 2, 16384 bytes)
-UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
-NET: Registered protocol family 1
-Trying to unpack rootfs image as initramfs...
-Freeing initrd memory: 5272K
-hw perfevents: no interrupt-affinity property for /pmu@f8891000, guessing.
-hw perfevents: enabled with armv7_cortex_a9 PMU driver, 7 counters available
-workingset: timestamp_bits=30 max_order=18 bucket_order=0
-jffs2: version 2.2. (NAND) (SUMMARY)  ¬© 2001-2006 Red Hat, Inc.
-bounce: pool size: 64 pages
-io scheduler noop registered
-io scheduler deadline registered
-io scheduler cfq registered (default)
-io scheduler mq-deadline registered
-io scheduler kyber registered
-dma-pl330 f8003000.dmac: Loaded driver for PL330 DMAC-241330
-dma-pl330 f8003000.dmac: 	DBUFF-128x8bytes Num_Chans-8 Num_Peri-4 Num_Events-16
-brd: module loaded
-loop: module loaded
-spidev spi2.0: buggy DT: spidev listed directly in DT
-------------[ cut here ]------------
-WARNING: CPU: 1 PID: 1 at drivers/spi/spidev.c:730 spidev_probe+0x184/0x1c0
-Modules linked in:
-CPU: 1 PID: 1 Comm: swapper/0 Not tainted 4.14.0-mcsov #4
-Hardware name: Xilinx Zynq Platform
-[<c010db74>] (unwind_backtrace) from [<c010aa58>] (show_stack+0x10/0x14)
-[<c010aa58>] (show_stack) from [<c0527708>] (dump_stack+0x80/0xa0)
-[<c0527708>] (dump_stack) from [<c011a0b8>] (__warn+0xc8/0xf8)
-[<c011a0b8>] (__warn) from [<c011a18c>] (warn_slowpath_null+0x1c/0x24)
-[<c011a18c>] (warn_slowpath_null) from [<c03c196c>] (spidev_probe+0x184/0x1c0)
-[<c03c196c>] (spidev_probe) from [<c0375468>] (driver_probe_device+0x19c/0x364)
-[<c0375468>] (driver_probe_device) from [<c0373ca0>] (bus_for_each_drv+0x80/0x90)
-[<c0373ca0>] (bus_for_each_drv) from [<c0375220>] (__device_attach+0x70/0xdc)
-[<c0375220>] (__device_attach) from [<c03747e4>] (bus_probe_device+0x28/0x80)
-[<c03747e4>] (bus_probe_device) from [<c0372d60>] (device_add+0x3ec/0x4f8)
-[<c0372d60>] (device_add) from [<c03bf4bc>] (spi_add_device+0xd0/0x148)
-[<c03bf4bc>] (spi_add_device) from [<c03c0b34>] (spi_register_controller+0x658/0x894)
-[<c03c0b34>] (spi_register_controller) from [<c03c3ab4>] (cdns_spi_probe+0x2dc/0x34c)
-[<c03c3ab4>] (cdns_spi_probe) from [<c0376ac4>] (platform_drv_probe+0x38/0x6c)
-[<c0376ac4>] (platform_drv_probe) from [<c0375468>] (driver_probe_device+0x19c/0x364)
-[<c0375468>] (driver_probe_device) from [<c03756d8>] (__driver_attach+0xa8/0xdc)
-[<c03756d8>] (__driver_attach) from [<c0373be8>] (bus_for_each_dev+0x68/0x8c)
-[<c0373be8>] (bus_for_each_dev) from [<c0374a20>] (bus_add_driver+0xe8/0x204)
-[<c0374a20>] (bus_add_driver) from [<c0375d54>] (driver_register+0x9c/0xe0)
-[<c0375d54>] (driver_register) from [<c0101940>] (do_one_initcall+0xa8/0x14c)
-[<c0101940>] (do_one_initcall) from [<c0800d74>] (kernel_init_freeable+0x10c/0x1cc)
-[<c0800d74>] (kernel_init_freeable) from [<c053828c>] (kernel_init+0x8/0x10c)
-[<c053828c>] (kernel_init) from [<c0107050>] (ret_from_fork+0x14/0x24)
----[ end trace b0f8258a92d42d58 ]---
-libphy: Fixed MDIO Bus: probed
-libphy: MACB_mii_bus: probed
-macb e000b000.ethernet eth0: Cadence GEM rev 0x00020118 at 0xe000b000 irq 28 (00:0a:35:00:00:02)
-Micrel KSZ9031 Gigabit PHY e000b000.ethernet-ffffffff:01: attached PHY driver [Micrel KSZ9031 Gigabit PHY] (mii_bus:phy_addr=e000b000.ethernet-ffffffff:01, irq=POLL)
-i2c /dev entries driver
-IR NEC protocol handler initialized
-IR RC5(x/sz) protocol handler initialized
-IR RC6 protocol handler initialized
-IR JVC protocol handler initialized
-IR Sony protocol handler initialized
-IR SANYO protocol handler initialized
-IR Sharp protocol handler initialized
-IR MCE Keyboard/mouse protocol handler initialized
-IR XMP protocol handler initialized
-cdns-wdt f8005000.watchdog: Xilinx Watchdog Timer at f087c000 with timeout 10s
-Xilinx Zynq CpuIdle Driver started
-sdhci: Secure Digital Host Controller Interface driver
-sdhci: Copyright(c) Pierre Ossman
-sdhci-pltfm: SDHCI platform and OF driver helper
-mmc0: SDHCI controller on e0100000.mmc [e0100000.mmc] using ADMA
-Netfilter messages via NETLINK v0.30.
-nf_conntrack version 0.5.0 (16384 buckets, 65536 max)
-ip_set: protocol 6
-IPVS: Registered protocols ()
-IPVS: Connection hash table configured (size=4096, memory=32Kbytes)
-IPVS: ipvs loaded.
-ip_tables: (C) 2000-2006 Netfilter Core Team
-arp_tables: arp_tables: (C) 2002 David S. Miller
-NET: Registered protocol family 17
-Bridge firewalling registered
-Ebtables v2.0 registered
-Registering SWP/SWPB emulation handler
-hctosys: unable to open rtc device (rtc0)
-Freeing unused kernel memory: 1024K
-mmc0: new high speed SDHC card at address 0007
-mmcblk0: mmc0:0007 SD4GB 3.71 GiB 
- mmcblk0: p1
-Starting logging: OK
-Initializing random number generator... done.
-Starting network: OK
-Starting sshd: OK
-
-Welcome to MCSOV board
-mcsov login: c root
-Password: 
-# cat /sys/module/p spidev/parameters/bufsiz 
-4096
-# 
-U-Boot SPL 2016.01mcsov (Apr 11 2019 - 13:03:44)
-mmc boot
-Trying to boot from MMC
-reading fpga.bin
-spl_load_image_fat: error reading image fpga.bin, err - -1
-spl: error reading image fpga.bin, err - 1
-reading system.dtb
-spl_load_image_fat_os: error reading image system.dtb, err - -1
-reading u-boot.img
-reading u-boot.img
-
-
-U-Boot 2016.01mcsov (Apr 11 2019 - 13:03:44 +0300)
-
-Board: Xilinx Zynq
-DRAM:  ECC disabled 1 GiB
-MMC:   mmc@e0100000: 0
-SF: Detected N25Q1024 with page size 256 Bytes, erase size 4 KiB, total 128 MiB
-In:    serial@e0000000
-Out:   serial@e0000000
-Err:   serial@e0000000
-Board: Xilinx Zynq
-Net:   ZYNQ GEM: e000b000, phyaddr -1, interface rgmii-id
-eth0: ethernet@e000b000
-Hit any key to stop autoboot:  3  2  1  0 
-Booting UMCOS board...
-reading uImage
-3169424 bytes read in 181 ms (16.7 MiB/s)
-reading devicetree.dtb
-11160 bytes read in 18 ms (605.5 KiB/s)
-reading rootfs.cpio.uboot
-5395952 bytes read in 296 ms (17.4 MiB/s)
-reading top.bin
-5979916 bytes read in 328 ms (17.4 MiB/s)
-zynq_align_dma_buffer: Bitstream is not swapped(1) - swap it
-## Booting kernel from Legacy Image at 04000000 ...
-   Image Name:   Linux-4.14.0-mcsov
-   Image Type:   ARM Linux Kernel Image (uncompressed)
-   Data Size:    3169360 Bytes = 3 MiB
-   Load Address: 00008000
-   Entry Point:  00008000
-   Verifying Checksum ... OK
-## Loading init Ramdisk from Legacy Image at 02000000 ...
-   Image Name:   
-   Image Type:   ARM Linux RAMDisk Image (uncompressed)
-   Data Size:    5395888 Bytes = 5.1 MiB
-   Load Address: 00000000
-   Entry Point:  00000000
-   Verifying Checksum ... OK
-## Flattened Device Tree blob at 03e00000
-   Booting using the fdt blob at 0x3e00000
-   Loading Kernel Image ... OK
-   Loading Ramdisk to 1fada000, end 1ffff5b0 ... OK
-   Loading Device Tree to 1fad4000, end 1fad9b97 ... OK
-
-Starting kernel ...
-
-Booting Linux on physical CPU 0x0
-Linux version 4.14.0-mcsov (zynq@server) (gcc version 5.5.0 (Buildroot 2018.02)) #4 SMP PREEMPT Thu Apr 4 17:29:31 MSK 2019
-CPU: ARMv7 Processor [413fc090] revision 0 (ARMv7), cr=18c5387d
-CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
-OF: fdt: Machine model: xlnx,zynq-7000
-earlycon: cdns0 at MMIO 0xe0000000 (options '115200n8')
-bootconsole [cdns0] enabled
-Memory policy: Data cache writealloc
-cma: Reserved 16 MiB at 0x3f000000
-random: fast init done
-percpu: Embedded 16 pages/cpu @ef7ce000 s33868 r8192 d23476 u65536
-Built 1 zonelists, mobility grouping on.  Total pages: 260608
-Kernel command line: console=ttyPS0,115200 root=/dev/ram0 rw rootwait earlyprintk earlycon
-PID hash table entries: 4096 (order: 2, 16384 bytes)
-Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
-Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
-Memory: 1008680K/1048576K available (5120K kernel code, 198K rwdata, 1204K rodata, 1024K init, 130K bss, 23512K reserved, 16384K cma-reserved, 245760K highmem)
-Virtual kernel memory layout:
-    vector  : 0xffff0000 - 0xffff1000   (   4 kB)
-    fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
-    vmalloc : 0xf0800000 - 0xff800000   ( 240 MB)
-    lowmem  : 0xc0000000 - 0xf0000000   ( 768 MB)
-    pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
-    modules : 0xbf000000 - 0xbfe00000   (  14 MB)
-      .text : 0xc0008000 - 0xc0600000   (6112 kB)
-      .init : 0xc0800000 - 0xc0900000   (1024 kB)
-      .data : 0xc0900000 - 0xc0931840   ( 199 kB)
-       .bss : 0xc0936c28 - 0xc0957564   ( 131 kB)
-Preemptible hierarchical RCU implementation.
-	RCU restricting CPUs from NR_CPUS=4 to nr_cpu_ids=2.
-	Tasks RCU enabled.
-RCU: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=2
-NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
-efuse mapped to f0800000
-slcr mapped to f0802000
-L2C: platform modifies aux control register: 0x02060000 -> 0x32460000
-L2C: DT/platform modifies aux control register: 0x02060000 -> 0x32460000
-L2C-310 erratum 769419 enabled
-L2C-310 enabling early BRESP for Cortex-A9
-L2C-310 full line of zeros enabled for Cortex-A9
-L2C-310 dynamic clock gating enabled, standby mode enabled
-L2C-310 cache controller enabled, 8 ways, 512 kB
-L2C-310: CACHE_ID 0x410000c8, AUX_CTRL 0x46460001
-zynq_clock_init: clkc starts at f0802100
-Zynq clock init
-sched_clock: 64 bits at 333MHz, resolution 3ns, wraps every 4398046511103ns
-clocksource: arm_global_timer: mask: 0xffffffffffffffff max_cycles: 0x4ce07af025, max_idle_ns: 440795209040 ns
-Switching to timer-based delay loop, resolution 3ns
-clocksource: ttc_clocksource: mask: 0xffff max_cycles: 0xffff, max_idle_ns: 537538477 ns
-timer #0 at f080a000, irq=17
-Console: colour dummy device 80x30
-Calibrating delay loop (skipped), value calculated using timer frequency.. 666.66 BogoMIPS (lpj=3333333)
-pid_max: default: 32768 minimum: 301
-Mount-cache hash table entries: 2048 (order: 1, 8192 bytes)
-Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes)
-CPU: Testing write buffer coherency: ok
-CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
-Setting up static identity map for 0x100000 - 0x10003c
-Hierarchical SRCU implementation.
-smp: Bringing up secondary CPUs ...
-CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
-smp: Brought up 1 node, 2 CPUs
-SMP: Total of 2 processors activated (1333.33 BogoMIPS).
-CPU: All CPU(s) started in SVC mode.
-devtmpfs: initialized
-VFP support v0.3: implementor 41 architecture 3 part 30 variant 9 rev 4
-clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
-futex hash table entries: 512 (order: 3, 32768 bytes)
-pinctrl core: initialized pinctrl subsystem
-NET: Registered protocol family 16
-DMA: preallocated 256 KiB pool for atomic coherent allocations
-cpuidle: using governor menu
-hw-breakpoint: found 5 (+1 reserved) breakpoint and 1 watchpoint registers.
-hw-breakpoint: maximum watchpoint size is 4 bytes.
-zynq-ocm f800c000.ocmc: ZYNQ OCM pool: 256 KiB @ 0xf0880000
-zynq-pinctrl 700.pinctrl: zynq pinctrl initialized
-e0000000.serial: ttyPS0 at MMIO 0xe0000000 (irq = 25, base_baud = 6249999) is a xuartps`¨ÀkΩ±ïÅm——ÂAM¡uÅïπÖâ±ïë5)çΩπÕΩ±ïÅm——ÂAM¡uÅïπÖâ±ïë5)âΩΩ—çΩπÕΩ±ïÅmçëπÕ¡uÅë•ÕÖâ±ïë5)âΩΩ—çΩπÕΩ±ïÅmçëπÕ¡uÅë•ÕÖâ±ïë5)ˇSCSI subsystem initialized
-pps_core: LinuxPPS API ver. 1 registered
-pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
-PTP clock support registered
-clocksource: Switched to clocksource arm_global_timer
-NET: Registered protocol family 2
-TCP established hash table entries: 8192 (order: 3, 32768 bytes)
-TCP bind hash table entries: 8192 (order: 4, 65536 bytes)
-TCP: Hash tables configured (established 8192 bind 8192)
-UDP hash table entries: 512 (order: 2, 16384 bytes)
-UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
-NET: Registered protocol family 1
-Trying to unpack rootfs image as initramfs...
-Freeing initrd memory: 5272K
-hw perfevents: no interrupt-affinity property for /pmu@f8891000, guessing.
-hw perfevents: enabled with armv7_cortex_a9 PMU driver, 7 counters available
-workingset: timestamp_bits=30 max_order=18 bucket_order=0
-jffs2: version 2.2. (NAND) (SUMMARY)  ¬© 2001-2006 Red Hat, Inc.
-bounce: pool size: 64 pages
-io scheduler noop registered
-io scheduler deadline registered
-io scheduler cfq registered (default)
-io scheduler mq-deadline registered
-io scheduler kyber registered
-dma-pl330 f8003000.dmac: Loaded driver for PL330 DMAC-241330
-dma-pl330 f8003000.dmac: 	DBUFF-128x8bytes Num_Chans-8 Num_Peri-4 Num_Events-16
-brd: module loaded
-loop: module loaded
-spidev spi2.0: buggy DT: spidev listed directly in DT
-------------[ cut here ]------------
-WARNING: CPU: 0 PID: 1 at drivers/spi/spidev.c:730 spidev_probe+0x184/0x1c0
-Modules linked in:
-CPU: 0 PID: 1 Comm: swapper/0 Not tainted 4.14.0-mcsov #4
-Hardware name: Xilinx Zynq Platform
-[<c010db74>] (unwind_backtrace) from [<c010aa58>] (show_stack+0x10/0x14)
-[<c010aa58>] (show_stack) from [<c0527708>] (dump_stack+0x80/0xa0)
-[<c0527708>] (dump_stack) from [<c011a0b8>] (__warn+0xc8/0xf8)
-[<c011a0b8>] (__warn) from [<c011a18c>] (warn_slowpath_null+0x1c/0x24)
-[<c011a18c>] (warn_slowpath_null) from [<c03c196c>] (spidev_probe+0x184/0x1c0)
-[<c03c196c>] (spidev_probe) from [<c0375468>] (driver_probe_device+0x19c/0x364)
-[<c0375468>] (driver_probe_device) from [<c0373ca0>] (bus_for_each_drv+0x80/0x90)
-[<c0373ca0>] (bus_for_each_drv) from [<c0375220>] (__device_attach+0x70/0xdc)
-[<c0375220>] (__device_attach) from [<c03747e4>] (bus_probe_device+0x28/0x80)
-[<c03747e4>] (bus_probe_device) from [<c0372d60>] (device_add+0x3ec/0x4f8)
-[<c0372d60>] (device_add) from [<c03bf4bc>] (spi_add_device+0xd0/0x148)
-[<c03bf4bc>] (spi_add_device) from [<c03c0b34>] (spi_register_controller+0x658/0x894)
-[<c03c0b34>] (spi_register_controller) from [<c03c3ab4>] (cdns_spi_probe+0x2dc/0x34c)
-[<c03c3ab4>] (cdns_spi_probe) from [<c0376ac4>] (platform_drv_probe+0x38/0x6c)
-[<c0376ac4>] (platform_drv_probe) from [<c0375468>] (driver_probe_device+0x19c/0x364)
-[<c0375468>] (driver_probe_device) from [<c03756d8>] (__driver_attach+0xa8/0xdc)
-[<c03756d8>] (__driver_attach) from [<c0373be8>] (bus_for_each_dev+0x68/0x8c)
-[<c0373be8>] (bus_for_each_dev) from [<c0374a20>] (bus_add_driver+0xe8/0x204)
-[<c0374a20>] (bus_add_driver) from [<c0375d54>] (driver_register+0x9c/0xe0)
-[<c0375d54>] (driver_register) from [<c0101940>] (do_one_initcall+0xa8/0x14c)
-[<c0101940>] (do_one_initcall) from [<c0800d74>] (kernel_init_freeable+0x10c/0x1cc)
-[<c0800d74>] (kernel_init_freeable) from [<c053828c>] (kernel_init+0x8/0x10c)
-[<c053828c>] (kernel_init) from [<c0107050>] (ret_from_fork+0x14/0x24)
----[ end trace 1ec4f328c3c600ed ]---
-spidev spi3.0: buggy DT: spidev listed directly in DT
-------------[ cut here ]------------
-WARNING: CPU: 0 PID: 1 at drivers/spi/spidev.c:730 spidev_probe+0x184/0x1c0
-Modules linked in:
-CPU: 0 PID: 1 Comm: swapper/0 Tainted: G        W       4.14.0-mcsov #4
-Hardware name: Xilinx Zynq Platform
-[<c010db74>] (unwind_backtrace) from [<c010aa58>] (show_stack+0x10/0x14)
-[<c010aa58>] (show_stack) from [<c0527708>] (dump_stack+0x80/0xa0)
-[<c0527708>] (dump_stack) from [<c011a0b8>] (__warn+0xc8/0xf8)
-[<c011a0b8>] (__warn) from [<c011a18c>] (warn_slowpath_null+0x1c/0x24)
-[<c011a18c>] (warn_slowpath_null) from [<c03c196c>] (spidev_probe+0x184/0x1c0)
-[<c03c196c>] (spidev_probe) from [<c0375468>] (driver_probe_device+0x19c/0x364)
-[<c0375468>] (driver_probe_device) from [<c0373ca0>] (bus_for_each_drv+0x80/0x90)
-[<c0373ca0>] (bus_for_each_drv) from [<c0375220>] (__device_attach+0x70/0xdc)
-[<c0375220>] (__device_attach) from [<c03747e4>] (bus_probe_device+0x28/0x80)
-[<c03747e4>] (bus_probe_device) from [<c0372d60>] (device_add+0x3ec/0x4f8)
-[<c0372d60>] (device_add) from [<c03bf4bc>] (spi_add_device+0xd0/0x148)
-[<c03bf4bc>] (spi_add_device) from [<c03c0b34>] (spi_register_controller+0x658/0x894)
-[<c03c0b34>] (spi_register_controller) from [<c03c3ab4>] (cdns_spi_probe+0x2dc/0x34c)
-[<c03c3ab4>] (cdns_spi_probe) from [<c0376ac4>] (platform_drv_probe+0x38/0x6c)
-[<c0376ac4>] (platform_drv_probe) from [<c0375468>] (driver_probe_device+0x19c/0x364)
-[<c0375468>] (driver_probe_device) from [<c03756d8>] (__driver_attach+0xa8/0xdc)
-[<c03756d8>] (__driver_attach) from [<c0373be8>] (bus_for_each_dev+0x68/0x8c)
-[<c0373be8>] (bus_for_each_dev) from [<c0374a20>] (bus_add_driver+0xe8/0x204)
-[<c0374a20>] (bus_add_driver) from [<c0375d54>] (driver_register+0x9c/0xe0)
-[<c0375d54>] (driver_register) from [<c0101940>] (do_one_initcall+0xa8/0x14c)
-[<c0101940>] (do_one_initcall) from [<c0800d74>] (kernel_init_freeable+0x10c/0x1cc)
-[<c0800d74>] (kernel_init_freeable) from [<c053828c>] (kernel_init+0x8/0x10c)
-[<c053828c>] (kernel_init) from [<c0107050>] (ret_from_fork+0x14/0x24)
----[ end trace 1ec4f328c3c600ee ]---
-libphy: Fixed MDIO Bus: probed
-libphy: MACB_mii_bus: probed
-macb e000b000.ethernet eth0: Cadence GEM rev 0x00020118 at 0xe000b000 irq 29 (00:0a:35:00:00:02)
-Micrel KSZ9031 Gigabit PHY e000b000.ethernet-ffffffff:01: attached PHY driver [Micrel KSZ9031 Gigabit PHY] (mii_bus:phy_addr=e000b000.ethernet-ffffffff:01, irq=POLL)
-i2c /dev entries driver
-IR NEC protocol handler initialized
-IR RC5(x/sz) protocol handler initialized
-IR RC6 protocol handler initialized
-IR JVC protocol handler initialized
-IR Sony protocol handler initialized
-IR SANYO protocol handler initialized
-IR Sharp protocol handler initialized
-IR MCE Keyboard/mouse protocol handler initialized
-IR XMP protocol handler initialized
-cdns-wdt f8005000.watchdog: Xilinx Watchdog Timer at f087e000 with timeout 10s
-Xilinx Zynq CpuIdle Driver started
-sdhci: Secure Digital Host Controller Interface driver
-sdhci: Copyright(c) Pierre Ossman
-sdhci-pltfm: SDHCI platform and OF driver helper
-mmc0: SDHCI controller on e0100000.mmc [e0100000.mmc] using ADMA
-Netfilter messages via NETLINK v0.30.
-nf_conntrack version 0.5.0 (16384 buckets, 65536 max)
-ip_set: protocol 6
-IPVS: Registered protocols ()
-IPVS: Connection hash table configured (size=4096, memory=32Kbytes)
-IPVS: ipvs loaded.
-ip_tables: (C) 2000-2006 Netfilter Core Team
-arp_tables: arp_tables: (C) 2002 David S. Miller
-NET: Registered protocol family 17
-Bridge firewalling registered
-Ebtables v2.0 registered
-Registering SWP/SWPB emulation handler
-hctosys: unable to open rtc device (rtc0)
-Freeing unused kernel memory: 1024K
-mmc0: new high speed SDHC card at address 0007
-mmcblk0: mmc0:0007 SD4GB 3.71 GiB 
- mmcblk0: p1
-Starting logging: OK
-Initializing random number generator... done.
-Starting network: OK
-Starting sshd: OK
-
-Welcome to MCSOV board
-mcsov login: 
-U-Boot SPL 2016.01mcsov (Apr 11 2019 - 13:03:44)
-mmc boot
-Trying to boot from MMC
-reading fpga.bin
-spl_load_image_fat: error reading image fpga.bin, err - -1
-spl: error reading image fpga.bin, err - 1
-reading system.dtb
-spl_load_image_fat_os: error reading image system.dtb, err - -1
-reading u-boot.img
-reading u-boot.img
-
-
-U-Boot 2016.01mcsov (Apr 11 2019 - 13:03:44 +0300)
-
-Board: Xilinx Zynq
-DRAM:  ECC disabled 1 GiB
-MMC:   mmc@e0100000: 0
-SF: Detected N25Q1024 with page size 256 Bytes, erase size 4 KiB, total 128 MiB
-In:    serial@e0000000
-Out:   serial@e0000000
-Err:   serial@e0000000
-Board: Xilinx Zynq
-Net:   ZYNQ GEM: e000b000, phyaddr -1, interface rgmii-id
-eth0: ethernet@e000b000
-Hit any key to stop autoboot:  3  0 
-mcsov_boot>s env - print -a
-baudrate=115200
-bootargs=console=ttyPS0,115200 root=/dev/ram0 rw rootwait earlyprintk earlycon
-bootcmd=run sdboot
-defargs=spidev.bufsiz=32768
-devicetree_image=devicetree.dtb
-devicetree_load_address=0x3E00000
-eth1addr=00:0a:35:00:00:12
-ethaddr=00:0a:35:00:00:02
-fdt_high=0x20000000
-fdtcontroladdr=3ff96500
-firmware_image=top.bin
-firmware_load_address=0x5000000
-initrd_high=0x20000000
-kernel_image=uImage
-kernel_load_address=0x4000000
-modeboot=sdboot
-ramdisk_image=rootfs.cpio.uboot
-ramdisk_load_address=0x2000000
-sdboot=echo Booting UMCOS board... && load mmc 0 ${kernel_load_address} ${kernel_image} && load mmc 0 ${devicetree_load_address} ${devicetree_image} && load mmc 0 ${ramdisk_load_address} ${ramdisk_image} && fatload mmc 0:1 ${firmware_load_address} ${firmware_image}; fpga load 0 ${firmware_load_address} 2083740 && bootm ${kernel_load_address} ${ramdisk_load_address} ${devicetree_load_address}
-stderr=serial@e0000000
-stdin=serial@e0000000
-stdout=serial@e0000000
-testvar=test
-uuid=cf462098-ee01-4fdc-a10a-023a7d89f774
-
-Environment size: 1079/131068 bytes
-mcsov_boot>env print -a            
-U-Boot SPL 2016.01mcsov (Apr 11 2019 - 13:03:44)
-mmc boot
-Trying to boot from MMC
-reading fpga.bin
-spl_load_image_fat: error reading image fpga.bin, err - -1
-spl: error reading image fpga.bin, err - 1
-reading system.dtb
-spl_load_image_fat_os: error reading image system.dtb, err - -1
-reading u-boot.img
-reading u-boot.img
-
-
-U-Boot 2016.01mcsov (Apr 11 2019 - 13:03:44 +0300)
-
-Board: Xilinx Zynq
-DRAM:  ECC disabled 1 GiB
-MMC:   mmc@e0100000: 0
-SF: Detected N25Q1024 with page size 256 Bytes, erase size 4 KiB, total 128 MiB
-In:    serial@e0000000
-Out:   serial@e0000000
-Err:   serial@e0000000
-Board: Xilinx Zynq
-Net:   ZYNQ GEM: e000b000, phyaddr -1, interface rgmii-id
-eth0: ethernet@e000b000
-Hit any key to stop autoboot:  3  2  1  0 
-Booting UMCOS board...
-reading uImage
-3169424 bytes read in 181 ms (16.7 MiB/s)
-reading devicetree.dtb
-11160 bytes read in 17 ms (640.6 KiB/s)
-reading rootfs.cpio.uboot
-5395952 bytes read in 296 ms (17.4 MiB/s)
-reading top.bin
-5979916 bytes read in 328 ms (17.4 MiB/s)
-zynq_align_dma_buffer: Bitstream is not swapped(1) - swap it
-## Booting kernel from Legacy Image at 04000000 ...
-   Image Name:   Linux-4.14.0-mcsov
-   Image Type:   ARM Linux Kernel Image (uncompressed)
-   Data Size:    3169360 Bytes = 3 MiB
-   Load Address: 00008000
-   Entry Point:  00008000
-   Verifying Checksum ... OK
-## Loading init Ramdisk from Legacy Image at 02000000 ...
-   Image Name:   
-   Image Type:   ARM Linux RAMDisk Image (uncompressed)
-   Data Size:    5395888 Bytes = 5.1 MiB
-   Load Address: 00000000
-   Entry Point:  00000000
-   Verifying Checksum ... OK
-## Flattened Device Tree blob at 03e00000
-   Booting using the fdt blob at 0x3e00000
-   Loading Kernel Image ... OK
-   Loading Ramdisk to 1fada000, end 1ffff5b0 ... OK
-   Loading Device Tree to 1fad4000, end 1fad9b97 ... OK
-
-Starting kernel ...
-
-Booting Linux on physical CPU 0x0
-Linux version 4.14.0-mcsov (zynq@server) (gcc version 5.5.0 (Buildroot 2018.02)) #4 SMP PREEMPT Thu Apr 4 17:29:31 MSK 2019
-CPU: ARMv7 Processor [413fc090] revision 0 (ARMv7), cr=18c5387d
-CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
-OF: fdt: Machine model: xlnx,zynq-7000
-earlycon: cdns0 at MMIO 0xe0000000 (options '115200n8')
-bootconsole [cdns0] enabled
-Memory policy: Data cache writealloc
-cma: Reserved 16 MiB at 0x3f000000
-random: fast init done
-percpu: Embedded 16 pages/cpu @ef7ce000 s33868 r8192 d23476 u65536
-Built 1 zonelists, mobility grouping on.  Total pages: 260608
-Kernel command line: console=ttyPS0,115200 root=/dev/ram0 rw rootwait earlyprintk earlycon
-PID hash table entries: 4096 (order: 2, 16384 bytes)
-Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
-Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
-Memory: 1008680K/1048576K available (5120K kernel code, 198K rwdata, 1204K rodata, 1024K init, 130K bss, 23512K reserved, 16384K cma-reserved, 245760K highmem)
-Virtual kernel memory layout:
-    vector  : 0xffff0000 - 0xffff1000   (   4 kB)
-    fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
-    vmalloc : 0xf0800000 - 0xff800000   ( 240 MB)
-    lowmem  : 0xc0000000 - 0xf0000000   ( 768 MB)
-    pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
-    modules : 0xbf000000 - 0xbfe00000   (  14 MB)
-      .text : 0xc0008000 - 0xc0600000   (6112 kB)
-      .init : 0xc0800000 - 0xc0900000   (1024 kB)
-      .data : 0xc0900000 - 0xc0931840   ( 199 kB)
-       .bss : 0xc0936c28 - 0xc0957564   ( 131 kB)
-Preemptible hierarchical RCU implementation.
-	RCU restricting CPUs from NR_CPUS=4 to nr_cpu_ids=2.
-	Tasks RCU enabled.
-RCU: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=2
-NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
-efuse mapped to f0800000
-slcr mapped to f0802000
-L2C: platform modifies aux control register: 0x02060000 -> 0x32460000
-L2C: DT/platform modifies aux control register: 0x02060000 -> 0x32460000
-L2C-310 erratum 769419 enabled
-L2C-310 enabling early BRESP for Cortex-A9
-L2C-310 full line of zeros enabled for Cortex-A9
-L2C-310 dynamic clock gating enabled, standby mode enabled
-L2C-310 cache controller enabled, 8 ways, 512 kB
-L2C-310: CACHE_ID 0x410000c8, AUX_CTRL 0x46460001
-zynq_clock_init: clkc starts at f0802100
-Zynq clock init
-sched_clock: 64 bits at 333MHz, resolution 3ns, wraps every 4398046511103ns
-clocksource: arm_global_timer: mask: 0xffffffffffffffff max_cycles: 0x4ce07af025, max_idle_ns: 440795209040 ns
-Switching to timer-based delay loop, resolution 3ns
-clocksource: ttc_clocksource: mask: 0xffff max_cycles: 0xffff, max_idle_ns: 537538477 ns
-timer #0 at f080a000, irq=17
-Console: colour dummy device 80x30
-Calibrating delay loop (skipped), value calculated using timer frequency.. 666.66 BogoMIPS (lpj=3333333)
-pid_max: default: 32768 minimum: 301
-Mount-cache hash table entries: 2048 (order: 1, 8192 bytes)
-Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes)
-CPU: Testing write buffer coherency: ok
-CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
-Setting up static identity map for 0x100000 - 0x10003c
-Hierarchical SRCU implementation.
-smp: Bringing up secondary CPUs ...
-CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
-smp: Brought up 1 node, 2 CPUs
-SMP: Total of 2 processors activated (1333.33 BogoMIPS).
-CPU: All CPU(s) started in SVC mode.
-devtmpfs: initialized
-VFP support v0.3: implementor 41 architecture 3 part 30 variant 9 rev 4
-clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
-futex hash table entries: 512 (order: 3, 32768 bytes)
-pinctrl core: initialized pinctrl subsystem
-NET: Registered protocol family 16
-DMA: preallocated 256 KiB pool for atomic coherent allocations
-cpuidle: using governor menu
-hw-breakpoint: found 5 (+1 reserved) breakpoint and 1 watchpoint registers.
-hw-breakpoint: maximum watchpoint size is 4 bytes.
-zynq-ocm f800c000.ocmc: ZYNQ OCM pool: 256 KiB @ 0xf0880000
-zynq-pinctrl 700.pinctrl: zynq pinctrl initialized
-e0000000.serial: ttyPS0 at MMIO 0xe0000000 (irq = 25, base_baud = 6249999) is a xuartps`¨ÀkΩ±ïÅm——ÂAM¡uÅïπÖâ±ïë5)çΩπÕΩ±ïÅm——ÂAM¡uÅïπÖâ±ïë5)âΩΩ—çΩπÕΩ±ïÅmçëπÕ¡uÅë•ÕÖâ±ïë5)âΩΩ—çΩπÕΩ±ïÅmçëπÕ¡uÅë•ÕÖâ±ïë5)ˇSCSI subsystem initialized
-pps_core: LinuxPPS API ver. 1 registered
-pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
-PTP clock support registered
-clocksource: Switched to clocksource arm_global_timer
-NET: Registered protocol family 2
-TCP established hash table entries: 8192 (order: 3, 32768 bytes)
-TCP bind hash table entries: 8192 (order: 4, 65536 bytes)
-TCP: Hash tables configured (established 8192 bind 8192)
-UDP hash table entries: 512 (order: 2, 16384 bytes)
-UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
-NET: Registered protocol family 1
-Trying to unpack rootfs image as initramfs...
-Freeing initrd memory: 5272K
-hw perfevents: no interrupt-affinity property for /pmu@f8891000, guessing.
-hw perfevents: enabled with armv7_cortex_a9 PMU driver, 7 counters available
-workingset: timestamp_bits=30 max_order=18 bucket_order=0
-jffs2: version 2.2. (NAND) (SUMMARY)  ¬© 2001-2006 Red Hat, Inc.
-bounce: pool size: 64 pages
-io scheduler noop registered
-io scheduler deadline registered
-io scheduler cfq registered (default)
-io scheduler mq-deadline registered
-io scheduler kyber registered
-dma-pl330 f8003000.dmac: Loaded driver for PL330 DMAC-241330
-dma-pl330 f8003000.dmac: 	DBUFF-128x8bytes Num_Chans-8 Num_Peri-4 Num_Events-16
-brd: module loaded
-loop: module loaded
-spidev spi2.0: buggy DT: spidev listed directly in DT
-------------[ cut here ]------------
-WARNING: CPU: 0 PID: 1 at drivers/spi/spidev.c:730 spidev_probe+0x184/0x1c0
-Modules linked in:
-CPU: 0 PID: 1 Comm: swapper/0 Not tainted 4.14.0-mcsov #4
-Hardware name: Xilinx Zynq Platform
-[<c010db74>] (unwind_backtrace) from [<c010aa58>] (show_stack+0x10/0x14)
-[<c010aa58>] (show_stack) from [<c0527708>] (dump_stack+0x80/0xa0)
-[<c0527708>] (dump_stack) from [<c011a0b8>] (__warn+0xc8/0xf8)
-[<c011a0b8>] (__warn) from [<c011a18c>] (warn_slowpath_null+0x1c/0x24)
-[<c011a18c>] (warn_slowpath_null) from [<c03c196c>] (spidev_probe+0x184/0x1c0)
-[<c03c196c>] (spidev_probe) from [<c0375468>] (driver_probe_device+0x19c/0x364)
-[<c0375468>] (driver_probe_device) from [<c0373ca0>] (bus_for_each_drv+0x80/0x90)
-[<c0373ca0>] (bus_for_each_drv) from [<c0375220>] (__device_attach+0x70/0xdc)
-[<c0375220>] (__device_attach) from [<c03747e4>] (bus_probe_device+0x28/0x80)
-[<c03747e4>] (bus_probe_device) from [<c0372d60>] (device_add+0x3ec/0x4f8)
-[<c0372d60>] (device_add) from [<c03bf4bc>] (spi_add_device+0xd0/0x148)
-[<c03bf4bc>] (spi_add_device) from [<c03c0b34>] (spi_register_controller+0x658/0x894)
-[<c03c0b34>] (spi_register_controller) from [<c03c3ab4>] (cdns_spi_probe+0x2dc/0x34c)
-[<c03c3ab4>] (cdns_spi_probe) from [<c0376ac4>] (platform_drv_probe+0x38/0x6c)
-[<c0376ac4>] (platform_drv_probe) from [<c0375468>] (driver_probe_device+0x19c/0x364)
-[<c0375468>] (driver_probe_device) from [<c03756d8>] (__driver_attach+0xa8/0xdc)
-[<c03756d8>] (__driver_attach) from [<c0373be8>] (bus_for_each_dev+0x68/0x8c)
-[<c0373be8>] (bus_for_each_dev) from [<c0374a20>] (bus_add_driver+0xe8/0x204)
-[<c0374a20>] (bus_add_driver) from [<c0375d54>] (driver_register+0x9c/0xe0)
-[<c0375d54>] (driver_register) from [<c0101940>] (do_one_initcall+0xa8/0x14c)
-[<c0101940>] (do_one_initcall) from [<c0800d74>] (kernel_init_freeable+0x10c/0x1cc)
-[<c0800d74>] (kernel_init_freeable) from [<c053828c>] (kernel_init+0x8/0x10c)
-[<c053828c>] (kernel_init) from [<c0107050>] (ret_from_fork+0x14/0x24)
----[ end trace 673124299e315e2c ]---
-spidev spi3.0: buggy DT: spidev listed directly in DT
-------------[ cut here ]------------
-WARNING: CPU: 0 PID: 1 at drivers/spi/spidev.c:730 spidev_probe+0x184/0x1c0
-Modules linked in:
-CPU: 0 PID: 1 Comm: swapper/0 Tainted: G        W       4.14.0-mcsov #4
-Hardware name: Xilinx Zynq Platform
-[<c010db74>] (unwind_backtrace) from [<c010aa58>] (show_stack+0x10/0x14)
-[<c010aa58>] (show_stack) from [<c0527708>] (dump_stack+0x80/0xa0)
-[<c0527708>] (dump_stack) from [<c011a0b8>] (__warn+0xc8/0xf8)
-[<c011a0b8>] (__warn) from [<c011a18c>] (warn_slowpath_null+0x1c/0x24)
-[<c011a18c>] (warn_slowpath_null) from [<c03c196c>] (spidev_probe+0x184/0x1c0)
-[<c03c196c>] (spidev_probe) from [<c0375468>] (driver_probe_device+0x19c/0x364)
-[<c0375468>] (driver_probe_device) from [<c0373ca0>] (bus_for_each_drv+0x80/0x90)
-[<c0373ca0>] (bus_for_each_drv) from [<c0375220>] (__device_attach+0x70/0xdc)
-[<c0375220>] (__device_attach) from [<c03747e4>] (bus_probe_device+0x28/0x80)
-[<c03747e4>] (bus_probe_device) from [<c0372d60>] (device_add+0x3ec/0x4f8)
-[<c0372d60>] (device_add) from [<c03bf4bc>] (spi_add_device+0xd0/0x148)
-[<c03bf4bc>] (spi_add_device) from [<c03c0b34>] (spi_register_controller+0x658/0x894)
-[<c03c0b34>] (spi_register_controller) from [<c03c3ab4>] (cdns_spi_probe+0x2dc/0x34c)
-[<c03c3ab4>] (cdns_spi_probe) from [<c0376ac4>] (platform_drv_probe+0x38/0x6c)
-[<c0376ac4>] (platform_drv_probe) from [<c0375468>] (driver_probe_device+0x19c/0x364)
-[<c0375468>] (driver_probe_device) from [<c03756d8>] (__driver_attach+0xa8/0xdc)
-[<c03756d8>] (__driver_attach) from [<c0373be8>] (bus_for_each_dev+0x68/0x8c)
-[<c0373be8>] (bus_for_each_dev) from [<c0374a20>] (bus_add_driver+0xe8/0x204)
-[<c0374a20>] (bus_add_driver) from [<c0375d54>] (driver_register+0x9c/0xe0)
-[<c0375d54>] (driver_register) from [<c0101940>] (do_one_initcall+0xa8/0x14c)
-[<c0101940>] (do_one_initcall) from [<c0800d74>] (kernel_init_freeable+0x10c/0x1cc)
-[<c0800d74>] (kernel_init_freeable) from [<c053828c>] (kernel_init+0x8/0x10c)
-[<c053828c>] (kernel_init) from [<c0107050>] (ret_from_fork+0x14/0x24)
----[ end trace 673124299e315e2d ]---
-libphy: Fixed MDIO Bus: probed
-libphy: MACB_mii_bus: probed
-macb e000b000.ethernet eth0: Cadence GEM rev 0x00020118 at 0xe000b000 irq 29 (00:0a:35:00:00:02)
-Micrel KSZ9031 Gigabit PHY e000b000.ethernet-ffffffff:01: attached PHY driver [Micrel KSZ9031 Gigabit PHY] (mii_bus:phy_addr=e000b000.ethernet-ffffffff:01, irq=POLL)
-i2c /dev entries driver
-IR NEC protocol handler initialized
-IR RC5(x/sz) protocol handler initialized
-IR RC6 protocol handler initialized
-IR JVC protocol handler initialized
-IR Sony protocol handler initialized
-IR SANYO protocol handler initialized
-IR Sharp protocol handler initialized
-IR MCE Keyboard/mouse protocol handler initialized
-IR XMP protocol handler initialized
-cdns-wdt f8005000.watchdog: Xilinx Watchdog Timer at f087e000 with timeout 10s
-Xilinx Zynq CpuIdle Driver started
-sdhci: Secure Digital Host Controller Interface driver
-sdhci: Copyright(c) Pierre Ossman
-sdhci-pltfm: SDHCI platform and OF driver helper
-mmc0: SDHCI controller on e0100000.mmc [e0100000.mmc] using ADMA
-Netfilter messages via NETLINK v0.30.
-nf_conntrack version 0.5.0 (16384 buckets, 65536 max)
-ip_set: protocol 6
-IPVS: Registered protocols ()
-IPVS: Connection hash table configured (size=4096, memory=32Kbytes)
-IPVS: ipvs loaded.
-ip_tables: (C) 2000-2006 Netfilter Core Team
-arp_tables: arp_tables: (C) 2002 David S. Miller
-NET: Registered protocol family 17
-Bridge firewalling registered
-Ebtables v2.0 registered
-Registering SWP/SWPB emulation handler
-hctosys: unable to open rtc device (rtc0)
-Freeing unused kernel memory: 1024K
-mmc0: new high speed SDHC card at address 0007
-mmcblk0: mmc0:0007 SD4GB 3.71 GiB 
- mmcblk0: p1
-Starting logging: OK
-Initializing random number generator... done.
-Starting network: OK
-Starting sshd: OK
-
-Welcome to MCSOV board
-mcsov login: root
-Password: 
-# cat /sys/module/sp
-sparse_keymap/ spidev/        spurious/      
-# cat /sys/module/sp
-sparse_keymap/ spidev/        spurious/      
-# cat /sys/module/spidev/parameters/bufsiz 
-4096
-# 
-U-Boot SPL 2016.01mcsov (Apr 11 2019 - 13:03:44)
-mmc boot
-Trying to boot from MMC
-reading fpga.bin
-spl_load_image_fat: error reading image fpga.bin, err - -1
-spl: error reading image fpga.bin, err - 1
-reading system.dtb
-spl_load_image_fat_os: error reading image system.dtb, err - -1
-reading u-boot.img
-reading u-boot.img
-
-
-U-Boot 2016.01mcsov (Apr 11 2019 - 13:03:44 +0300)
-
-Board: Xilinx Zynq
-DRAM:  ECC disabled 1 GiB
-MMC:   mmc@e0100000: 0
-SF: Detected N25Q1024 with page size 256 Bytes, erase size 4 KiB, total 128 MiB
-In:    serial@e0000000
-Out:   serial@e0000000
-Err:   serial@e0000000
-Board: Xilinx Zynq
-Net:   ZYNQ GEM: e000b000, phyaddr -1, interface rgmii-id
-eth0: ethernet@e000b000
-Hit any key to stop autoboot:  3  0 
-mcsov_boot>g uboo    env print -a
-baudrate=115200
-bootargs=console=ttyPS0,115200 root=/dev/ram0 rw rootwait earlyprintk earlycon
-bootcmd=run sdboot
-defargs=spidev.bufsiz=32768
-devicetree_image=devicetree.dtb
-devicetree_load_address=0x3E00000
-eth1addr=00:0a:35:00:00:12
-ethaddr=00:0a:35:00:00:02
-fdt_high=0x20000000
-fdtcontroladdr=3ff96500
-firmware_image=top.bin
-firmware_load_address=0x5000000
-initrd_high=0x20000000
-kernel_image=uImage
-kernel_load_address=0x4000000
-modeboot=sdboot
-ramdisk_image=rootfs.cpio.uboot
-ramdisk_load_address=0x2000000
-sdboot=echo Booting UMCOS board... && load mmc 0 ${kernel_load_address} ${kernel_image} && load mmc 0 ${devicetree_load_address} ${devicetree_image} && load mmc 0 ${ramdisk_load_address} ${ramdisk_image} && fatload mmc 0:1 ${firmware_load_address} ${firmware_image}; fpga load 0 ${firmware_load_address} 2083740 && bootm ${kernel_load_address} ${ramdisk_load_address} ${devicetree_load_address}
-stderr=serial@e0000000
-stdin=serial@e0000000
-stdout=serial@e0000000
-testvar=test
-uuid=cf462098-ee01-4fdc-a10a-023a7d89f774
-
-Environment size: 1079/131068 bytes
-mcsov_boot>
-U-Boot SPL 2016.01mcsov (Apr 11 2019 - 13:30:49)
-mmc boot
-Trying to boot from MMC
-reading fpga.bin
-spl_load_image_fat: error reading image fpga.bin, err - -1
-spl: error reading image fpga.bin, err - 1
-reading system.dtb
-spl_load_image_fat_os: error reading image system.dtb, err - -1
-reading u-boot.img
-reading u-boot.img
-
-
-U-Boot 2016.01mcsov (Apr 11 2019 - 13:30:49 +0300)
-
-Board: Xilinx Zynq
-DRAM:  ECC disabled 1 GiB
-MMC:   mmc@e0100000: 0
-SF: Detected N25Q1024 with page size 256 Bytes, erase size 4 KiB, total 128 MiB
-In:    serial@e0000000
-Out:   serial@e0000000
-Err:   serial@e0000000
-Board: Xilinx Zynq
-Net:   ZYNQ GEM: e000b000, phyaddr -1, interface rgmii-id
-eth0: ethernet@e000b000
-Hit any key to stop autoboot:  3  2  1  0 
-mcsov_boot>env print -a
-baudrate=115200
-bootargs=console=ttyPS0,115200 root=/dev/ram0 rw rootwait earlyprintk earlycon
-bootcmd=run sdboot
-defargs=spidev.bufsiz=32768
-devicetree_image=devicetree.dtb
-devicetree_load_address=0x3E00000
-eth1addr=00:0a:35:00:00:12
-ethaddr=00:0a:35:00:00:02
-fdt_high=0x20000000
-fdtcontroladdr=3ff96500
-firmware_image=top.bin
-firmware_load_address=0x5000000
-initrd_high=0x20000000
-kernel_image=uImage
-kernel_load_address=0x4000000
-modeboot=sdboot
-ramdisk_image=rootfs.cpio.uboot
-ramdisk_load_address=0x2000000
-sdboot=echo Booting UMCOS board... && load mmc 0 ${kernel_load_address} ${kernel_image} && load mmc 0 ${devicetree_load_address} ${devicetree_image} && load mmc 0 ${ramdisk_load_address} ${ramdisk_image} && fatload mmc 0:1 ${firmware_load_address} ${firmware_image}; fpga load 0 ${firmware_load_address} 2083740 && bootm ${kernel_load_address} ${ramdisk_load_address} ${devicetree_load_address}
-stderr=serial@e0000000
-stdin=serial@e0000000
-stdout=serial@e0000000
-testvar=test
-uuid=cf462098-ee01-4fdc-a10a-023a7d89f774
-
-Environment size: 1079/131068 bytes
-mcsov_boot>setenv bootargs ${}b}o}o}t}a}r}g}s}} spidev.b bufsiz=32768
-mcsov_boot>savenv
-Unknown command 'savenv' - try 'help'
-mcsov_boot>saveenv
-Saving Environment to SPI Flash...
-SF: Detected N25Q1024 with page size 256 Bytes, erase size 4 KiB, total 128 MiB
-Erasing SPI flash...Writing to SPI flash...done
-mcsov_boot>env pir  rint -a
-baudrate=115200
-bootargs=console=ttyPS0,115200 root=/dev/ram0 rw rootwait earlyprintk earlycon spidev.bufsiz=32768
-bootcmd=run sdboot
-defargs=spidev.bufsiz=32768
-devicetree_image=devicetree.dtb
-devicetree_load_address=0x3E00000
-eth1addr=00:0a:35:00:00:12
-ethaddr=00:0a:35:00:00:02
-fdt_high=0x20000000
-fdtcontroladdr=3ff96500
-firmware_image=top.bin
-firmware_load_address=0x5000000
-initrd_high=0x20000000
-kernel_image=uImage
-kernel_load_address=0x4000000
-modeboot=sdboot
-ramdisk_image=rootfs.cpio.uboot
-ramdisk_load_address=0x2000000
-sdboot=echo Booting UMCOS board... && load mmc 0 ${kernel_load_address} ${kernel_image} && load mmc 0 ${devicetree_load_address} ${devicetree_image} && load mmc 0 ${ramdisk_load_address} ${ramdisk_image} && fatload mmc 0:1 ${firmware_load_address} ${firmware_image}; fpga load 0 ${firmware_load_address} 2083740 && bootm ${kernel_load_address} ${ramdisk_load_address} ${devicetree_load_address}
-stderr=serial@e0000000
-stdin=serial@e0000000
-stdout=serial@e0000000
-testvar=test
-uuid=cf462098-ee01-4fdc-a10a-023a7d89f774
-
-Environment size: 1099/131068 bytes
-mcsov_boot>re  
-U-Boot SPL 2016.01mcsov (Apr 11 2019 - 13:30:49)
-mmc boot
-Trying to boot from MMC
-reading fpga.bin
-spl_load_image_fat: error reading image fpga.bin, err - -1
-spl: error reading image fpga.bin, err - 1
-reading system.dtb
-spl_load_image_fat_os: error reading image system.dtb, err - -1
-reading u-boot.img
-reading u-boot.img
-
-
-U-Boot 2016.01mcsov (Apr 11 2019 - 13:30:49 +0300)
-
-Board: Xilinx Zynq
-DRAM:  ECC disabled 1 GiB
-MMC:   mmc@e0100000: 0
-SF: Detected N25Q1024 with page size 256 Bytes, erase size 4 KiB, total 128 MiB
-In:    serial@e0000000
-Out:   serial@e0000000
-Err:   serial@e0000000
-Board: Xilinx Zynq
-Net:   ZYNQ GEM: e000b000, phyaddr -1, interface rgmii-id
-eth0: ethernet@e000b000
-Hit any key to stop autoboot:  3  2  0 
-mcsov_boot>env print -a
-baudrate=115200
-bootargs=console=ttyPS0,115200 root=/dev/ram0 rw rootwait earlyprintk earlycon spidev.bufsiz=32768
-bootcmd=run sdboot
-defargs=spidev.bufsiz=32768
-devicetree_image=devicetree.dtb
-devicetree_load_address=0x3E00000
-eth1addr=00:0a:35:00:00:12
-ethaddr=00:0a:35:00:00:02
-fdt_high=0x20000000
-fdtcontroladdr=3ff96500
-firmware_image=top.bin
-firmware_load_address=0x5000000
-initrd_high=0x20000000
-kernel_image=uImage
-kernel_load_address=0x4000000
-modeboot=sdboot
-ramdisk_image=rootfs.cpio.uboot
-ramdisk_load_address=0x2000000
-sdboot=echo Booting UMCOS board... && load mmc 0 ${kernel_load_address} ${kernel_image} && load mmc 0 ${devicetree_load_address} ${devicetree_image} && load mmc 0 ${ramdisk_load_address} ${ramdisk_image} && fatload mmc 0:1 ${firmware_load_address} ${firmware_image}; fpga load 0 ${firmware_load_address} 2083740 && bootm ${kernel_load_address} ${ramdisk_load_address} ${devicetree_load_address}
-stderr=serial@e0000000
-stdin=serial@e0000000
-stdout=serial@e0000000
-testvar=test
-uuid=cf462098-ee01-4fdc-a10a-023a7d89f774
-
-Environment size: 1099/131068 bytes
-mcsov_boot>boot    
-U-Boot SPL 2016.01mcsov (Apr 11 2019 - 13:30:49)
-mmc boot
-Trying to boot from MMC
-reading fpga.bin
-spl_load_image_fat: error reading image fpga.bin, err - -1
-spl: error reading image fpga.bin, err - 1
-reading system.dtb
-spl_load_image_fat_os: error reading image system.dtb, err - -1
-reading u-boot.img
-reading u-boot.img
-
-
-U-Boot 2016.01mcsov (Apr 11 2019 - 13:30:49 +0300)
-
-Board: Xilinx Zynq
-DRAM:  ECC disabled 1 GiB
-MMC:   mmc@e0100000: 0
-SF: Detected N25Q1024 with page size 256 Bytes, erase size 4 KiB, total 128 MiB
-In:    serial@e0000000
-Out:   serial@e0000000
-Err:   serial@e0000000
-Board: Xilinx Zynq
-Net:   ZYNQ GEM: e000b000, phyaddr -1, interface rgmii-id
-eth0: ethernet@e000b000
-Hit any key to stop autoboot:  3  2  1  0 
-Booting UMCOS board...
-reading uImage
-3169424 bytes read in 181 ms (16.7 MiB/s)
-reading devicetree.dtb
-11160 bytes read in 17 ms (640.6 KiB/s)
-reading rootfs.cpio.uboot
-5395952 bytes read in 296 ms (17.4 MiB/s)
-reading top.bin
-5979916 bytes read in 328 ms (17.4 MiB/s)
-zynq_align_dma_buffer: Bitstream is not swapped(1) - swap it
-## Booting kernel from Legacy Image at 04000000 ...
-   Image Name:   Linux-4.14.0-mcsov
-   Image Type:   ARM Linux Kernel Image (uncompressed)
-   Data Size:    3169360 Bytes = 3 MiB
-   Load Address: 00008000
-   Entry Point:  00008000
-   Verifying Checksum ... OK
-## Loading init Ramdisk from Legacy Image at 02000000 ...
-   Image Name:   
-   Image Type:   ARM Linux RAMDisk Image (uncompressed)
-   Data Size:    5395888 Bytes = 5.1 MiB
-   Load Address: 00000000
-   Entry Point:  00000000
-   Verifying Checksum ... OK
-## Flattened Device Tree blob at 03e00000
-   Booting using the fdt blob at 0x3e00000
-   Loading Kernel Image ... OK
-   Loading Ramdisk to 1fada000, end 1ffff5b0 ... OK
-   Loading Device Tree to 1fad4000, end 1fad9b97 ... OK
-
-Starting kernel ...
-
-Booting Linux on physical CPU 0x0
-Linux version 4.14.0-mcsov (zynq@server) (gcc version 5.5.0 (Buildroot 2018.02)) #4 SMP PREEMPT Thu Apr 4 17:29:31 MSK 2019
-CPU: ARMv7 Processor [413fc090] revision 0 (ARMv7), cr=18c5387d
-CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
-OF: fdt: Machine model: xlnx,zynq-7000
-earlycon: cdns0 at MMIO 0xe0000000 (options '115200n8')
-bootconsole [cdns0] enabled
-Memory policy: Data cache writealloc
-cma: Reserved 16 MiB at 0x3f000000
-random: fast init done
-percpu: Embedded 16 pages/cpu @ef7ce000 s33868 r8192 d23476 u65536
-Built 1 zonelists, mobility grouping on.  Total pages: 260608
-Kernel command line: console=ttyPS0,115200 root=/dev/ram0 rw rootwait earlyprintk earlycon spidev.bufsiz=32768
-PID hash table entries: 4096 (order: 2, 16384 bytes)
-Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
-Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
-Memory: 1008680K/1048576K available (5120K kernel code, 198K rwdata, 1204K rodata, 1024K init, 130K bss, 23512K reserved, 16384K cma-reserved, 245760K highmem)
-Virtual kernel memory layout:
-    vector  : 0xffff0000 - 0xffff1000   (   4 kB)
-    fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
-    vmalloc : 0xf0800000 - 0xff800000   ( 240 MB)
-    lowmem  : 0xc0000000 - 0xf0000000   ( 768 MB)
-    pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
-    modules : 0xbf000000 - 0xbfe00000   (  14 MB)
-      .text : 0xc0008000 - 0xc0600000   (6112 kB)
-      .init : 0xc0800000 - 0xc0900000   (1024 kB)
-      .data : 0xc0900000 - 0xc0931840   ( 199 kB)
-       .bss : 0xc0936c28 - 0xc0957564   ( 131 kB)
-Preemptible hierarchical RCU implementation.
-	RCU restricting CPUs from NR_CPUS=4 to nr_cpu_ids=2.
-	Tasks RCU enabled.
-RCU: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=2
-NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
-efuse mapped to f0800000
-slcr mapped to f0802000
-L2C: platform modifies aux control register: 0x02060000 -> 0x32460000
-L2C: DT/platform modifies aux control register: 0x02060000 -> 0x32460000
-L2C-310 erratum 769419 enabled
-L2C-310 enabling early BRESP for Cortex-A9
-L2C-310 full line of zeros enabled for Cortex-A9
-L2C-310 dynamic clock gating enabled, standby mode enabled
-L2C-310 cache controller enabled, 8 ways, 512 kB
-L2C-310: CACHE_ID 0x410000c8, AUX_CTRL 0x46460001
-zynq_clock_init: clkc starts at f0802100
-Zynq clock init
-sched_clock: 64 bits at 333MHz, resolution 3ns, wraps every 4398046511103ns
-clocksource: arm_global_timer: mask: 0xffffffffffffffff max_cycles: 0x4ce07af025, max_idle_ns: 440795209040 ns
-Switching to timer-based delay loop, resolution 3ns
-clocksource: ttc_clocksource: mask: 0xffff max_cycles: 0xffff, max_idle_ns: 537538477 ns
-timer #0 at f080a000, irq=17
-Console: colour dummy device 80x30
-Calibrating delay loop (skipped), value calculated using timer frequency.. 666.66 BogoMIPS (lpj=3333333)
-pid_max: default: 32768 minimum: 301
-Mount-cache hash table entries: 2048 (order: 1, 8192 bytes)
-Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes)
-CPU: Testing write buffer coherency: ok
-CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
-Setting up static identity map for 0x100000 - 0x10003c
-Hierarchical SRCU implementation.
-smp: Bringing up secondary CPUs ...
-CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
-smp: Brought up 1 node, 2 CPUs
-SMP: Total of 2 processors activated (1333.33 BogoMIPS).
-CPU: All CPU(s) started in SVC mode.
-devtmpfs: initialized
-VFP support v0.3: implementor 41 architecture 3 part 30 variant 9 rev 4
-clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
-futex hash table entries: 512 (order: 3, 32768 bytes)
-pinctrl core: initialized pinctrl subsystem
-NET: Registered protocol family 16
-DMA: preallocated 256 KiB pool for atomic coherent allocations
-cpuidle: using governor menu
-hw-breakpoint: found 5 (+1 reserved) breakpoint and 1 watchpoint registers.
-hw-breakpoint: maximum watchpoint size is 4 bytes.
-zynq-ocm f800c000.ocmc: ZYNQ OCM pool: 256 KiB @ 0xf0880000
-zynq-pinctrl 700.pinctrl: zynq pinctrl initialized
-e0000000.serial: ttyPS0 at MMIO 0xe0000000 (irq = 25, base_baud = 6249999) is a xuartps`¨ÀkΩ±ïÅm——ÂAM¡uÅïπÖâ±ïë5)çΩπÕΩ±ïÅm——ÂAM¡uÅïπÖâ±ïë5)âΩΩ—çΩπÕΩ±ïÅmçëπÕ¡uÅë•ÕÖâ±ïë5)âΩΩ—çΩπÕΩ±ïÅmçëπÕ¡uÅë•ÕÖâ±ïë5)ˇSCSI subsystem initialized
-pps_core: LinuxPPS API ver. 1 registered
-pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
-PTP clock support registered
-clocksource: Switched to clocksource arm_global_timer
-NET: Registered protocol family 2
-TCP established hash table entries: 8192 (order: 3, 32768 bytes)
-TCP bind hash table entries: 8192 (order: 4, 65536 bytes)
-TCP: Hash tables configured (established 8192 bind 8192)
-UDP hash table entries: 512 (order: 2, 16384 bytes)
-UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
-NET: Registered protocol family 1
-Trying to unpack rootfs image as initramfs...
-Freeing initrd memory: 5272K
-hw perfevents: no interrupt-affinity property for /pmu@f8891000, guessing.
-hw perfevents: enabled with armv7_cortex_a9 PMU driver, 7 counters available
-workingset: timestamp_bits=30 max_order=18 bucket_order=0
-jffs2: version 2.2. (NAND) (SUMMARY)  ¬© 2001-2006 Red Hat, Inc.
-bounce: pool size: 64 pages
-io scheduler noop registered
-io scheduler deadline registered
-io scheduler cfq registered (default)
-io scheduler mq-deadline registered
-io scheduler kyber registered
-dma-pl330 f8003000.dmac: Loaded driver for PL330 DMAC-241330
-dma-pl330 f8003000.dmac: 	DBUFF-128x8bytes Num_Chans-8 Num_Peri-4 Num_Events-16
-brd: module loaded
-loop: module loaded
-spidev spi2.0: buggy DT: spidev listed directly in DT
-------------[ cut here ]------------
-WARNING: CPU: 0 PID: 1 at drivers/spi/spidev.c:730 spidev_probe+0x184/0x1c0
-Modules linked in:
-CPU: 0 PID: 1 Comm: swapper/0 Not tainted 4.14.0-mcsov #4
-Hardware name: Xilinx Zynq Platform
-[<c010db74>] (unwind_backtrace) from [<c010aa58>] (show_stack+0x10/0x14)
-[<c010aa58>] (show_stack) from [<c0527708>] (dump_stack+0x80/0xa0)
-[<c0527708>] (dump_stack) from [<c011a0b8>] (__warn+0xc8/0xf8)
-[<c011a0b8>] (__warn) from [<c011a18c>] (warn_slowpath_null+0x1c/0x24)
-[<c011a18c>] (warn_slowpath_null) from [<c03c196c>] (spidev_probe+0x184/0x1c0)
-[<c03c196c>] (spidev_probe) from [<c0375468>] (driver_probe_device+0x19c/0x364)
-[<c0375468>] (driver_probe_device) from [<c0373ca0>] (bus_for_each_drv+0x80/0x90)
-[<c0373ca0>] (bus_for_each_drv) from [<c0375220>] (__device_attach+0x70/0xdc)
-[<c0375220>] (__device_attach) from [<c03747e4>] (bus_probe_device+0x28/0x80)
-[<c03747e4>] (bus_probe_device) from [<c0372d60>] (device_add+0x3ec/0x4f8)
-[<c0372d60>] (device_add) from [<c03bf4bc>] (spi_add_device+0xd0/0x148)
-[<c03bf4bc>] (spi_add_device) from [<c03c0b34>] (spi_register_controller+0x658/0x894)
-[<c03c0b34>] (spi_register_controller) from [<c03c3ab4>] (cdns_spi_probe+0x2dc/0x34c)
-[<c03c3ab4>] (cdns_spi_probe) from [<c0376ac4>] (platform_drv_probe+0x38/0x6c)
-[<c0376ac4>] (platform_drv_probe) from [<c0375468>] (driver_probe_device+0x19c/0x364)
-[<c0375468>] (driver_probe_device) from [<c03756d8>] (__driver_attach+0xa8/0xdc)
-[<c03756d8>] (__driver_attach) from [<c0373be8>] (bus_for_each_dev+0x68/0x8c)
-[<c0373be8>] (bus_for_each_dev) from [<c0374a20>] (bus_add_driver+0xe8/0x204)
-[<c0374a20>] (bus_add_driver) from [<c0375d54>] (driver_register+0x9c/0xe0)
-[<c0375d54>] (driver_register) from [<c0101940>] (do_one_initcall+0xa8/0x14c)
-[<c0101940>] (do_one_initcall) from [<c0800d74>] (kernel_init_freeable+0x10c/0x1cc)
-[<c0800d74>] (kernel_init_freeable) from [<c053828c>] (kernel_init+0x8/0x10c)
-[<c053828c>] (kernel_init) from [<c0107050>] (ret_from_fork+0x14/0x24)
----[ end trace 4b81d3d5794073ad ]---
-spidev spi3.0: buggy DT: spidev listed directly in DT
-------------[ cut here ]------------
-WARNING: CPU: 0 PID: 1 at drivers/spi/spidev.c:730 spidev_probe+0x184/0x1c0
-Modules linked in:
-CPU: 0 PID: 1 Comm: swapper/0 Tainted: G        W       4.14.0-mcsov #4
-Hardware name: Xilinx Zynq Platform
-[<c010db74>] (unwind_backtrace) from [<c010aa58>] (show_stack+0x10/0x14)
-[<c010aa58>] (show_stack) from [<c0527708>] (dump_stack+0x80/0xa0)
-[<c0527708>] (dump_stack) from [<c011a0b8>] (__warn+0xc8/0xf8)
-[<c011a0b8>] (__warn) from [<c011a18c>] (warn_slowpath_null+0x1c/0x24)
-[<c011a18c>] (warn_slowpath_null) from [<c03c196c>] (spidev_probe+0x184/0x1c0)
-[<c03c196c>] (spidev_probe) from [<c0375468>] (driver_probe_device+0x19c/0x364)
-[<c0375468>] (driver_probe_device) from [<c0373ca0>] (bus_for_each_drv+0x80/0x90)
-[<c0373ca0>] (bus_for_each_drv) from [<c0375220>] (__device_attach+0x70/0xdc)
-[<c0375220>] (__device_attach) from [<c03747e4>] (bus_probe_device+0x28/0x80)
-[<c03747e4>] (bus_probe_device) from [<c0372d60>] (device_add+0x3ec/0x4f8)
-[<c0372d60>] (device_add) from [<c03bf4bc>] (spi_add_device+0xd0/0x148)
-[<c03bf4bc>] (spi_add_device) from [<c03c0b34>] (spi_register_controller+0x658/0x894)
-[<c03c0b34>] (spi_register_controller) from [<c03c3ab4>] (cdns_spi_probe+0x2dc/0x34c)
-[<c03c3ab4>] (cdns_spi_probe) from [<c0376ac4>] (platform_drv_probe+0x38/0x6c)
-[<c0376ac4>] (platform_drv_probe) from [<c0375468>] (driver_probe_device+0x19c/0x364)
-[<c0375468>] (driver_probe_device) from [<c03756d8>] (__driver_attach+0xa8/0xdc)
-[<c03756d8>] (__driver_attach) from [<c0373be8>] (bus_for_each_dev+0x68/0x8c)
-[<c0373be8>] (bus_for_each_dev) from [<c0374a20>] (bus_add_driver+0xe8/0x204)
-[<c0374a20>] (bus_add_driver) from [<c0375d54>] (driver_register+0x9c/0xe0)
-[<c0375d54>] (driver_register) from [<c0101940>] (do_one_initcall+0xa8/0x14c)
-[<c0101940>] (do_one_initcall) from [<c0800d74>] (kernel_init_freeable+0x10c/0x1cc)
-[<c0800d74>] (kernel_init_freeable) from [<c053828c>] (kernel_init+0x8/0x10c)
-[<c053828c>] (kernel_init) from [<c0107050>] (ret_from_fork+0x14/0x24)
----[ end trace 4b81d3d5794073ae ]---
-libphy: Fixed MDIO Bus: probed
-libphy: MACB_mii_bus: probed
-macb e000b000.ethernet eth0: Cadence GEM rev 0x00020118 at 0xe000b000 irq 29 (00:0a:35:00:00:02)
-Micrel KSZ9031 Gigabit PHY e000b000.ethernet-ffffffff:01: attached PHY driver [Micrel KSZ9031 Gigabit PHY] (mii_bus:phy_addr=e000b000.ethernet-ffffffff:01, irq=POLL)
-i2c /dev entries driver
-IR NEC protocol handler initialized
-IR RC5(x/sz) protocol handler initialized
-IR RC6 protocol handler initialized
-IR JVC protocol handler initialized
-IR Sony protocol handler initialized
-IR SANYO protocol handler initialized
-IR Sharp protocol handler initialized
-IR MCE Keyboard/mouse protocol handler initialized
-IR XMP protocol handler initialized
-cdns-wdt f8005000.watchdog: Xilinx Watchdog Timer at f087e000 with timeout 10s
-Xilinx Zynq CpuIdle Driver started
-sdhci: Secure Digital Host Controller Interface driver
-sdhci: Copyright(c) Pierre Ossman
-sdhci-pltfm: SDHCI platform and OF driver helper
-mmc0: SDHCI controller on e0100000.mmc [e0100000.mmc] using ADMA
-Netfilter messages via NETLINK v0.30.
-nf_conntrack version 0.5.0 (16384 buckets, 65536 max)
-ip_set: protocol 6
-IPVS: Registered protocols ()
-IPVS: Connection hash table configured (size=4096, memory=32Kbytes)
-IPVS: ipvs loaded.
-ip_tables: (C) 2000-2006 Netfilter Core Team
-arp_tables: arp_tables: (C) 2002 David S. Miller
-NET: Registered protocol family 17
-Bridge firewalling registered
-Ebtables v2.0 registered
-Registering SWP/SWPB emulation handler
-hctosys: unable to open rtc device (rtc0)
-Freeing unused kernel memory: 1024K
-mmc0: new high speed SDHC card at address 0007
-mmcblk0: mmc0:0007 SD4GB 3.71 GiB 
- mmcblk0: p1
-Starting logging: OK
-Initializing random number generator... done.
-Starting network: OK
-Starting sshd: OK
-
-Welcome to MCSOV board
-mcsov login: root
-Password: 
-# l ls /dev/piu   spidev*
-[1;35m/dev/spidev2.0[0m  [1;35m/dev/spidev3.0[0m
-# cat /sys/
-block/    class/    devices/  fs/       module/   
-bus/      dev/      firmware/ kernel/   
-# cat /sys/module/sp
-sparse_keymap/ spidev/        spurious/      
-# cat /sys/module/spidev/
-parameters/ uevent      
-# cat /sys/module/spidev/parameters/bufsiz 
-32768
-# 
-U-Boot SPL 2016.01mcsov (Apr 11 2019 - 13:30:49)
-mmc boot
-Trying to boot from MMC
-reading fpga.bin
-spl_load_image_fat: error reading image fpga.bin, err - -1
-spl: error reading image fpga.bin, err - 1
-reading system.dtb
-spl_load_image_fat_os: error reading image system.dtb, err - -1
-reading u-boot.img
-reading u-boot.img
-
-
-U-Boot 2016.01mcsov (Apr 11 2019 - 13:30:49 +0300)
-
-Board: Xilinx Zynq
-DRAM:  ECC disabled 1 GiB
-MMC:   mmc@e0100000: 0
-SF: Detected N25Q1024 with page size 256 Bytes, erase size 4 KiB, total 128 MiB
-In:    serial@e0000000
-Out:   serial@e0000000
-Err:   serial@e0000000
-Board: Xilinx Zynq
-Net:   ZYNQ GEM: e000b000, phyaddr -1, interface rgmii-id
-eth0: ethernet@e000b000
-Hit any key to stop autoboot:  3  2  1  0 
-Booting UMCOS board...
-reading uImage
-3169424 bytes read in 181 ms (16.7 MiB/s)
-reading devicetree.dtb
-11160 bytes read in 17 ms (640.6 KiB/s)
-reading rootfs.cpio.uboot
-5395952 bytes read in 296 ms (17.4 MiB/s)
-reading top.bin
-5979916 bytes read in 328 ms (17.4 MiB/s)
-zynq_align_dma_buffer: Bitstream is not swapped(1) - swap it
-## Booting kernel from Legacy Image at 04000000 ...
-   Image Name:   Linux-4.14.0-mcsov
-   Image Type:   ARM Linux Kernel Image (uncompressed)
-   Data Size:    3169360 Bytes = 3 MiB
-   Load Address: 00008000
-   Entry Point:  00008000
-   Verifying Checksum ... OK
-## Loading init Ramdisk from Legacy Image at 02000000 ...
-   Image Name:   
-   Image Type:   ARM Linux RAMDisk Image (uncompressed)
-   Data Size:    5395888 Bytes = 5.1 MiB
-   Load Address: 00000000
-   Entry Point:  00000000
-   Verifying Checksum ... OK
-## Flattened Device Tree blob at 03e00000
-   Booting using the fdt blob at 0x3e00000
-   Loading Kernel Image ... OK
-   Loading Ramdisk to 1fada000, end 1ffff5b0 ... OK
-   Loading Device Tree to 1fad4000, end 1fad9b97 ... OK
-
-Starting kernel ...
-
-Booting Linux on physical CPU 0x0
-Linux version 4.14.0-mcsov (zynq@server) (gcc version 5.5.0 (Buildroot 2018.02)) #4 SMP PREEMPT Thu Apr 4 17:29:31 MSK 2019
-CPU: ARMv7 Processor [413fc090] revision 0 (ARMv7), cr=18c5387d
-CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
-OF: fdt: Machine model: xlnx,zynq-7000
-earlycon: cdns0 at MMIO 0xe0000000 (options '115200n8')
-bootconsole [cdns0] enabled
-Memory policy: Data cache writealloc
-cma: Reserved 16 MiB at 0x3f000000
-random: fast init done
-percpu: Embedded 16 pages/cpu @ef7ce000 s33868 r8192 d23476 u65536
-Built 1 zonelists, mobility grouping on.  Total pages: 260608
-Kernel command line: console=ttyPS0,115200 root=/dev/ram0 rw rootwait earlyprintk earlycon spidev.bufsiz=32768
-PID hash table entries: 4096 (order: 2, 16384 bytes)
-Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
-Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
-Memory: 1008680K/1048576K available (5120K kernel code, 198K rwdata, 1204K rodata, 1024K init, 130K bss, 23512K reserved, 16384K cma-reserved, 245760K highmem)
-Virtual kernel memory layout:
-    vector  : 0xffff0000 - 0xffff1000   (   4 kB)
-    fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
-    vmalloc : 0xf0800000 - 0xff800000   ( 240 MB)
-    lowmem  : 0xc0000000 - 0xf0000000   ( 768 MB)
-    pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
-    modules : 0xbf000000 - 0xbfe00000   (  14 MB)
-      .text : 0xc0008000 - 0xc0600000   (6112 kB)
-      .init : 0xc0800000 - 0xc0900000   (1024 kB)
-      .data : 0xc0900000 - 0xc0931840   ( 199 kB)
-       .bss : 0xc0936c28 - 0xc0957564   ( 131 kB)
-Preemptible hierarchical RCU implementation.
-	RCU restricting CPUs from NR_CPUS=4 to nr_cpu_ids=2.
-	Tasks RCU enabled.
-RCU: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=2
-NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
-efuse mapped to f0800000
-slcr mapped to f0802000
-L2C: platform modifies aux control register: 0x02060000 -> 0x32460000
-L2C: DT/platform modifies aux control register: 0x02060000 -> 0x32460000
-L2C-310 erratum 769419 enabled
-L2C-310 enabling early BRESP for Cortex-A9
-L2C-310 full line of zeros enabled for Cortex-A9
-L2C-310 dynamic clock gating enabled, standby mode enabled
-L2C-310 cache controller enabled, 8 ways, 512 kB
-L2C-310: CACHE_ID 0x410000c8, AUX_CTRL 0x46460001
-zynq_clock_init: clkc starts at f0802100
-Zynq clock init
-sched_clock: 64 bits at 333MHz, resolution 3ns, wraps every 4398046511103ns
-clocksource: arm_global_timer: mask: 0xffffffffffffffff max_cycles: 0x4ce07af025, max_idle_ns: 440795209040 ns
-Switching to timer-based delay loop, resolution 3ns
-clocksource: ttc_clocksource: mask: 0xffff max_cycles: 0xffff, max_idle_ns: 537538477 ns
-timer #0 at f080a000, irq=17
-Console: colour dummy device 80x30
-Calibrating delay loop (skipped), value calculated using timer frequency.. 666.66 BogoMIPS (lpj=3333333)
-pid_max: default: 32768 minimum: 301
-Mount-cache hash table entries: 2048 (order: 1, 8192 bytes)
-Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes)
-CPU: Testing write buffer coherency: ok
-CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
-Setting up static identity map for 0x100000 - 0x10003c
-Hierarchical SRCU implementation.
-smp: Bringing up secondary CPUs ...
-CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
-smp: Brought up 1 node, 2 CPUs
-SMP: Total of 2 processors activated (1333.33 BogoMIPS).
-CPU: All CPU(s) started in SVC mode.
-devtmpfs: initialized
-VFP support v0.3: implementor 41 architecture 3 part 30 variant 9 rev 4
-clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
-futex hash table entries: 512 (order: 3, 32768 bytes)
-pinctrl core: initialized pinctrl subsystem
-NET: Registered protocol family 16
-DMA: preallocated 256 KiB pool for atomic coherent allocations
-cpuidle: using governor menu
-hw-breakpoint: found 5 (+1 reserved) breakpoint and 1 watchpoint registers.
-hw-breakpoint: maximum watchpoint size is 4 bytes.
-zynq-ocm f800c000.ocmc: ZYNQ OCM pool: 256 KiB @ 0xf0880000
-zynq-pinctrl 700.pinctrl: zynq pinctrl initialized
-e0000000.serial: ttyPS0 at MMIO 0xe0000000 (irq = 25, base_baud = 6249999) is a xuartps`¨ÀkΩ±ïÅm——ÂAM¡uÅïπÖâ±ïë5)çΩπÕΩ±ïÅm——ÂAM¡uÅïπÖâ±ïë5)âΩΩ—çΩπÕΩ±ïÅmçëπÕ¡uÅë•ÕÖâ±ïë5)âΩΩ—çΩπÕΩ±ïÅmçëπÕ¡uÅë•ÕÖâ±ïë5)ˇSCSI subsystem initialized
-pps_core: LinuxPPS API ver. 1 registered
-pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
-PTP clock support registered
-clocksource: Switched to clocksource arm_global_timer
-NET: Registered protocol family 2
-TCP established hash table entries: 8192 (order: 3, 32768 bytes)
-TCP bind hash table entries: 8192 (order: 4, 65536 bytes)
-TCP: Hash tables configured (established 8192 bind 8192)
-UDP hash table entries: 512 (order: 2, 16384 bytes)
-UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
-NET: Registered protocol family 1
-Trying to unpack rootfs image as initramfs...
-Freeing initrd memory: 5272K
-hw perfevents: no interrupt-affinity property for /pmu@f8891000, guessing.
-hw perfevents: enabled with armv7_cortex_a9 PMU driver, 7 counters available
-workingset: timestamp_bits=30 max_order=18 bucket_order=0
-jffs2: version 2.2. (NAND) (SUMMARY)  ¬© 2001-2006 Red Hat, Inc.
-bounce: pool size: 64 pages
-io scheduler noop registered
-io scheduler deadline registered
-io scheduler cfq registered (default)
-io scheduler mq-deadline registered
-io scheduler kyber registered
-dma-pl330 f8003000.dmac: Loaded driver for PL330 DMAC-241330
-dma-pl330 f8003000.dmac: 	DBUFF-128x8bytes Num_Chans-8 Num_Peri-4 Num_Events-16
-brd: module loaded
-loop: module loaded
-spidev spi2.0: buggy DT: spidev listed directly in DT
-------------[ cut here ]------------
-WARNING: CPU: 0 PID: 1 at drivers/spi/spidev.c:730 spidev_probe+0x184/0x1c0
-Modules linked in:
-CPU: 0 PID: 1 Comm: swapper/0 Not tainted 4.14.0-mcsov #4
-Hardware name: Xilinx Zynq Platform
-[<c010db74>] (unwind_backtrace) from [<c010aa58>] (show_stack+0x10/0x14)
-[<c010aa58>] (show_stack) from [<c0527708>] (dump_stack+0x80/0xa0)
-[<c0527708>] (dump_stack) from [<c011a0b8>] (__warn+0xc8/0xf8)
-[<c011a0b8>] (__warn) from [<c011a18c>] (warn_slowpath_null+0x1c/0x24)
-[<c011a18c>] (warn_slowpath_null) from [<c03c196c>] (spidev_probe+0x184/0x1c0)
-[<c03c196c>] (spidev_probe) from [<c0375468>] (driver_probe_device+0x19c/0x364)
-[<c0375468>] (driver_probe_device) from [<c0373ca0>] (bus_for_each_drv+0x80/0x90)
-[<c0373ca0>] (bus_for_each_drv) from [<c0375220>] (__device_attach+0x70/0xdc)
-[<c0375220>] (__device_attach) from [<c03747e4>] (bus_probe_device+0x28/0x80)
-[<c03747e4>] (bus_probe_device) from [<c0372d60>] (device_add+0x3ec/0x4f8)
-[<c0372d60>] (device_add) from [<c03bf4bc>] (spi_add_device+0xd0/0x148)
-[<c03bf4bc>] (spi_add_device) from [<c03c0b34>] (spi_register_controller+0x658/0x894)
-[<c03c0b34>] (spi_register_controller) from [<c03c3ab4>] (cdns_spi_probe+0x2dc/0x34c)
-[<c03c3ab4>] (cdns_spi_probe) from [<c0376ac4>] (platform_drv_probe+0x38/0x6c)
-[<c0376ac4>] (platform_drv_probe) from [<c0375468>] (driver_probe_device+0x19c/0x364)
-[<c0375468>] (driver_probe_device) from [<c03756d8>] (__driver_attach+0xa8/0xdc)
-[<c03756d8>] (__driver_attach) from [<c0373be8>] (bus_for_each_dev+0x68/0x8c)
-[<c0373be8>] (bus_for_each_dev) from [<c0374a20>] (bus_add_driver+0xe8/0x204)
-[<c0374a20>] (bus_add_driver) from [<c0375d54>] (driver_register+0x9c/0xe0)
-[<c0375d54>] (driver_register) from [<c0101940>] (do_one_initcall+0xa8/0x14c)
-[<c0101940>] (do_one_initcall) from [<c0800d74>] (kernel_init_freeable+0x10c/0x1cc)
-[<c0800d74>] (kernel_init_freeable) from [<c053828c>] (kernel_init+0x8/0x10c)
-[<c053828c>] (kernel_init) from [<c0107050>] (ret_from_fork+0x14/0x24)
----[ end trace ad5dca98b0c182a7 ]---
-spidev spi3.0: buggy DT: spidev listed directly in DT
-------------[ cut here ]------------
-WARNING: CPU: 0 PID: 1 at drivers/spi/spidev.c:730 spidev_probe+0x184/0x1c0
-Modules linked in:
-CPU: 0 PID: 1 Comm: swapper/0 Tainted: G        W       4.14.0-mcsov #4
-Hardware name: Xilinx Zynq Platform
-[<c010db74>] (unwind_backtrace) from [<c010aa58>] (show_stack+0x10/0x14)
-[<c010aa58>] (show_stack) from [<c0527708>] (dump_stack+0x80/0xa0)
-[<c0527708>] (dump_stack) from [<c011a0b8>] (__warn+0xc8/0xf8)
-[<c011a0b8>] (__warn) from [<c011a18c>] (warn_slowpath_null+0x1c/0x24)
-[<c011a18c>] (warn_slowpath_null) from [<c03c196c>] (spidev_probe+0x184/0x1c0)
-[<c03c196c>] (spidev_probe) from [<c0375468>] (driver_probe_device+0x19c/0x364)
-[<c0375468>] (driver_probe_device) from [<c0373ca0>] (bus_for_each_drv+0x80/0x90)
-[<c0373ca0>] (bus_for_each_drv) from [<c0375220>] (__device_attach+0x70/0xdc)
-[<c0375220>] (__device_attach) from [<c03747e4>] (bus_probe_device+0x28/0x80)
-[<c03747e4>] (bus_probe_device) from [<c0372d60>] (device_add+0x3ec/0x4f8)
-[<c0372d60>] (device_add) from [<c03bf4bc>] (spi_add_device+0xd0/0x148)
-[<c03bf4bc>] (spi_add_device) from [<c03c0b34>] (spi_register_controller+0x658/0x894)
-[<c03c0b34>] (spi_register_controller) from [<c03c3ab4>] (cdns_spi_probe+0x2dc/0x34c)
-[<c03c3ab4>] (cdns_spi_probe) from [<c0376ac4>] (platform_drv_probe+0x38/0x6c)
-[<c0376ac4>] (platform_drv_probe) from [<c0375468>] (driver_probe_device+0x19c/0x364)
-[<c0375468>] (driver_probe_device) from [<c03756d8>] (__driver_attach+0xa8/0xdc)
-[<c03756d8>] (__driver_attach) from [<c0373be8>] (bus_for_each_dev+0x68/0x8c)
-[<c0373be8>] (bus_for_each_dev) from [<c0374a20>] (bus_add_driver+0xe8/0x204)
-[<c0374a20>] (bus_add_driver) from [<c0375d54>] (driver_register+0x9c/0xe0)
-[<c0375d54>] (driver_register) from [<c0101940>] (do_one_initcall+0xa8/0x14c)
-[<c0101940>] (do_one_initcall) from [<c0800d74>] (kernel_init_freeable+0x10c/0x1cc)
-[<c0800d74>] (kernel_init_freeable) from [<c053828c>] (kernel_init+0x8/0x10c)
-[<c053828c>] (kernel_init) from [<c0107050>] (ret_from_fork+0x14/0x24)
----[ end trace ad5dca98b0c182a8 ]---
-libphy: Fixed MDIO Bus: probed
-libphy: MACB_mii_bus: probed
-macb e000b000.ethernet eth0: Cadence GEM rev 0x00020118 at 0xe000b000 irq 29 (00:0a:35:00:00:02)
-Micrel KSZ9031 Gigabit PHY e000b000.ethernet-ffffffff:01: attached PHY driver [Micrel KSZ9031 Gigabit PHY] (mii_bus:phy_addr=e000b000.ethernet-ffffffff:01, irq=POLL)
-i2c /dev entries driver
-IR NEC protocol handler initialized
-IR RC5(x/sz) protocol handler initialized
-IR RC6 protocol handler initialized
-IR JVC protocol handler initialized
-IR Sony protocol handler initialized
-IR SANYO protocol handler initialized
-IR Sharp protocol handler initialized
-IR MCE Keyboard/mouse protocol handler initialized
-IR XMP protocol handler initialized
-cdns-wdt f8005000.watchdog: Xilinx Watchdog Timer at f087e000 with timeout 10s
-Xilinx Zynq CpuIdle Driver started
-sdhci: Secure Digital Host Controller Interface driver
-sdhci: Copyright(c) Pierre Ossman
-sdhci-pltfm: SDHCI platform and OF driver helper
-mmc0: SDHCI controller on e0100000.mmc [e0100000.mmc] using ADMA
-Netfilter messages via NETLINK v0.30.
-nf_conntrack version 0.5.0 (16384 buckets, 65536 max)
-ip_set: protocol 6
-IPVS: Registered protocols ()
-IPVS: Connection hash table configured (size=4096, memory=32Kbytes)
-IPVS: ipvs loaded.
-ip_tables: (C) 2000-2006 Netfilter Core Team
-arp_tables: arp_tables: (C) 2002 David S. Miller
-NET: Registered protocol family 17
-Bridge firewalling registered
-Ebtables v2.0 registered
-Registering SWP/SWPB emulation handler
-hctosys: unable to open rtc device (rtc0)
-Freeing unused kernel memory: 1024K
-mmc0: new high speed SDHC card at address 0007
-mmcblk0: mmc0:0007 SD4GB 3.71 GiB 
- mmcblk0: p1
-Starting logging: OK
-Initializing random number generator... done.
-Starting network: OK
-Starting sshd: OK
-
-Welcome to MCSOV board
-mcsov login: o root
-Password: 
-# ls /dev/spidev*
-[1;35m/dev/spidev2.0[0m  [1;35m/dev/spidev3.0[0m
-# ls /dev/spidev*# [K
-U-Boot SPL 2016.01mcsov (Apr 11 2019 - 13:30:49)
-mmc boot
-Trying to boot from MMC
-reading fpga.bin
-spl_load_image_fat: error reading image fpga.bin, err - -1
-spl: error reading image fpga.bin, err - 1
-reading system.dtb
-spl_load_image_fat_os: error reading image system.dtb, err - -1
-reading u-boot.img
-reading u-boot.img
-
-
-U-Boot 2016.01mcsov (Apr 11 2019 - 13:30:49 +0300)
-
-Board: Xilinx Zynq
-DRAM:  ECC disabled 1 GiB
-MMC:   mmc@e0100000: 0
-SF: Detected N25Q1024 with page size 256 Bytes, erase size 4 KiB, total 128 MiB
-In:    serial@e0000000
-Out:   serial@e0000000
-Err:   serial@e0000000
-Board: Xilinx Zynq
-Net:   ZYNQ GEM: e000b000, phyaddr -1, interface rgmii-id
-eth0: ethernet@e000b000
-Hit any key to stop autoboot:  3  2  1  0 
-Booting UMCOS board...
-reading uImage
-3169424 bytes read in 181 ms (16.7 MiB/s)
-reading devicetree.dtb
-11112 bytes read in 17 ms (637.7 KiB/s)
-reading rootfs.cpio.uboot
-5395952 bytes read in 296 ms (17.4 MiB/s)
-reading top.bin
-5979916 bytes read in 328 ms (17.4 MiB/s)
-zynq_align_dma_buffer: Bitstream is not swapped(1) - swap it
-## Booting kernel from Legacy Image at 04000000 ...
-   Image Name:   Linux-4.14.0-mcsov
-   Image Type:   ARM Linux Kernel Image (uncompressed)
-   Data Size:    3169360 Bytes = 3 MiB
-   Load Address: 00008000
-   Entry Point:  00008000
-   Verifying Checksum ... OK
-## Loading init Ramdisk from Legacy Image at 02000000 ...
-   Image Name:   
-   Image Type:   ARM Linux RAMDisk Image (uncompressed)
-   Data Size:    5395888 Bytes = 5.1 MiB
-   Load Address: 00000000
-   Entry Point:  00000000
-   Verifying Checksum ... OK
-## Flattened Device Tree blob at 03e00000
-   Booting using the fdt blob at 0x3e00000
-   Loading Kernel Image ... OK
-   Loading Ramdisk to 1fada000, end 1ffff5b0 ... OK
-   Loading Device Tree to 1fad4000, end 1fad9b67 ... OK
-
-Starting kernel ...
-
-Booting Linux on physical CPU 0x0
-Linux version 4.14.0-mcsov (zynq@server) (gcc version 5.5.0 (Buildroot 2018.02)) #4 SMP PREEMPT Thu Apr 4 17:29:31 MSK 2019
-CPU: ARMv7 Processor [413fc090] revision 0 (ARMv7), cr=18c5387d
-CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
-OF: fdt: Machine model: xlnx,zynq-7000
-earlycon: cdns0 at MMIO 0xe0000000 (options '115200n8')
-bootconsole [cdns0] enabled
-Memory policy: Data cache writealloc
-cma: Reserved 16 MiB at 0x3f000000
-random: fast init done
-percpu: Embedded 16 pages/cpu @ef7ce000 s33868 r8192 d23476 u65536
-Built 1 zonelists, mobility grouping on.  Total pages: 260608
-Kernel command line: console=ttyPS0,115200 root=/dev/ram0 rw rootwait earlyprintk earlycon spidev.bufsiz=32768
-PID hash table entries: 4096 (order: 2, 16384 bytes)
-Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
-Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
-Memory: 1008680K/1048576K available (5120K kernel code, 198K rwdata, 1204K rodata, 1024K init, 130K bss, 23512K reserved, 16384K cma-reserved, 245760K highmem)
-Virtual kernel memory layout:
-    vector  : 0xffff0000 - 0xffff1000   (   4 kB)
-    fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
-    vmalloc : 0xf0800000 - 0xff800000   ( 240 MB)
-    lowmem  : 0xc0000000 - 0xf0000000   ( 768 MB)
-    pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
-    modules : 0xbf000000 - 0xbfe00000   (  14 MB)
-      .text : 0xc0008000 - 0xc0600000   (6112 kB)
-      .init : 0xc0800000 - 0xc0900000   (1024 kB)
-      .data : 0xc0900000 - 0xc0931840   ( 199 kB)
-       .bss : 0xc0936c28 - 0xc0957564   ( 131 kB)
-Preemptible hierarchical RCU implementation.
-	RCU restricting CPUs from NR_CPUS=4 to nr_cpu_ids=2.
-	Tasks RCU enabled.
-RCU: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=2
-NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
-efuse mapped to f0800000
-slcr mapped to f0802000
-L2C: platform modifies aux control register: 0x02060000 -> 0x32460000
-L2C: DT/platform modifies aux control register: 0x02060000 -> 0x32460000
-L2C-310 erratum 769419 enabled
-L2C-310 enabling early BRESP for Cortex-A9
-L2C-310 full line of zeros enabled for Cortex-A9
-L2C-310 dynamic clock gating enabled, standby mode enabled
-L2C-310 cache controller enabled, 8 ways, 512 kB
-L2C-310: CACHE_ID 0x410000c8, AUX_CTRL 0x46460001
-zynq_clock_init: clkc starts at f0802100
-Zynq clock init
-sched_clock: 64 bits at 333MHz, resolution 3ns, wraps every 4398046511103ns
-clocksource: arm_global_timer: mask: 0xffffffffffffffff max_cycles: 0x4ce07af025, max_idle_ns: 440795209040 ns
-Switching to timer-based delay loop, resolution 3ns
-clocksource: ttc_clocksource: mask: 0xffff max_cycles: 0xffff, max_idle_ns: 537538477 ns
-timer #0 at f080a000, irq=17
-Console: colour dummy device 80x30
-Calibrating delay loop (skipped), value calculated using timer frequency.. 666.66 BogoMIPS (lpj=3333333)
-pid_max: default: 32768 minimum: 301
-Mount-cache hash table entries: 2048 (order: 1, 8192 bytes)
-Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes)
-CPU: Testing write buffer coherency: ok
-CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
-Setting up static identity map for 0x100000 - 0x10003c
-Hierarchical SRCU implementation.
-smp: Bringing up secondary CPUs ...
-CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
-smp: Brought up 1 node, 2 CPUs
-SMP: Total of 2 processors activated (1333.33 BogoMIPS).
-CPU: All CPU(s) started in SVC mode.
-devtmpfs: initialized
-VFP support v0.3: implementor 41 architecture 3 part 30 variant 9 rev 4
-clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
-futex hash table entries: 512 (order: 3, 32768 bytes)
-pinctrl core: initialized pinctrl subsystem
-NET: Registered protocol family 16
-DMA: preallocated 256 KiB pool for atomic coherent allocations
-cpuidle: using governor menu
-hw-breakpoint: found 5 (+1 reserved) breakpoint and 1 watchpoint registers.
-hw-breakpoint: maximum watchpoint size is 4 bytes.
-zynq-ocm f800c000.ocmc: ZYNQ OCM pool: 256 KiB @ 0xf0880000
-zynq-pinctrl 700.pinctrl: zynq pinctrl initialized
-e0000000.serial: ttyPS0 at MMIO 0xe0000000 (irq = 25, base_baud = 6249999) is a xuartps`¨ÀkΩ±ïÅm——ÂAM¡uÅïπÖâ±ïë5)çΩπÕΩ±ïÅm——ÂAM¡uÅïπÖâ±ïë5)âΩΩ—çΩπÕΩ±ïÅmçëπÕ¡uÅë•ÕÖâ±ïë5)âΩΩ—çΩπÕΩ±ïÅmçëπÕ¡uÅë•ÕÖâ±ïë5)ˇSCSI subsystem initialized
-pps_core: LinuxPPS API ver. 1 registered
-pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
-PTP clock support registered
-clocksource: Switched to clocksource arm_global_timer
-NET: Registered protocol family 2
-TCP established hash table entries: 8192 (order: 3, 32768 bytes)
-TCP bind hash table entries: 8192 (order: 4, 65536 bytes)
-TCP: Hash tables configured (established 8192 bind 8192)
-UDP hash table entries: 512 (order: 2, 16384 bytes)
-UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
-NET: Registered protocol family 1
-Trying to unpack rootfs image as initramfs...
-Freeing initrd memory: 5272K
-hw perfevents: no interrupt-affinity property for /pmu@f8891000, guessing.
-hw perfevents: enabled with armv7_cortex_a9 PMU driver, 7 counters available
-workingset: timestamp_bits=30 max_order=18 bucket_order=0
-jffs2: version 2.2. (NAND) (SUMMARY)  ¬© 2001-2006 Red Hat, Inc.
-bounce: pool size: 64 pages
-io scheduler noop registered
-io scheduler deadline registered
-io scheduler cfq registered (default)
-io scheduler mq-deadline registered
-io scheduler kyber registered
-dma-pl330 f8003000.dmac: Loaded driver for PL330 DMAC-241330
-dma-pl330 f8003000.dmac: 	DBUFF-128x8bytes Num_Chans-8 Num_Peri-4 Num_Events-16
-brd: module loaded
-loop: module loaded
-spidev spi1.0: buggy DT: spidev listed directly in DT
-------------[ cut here ]------------
-WARNING: CPU: 0 PID: 1 at drivers/spi/spidev.c:730 spidev_probe+0x184/0x1c0
-Modules linked in:
-CPU: 0 PID: 1 Comm: swapper/0 Not tainted 4.14.0-mcsov #4
-Hardware name: Xilinx Zynq Platform
-[<c010db74>] (unwind_backtrace) from [<c010aa58>] (show_stack+0x10/0x14)
-[<c010aa58>] (show_stack) from [<c0527708>] (dump_stack+0x80/0xa0)
-[<c0527708>] (dump_stack) from [<c011a0b8>] (__warn+0xc8/0xf8)
-[<c011a0b8>] (__warn) from [<c011a18c>] (warn_slowpath_null+0x1c/0x24)
-[<c011a18c>] (warn_slowpath_null) from [<c03c196c>] (spidev_probe+0x184/0x1c0)
-[<c03c196c>] (spidev_probe) from [<c0375468>] (driver_probe_device+0x19c/0x364)
-[<c0375468>] (driver_probe_device) from [<c0373ca0>] (bus_for_each_drv+0x80/0x90)
-[<c0373ca0>] (bus_for_each_drv) from [<c0375220>] (__device_attach+0x70/0xdc)
-[<c0375220>] (__device_attach) from [<c03747e4>] (bus_probe_device+0x28/0x80)
-[<c03747e4>] (bus_probe_device) from [<c0372d60>] (device_add+0x3ec/0x4f8)
-[<c0372d60>] (device_add) from [<c03bf4bc>] (spi_add_device+0xd0/0x148)
-[<c03bf4bc>] (spi_add_device) from [<c03c0b34>] (spi_register_controller+0x658/0x894)
-[<c03c0b34>] (spi_register_controller) from [<c03c44e4>] (xilinx_spi_probe+0x424/0x4dc)
-[<c03c44e4>] (xilinx_spi_probe) from [<c0376ac4>] (platform_drv_probe+0x38/0x6c)
-[<c0376ac4>] (platform_drv_probe) from [<c0375468>] (driver_probe_device+0x19c/0x364)
-[<c0375468>] (driver_probe_device) from [<c03756d8>] (__driver_attach+0xa8/0xdc)
-[<c03756d8>] (__driver_attach) from [<c0373be8>] (bus_for_each_dev+0x68/0x8c)
-[<c0373be8>] (bus_for_each_dev) from [<c0374a20>] (bus_add_driver+0xe8/0x204)
-[<c0374a20>] (bus_add_driver) from [<c0375d54>] (driver_register+0x9c/0xe0)
-[<c0375d54>] (driver_register) from [<c0101940>] (do_one_initcall+0xa8/0x14c)
-[<c0101940>] (do_one_initcall) from [<c0800d74>] (kernel_init_freeable+0x10c/0x1cc)
-[<c0800d74>] (kernel_init_freeable) from [<c053828c>] (kernel_init+0x8/0x10c)
-[<c053828c>] (kernel_init) from [<c0107050>] (ret_from_fork+0x14/0x24)
----[ end trace 2ceb72894ce5dbe7 ]---
-libphy: Fixed MDIO Bus: probed
-libphy: MACB_mii_bus: probed
-macb e000b000.ethernet eth0: Cadence GEM rev 0x00020118 at 0xe000b000 irq 28 (00:0a:35:00:00:02)
-Micrel KSZ9031 Gigabit PHY e000b000.ethernet-ffffffff:01: attached PHY driver [Micrel KSZ9031 Gigabit PHY] (mii_bus:phy_addr=e000b000.ethernet-ffffffff:01, irq=POLL)
-i2c /dev entries driver
-IR NEC protocol handler initialized
-IR RC5(x/sz) protocol handler initialized
-IR RC6 protocol handler initialized
-IR JVC protocol handler initialized
-IR Sony protocol handler initialized
-IR SANYO protocol handler initialized
-IR Sharp protocol handler initialized
-IR MCE Keyboard/mouse protocol handler initialized
-IR XMP protocol handler initialized
-cdns-wdt f8005000.watchdog: Xilinx Watchdog Timer at f087c000 with timeout 10s
-Xilinx Zynq CpuIdle Driver started
-sdhci: Secure Digital Host Controller Interface driver
-sdhci: Copyright(c) Pierre Ossman
-sdhci-pltfm: SDHCI platform and OF driver helper
-mmc0: SDHCI controller on e0100000.mmc [e0100000.mmc] using ADMA
-Netfilter messages via NETLINK v0.30.
-nf_conntrack version 0.5.0 (16384 buckets, 65536 max)
-ip_set: protocol 6
-IPVS: Registered protocols ()
-IPVS: Connection hash table configured (size=4096, memory=32Kbytes)
-IPVS: ipvs loaded.
-ip_tables: (C) 2000-2006 Netfilter Core Team
-arp_tables: arp_tables: (C) 2002 David S. Miller
-NET: Registered protocol family 17
-Bridge firewalling registered
-Ebtables v2.0 registered
-Registering SWP/SWPB emulation handler
-hctosys: unable to open rtc device (rtc0)
-Freeing unused kernel memory: 1024K
-mmc0: new high speed SDHC card at address 0007
-mmcblk0: mmc0:0007 SD4GB 3.71 GiB 
- mmcblk0: p1
-Starting logging: OK
-Initializing random number generator... done.
-Starting network: OK
-Starting sshd: OK
-
-Welcome to MCSOV board
-mcsov login: root
-Password: 
-# ls /dev/spidev1.0 
-[1;35m/dev/spidev1.0[0m
-# ls /dev/spidev1.0      v*
-[1;35m/dev/spidev1.0[0m
-# ifconfig eth0 192.168.0.  5.88 up
-# macb e000b000.ethernet eth0: link up (100/Full)
-spidev spi1.0: SPI transfer timed out
-cd /
-# ls
-[1;34mbin[0m        [1;32minit[0m       [1;36mlinuxrc[0m    [1;34mopt[0m        [1;34mrun[0m        [1;32mtest_code[0m  [1;34mvar[0m
-[1;34mdev[0m        [1;34mlib[0m        [1;34mmedia[0m      [1;34mproc[0m       [1;34msbin[0m       [1;34mtmp[0m
-[1;34metc[0m        [1;36mlib32[0m      [1;34mmnt[0m        [1;34mroot[0m       [1;34msys[0m        [1;34musr[0m
-# cat /sus  ys/module/
-block/             hid/               nf_conntrack/      spidev/
-brd/               i2c_algo_bit/      nf_conntrack_ipv4/ spurious/
-bridge/            input_polldev/     printk/            srcutree/
-cadence_wdt/       ip_set/            psmouse/           tcp_cubic/
-cpufreq/           ip_vs/             rc_core/           vt/
-cpuidle/           kernel/            rcupdate/          watchdog/
-cryptomgr/         keyboard/          rcutree/           workqueue/
-drm/               loop/              scsi_mod/          xilinx_uartps/
-drm_kms_helper/    mdio_mux_gpio/     sdhci/             xz_dec/
-fb/                mmcblk/            sg/                
-firmware_class/    module/            sparse_keymap/     
-# cat /sys/module/p sp
-sparse_keymap/ spidev/        spurious/      
-# cat /sys/module/spidev/parameters/bufsiz 
-32768
-# ./test_code 
-spidev spi1.0: SPI transfer timed out
-EXCEPTION: std::exception
-# spidev spi1.0: SPI transfer timed out
-^C
-# ./test_code 
-spidev spi1.0: SPI transfer timed out
-EXCEPTION: std::exception
-# .s    ls /dev/
-[1;35mconsole[0m             [1;35mram9[0m                [1;35mtty40[0m
-[1;35mcpu_dma_latency[0m     [1;35mrandom[0m              [1;35mtty41[0m
-[1;35mfull[0m                [1;34mshm[0m                 [1;35mtty42[0m
-[1;35mgpiochip0[0m           [1;35mspidev1.0[0m           [1;35mtty43[0m
-[1;35miio:device0[0m         [1;35mtty[0m                 [1;35mtty44[0m
-[1;35mkmsg[0m                [1;35mtty0[0m                [1;35mtty45[0m
-[1;35mlog[0m                 [1;35mtty1[0m                [1;35mtty46[0m
-[1;35mloop-control[0m        [1;35mtty10[0m               [1;35mtty47[0m
-[1;35mloop0[0m               [1;35mtty11[0m               [1;35mtty48[0m
-[1;35mloop1[0m               [1;35mtty12[0m               [1;35mtty49[0m
-[1;35mloop2[0m               [1;35mtty13[0m               [1;35mtty5[0m
-[1;35mloop3[0m               [1;35mtty14[0m               [1;35mtty50[0m
-[1;35mloop4[0m               [1;35mtty15[0m               [1;35mtty51[0m
-[1;35mloop5[0m               [1;35mtty16[0m               [1;35mtty52[0m
-[1;35mloop6[0m               [1;35mtty17[0m               [1;35mtty53[0m
-[1;35mloop7[0m               [1;35mtty18[0m               [1;35mtty54[0m
-[1;35mmem[0m                 [1;35mtty19[0m               [1;35mtty55[0m
-[1;35mmemory_bandwidth[0m    [1;35mtty2[0m                [1;35mtty56[0m
-[1;35mmmcblk0[0m             [1;35mtty20[0m               [1;35mtty57[0m
-[1;35mmmcblk0p1[0m           [1;35mtty21[0m               [1;35mtty58[0m
-[1;35mnetwork_latency[0m     [1;35mtty22[0m               [1;35mtty59[0m
-[1;35mnetwork_throughput[0m  [1;35mtty23[0m               [1;35mtty6[0m
-[1;35mnull[0m                [1;35mtty24[0m               [1;35mtty60[0m
-[1;35mptmx[0m                [1;35mtty25[0m               [1;35mtty61[0m
-[1;34mpts[0m                 [1;35mtty26[0m               [1;35mtty62[0m
-[1;35mram0[0m                [1;35mtty27[0m               [1;35mtty63[0m
-[1;35mram1[0m                [1;35mtty28[0m               [1;35mtty7[0m
-[1;35mram10[0m               [1;35mtty29[0m               [1;35mtty8[0m
-[1;35mram11[0m               [1;35mtty3[0m                [1;35mtty9[0m
-[1;35mram12[0m               [1;35mtty30[0m               [1;35mttyPS0[0m
-[1;35mram13[0m               [1;35mtty31[0m               [1;35murandom[0m
-[1;35mram14[0m               [1;35mtty32[0m               [1;35mvcs[0m
-[1;35mram15[0m               [1;35mtty33[0m               [1;35mvcs1[0m
-[1;35mram2[0m                [1;35mtty34[0m               [1;35mvcsa[0m
-[1;35mram3[0m                [1;35mtty35[0m               [1;35mvcsa1[0m
-[1;35mram4[0m                [1;35mtty36[0m               [1;35mwatchdog[0m
-[1;35mram5[0m                [1;35mtty37[0m               [1;35mwatchdog0[0m
-[1;35mram6[0m                [1;35mtty38[0m               [1;35mzero[0m
-[1;35mram7[0m                [1;35mtty39[0m
-[1;35mram8[0m                [1;35mtty4[0m
-# random: crng init done
-
-U-Boot SPL 2016.01mcsov (Apr 11 2019 - 13:30:49)
-mmc boot
-Trying to boot from MMC
-reading fpga.bin
-spl_load_image_fat: error reading image fpga.bin, err - -1
-spl: error reading image fpga.bin, err - 1
-reading system.dtb
-spl_load_image_fat_os: error reading image system.dtb, err - -1
-reading u-boot.img
-reading u-boot.img
-
-
-U-Boot 2016.01mcsov (Apr 11 2019 - 13:30:49 +0300)
-
-Board: Xilinx Zynq
-DRAM:  ECC disabled 1 GiB
-MMC:   mmc@e0100000: 0
-SF: Detected N25Q1024 with page size 256 Bytes, erase size 4 KiB, total 128 MiB
-In:    serial@e0000000
-Out:   serial@e0000000
-Err:   serial@e0000000
-Board: Xilinx Zynq
-Net:   ZYNQ GEM: e000b000, phyaddr -1, interface rgmii-id
-eth0: ethernet@e000b000
-Hit any key to stop autoboot:  3  2  1  0 
-Booting UMCOS board...
-reading uImage
-3205728 bytes read in 183 ms (16.7 MiB/s)
-reading devicetree.dtb
-11160 bytes read in 17 ms (640.6 KiB/s)
-reading rootfs.cpio.uboot
-5395952 bytes read in 296 ms (17.4 MiB/s)
-reading top.bin
-5979916 bytes read in 329 ms (17.3 MiB/s)
-zynq_align_dma_buffer: Bitstream is not swapped(1) - swap it
-## Booting kernel from Legacy Image at 04000000 ...
-   Image Name:   Linux-4.14.0-mcsov
-   Image Type:   ARM Linux Kernel Image (uncompressed)
-   Data Size:    3205664 Bytes = 3.1 MiB
-   Load Address: 00008000
-   Entry Point:  00008000
-   Verifying Checksum ... OK
-## Loading init Ramdisk from Legacy Image at 02000000 ...
-   Image Name:   
-   Image Type:   ARM Linux RAMDisk Image (uncompressed)
-   Data Size:    5395888 Bytes = 5.1 MiB
-   Load Address: 00000000
-   Entry Point:  00000000
-   Verifying Checksum ... OK
-## Flattened Device Tree blob at 03e00000
-   Booting using the fdt blob at 0x3e00000
-   Loading Kernel Image ... OK
-   Loading Ramdisk to 1fada000, end 1ffff5b0 ... OK
-   Loading Device Tree to 1fad4000, end 1fad9b97 ... OK
-
-Starting kernel ...
-
-Booting Linux on physical CPU 0x0
-Linux version 4.14.0-mcsov (zynq@server) (gcc version 5.5.0 (Buildroot 2018.02)) #1 SMP PREEMPT Thu Apr 11 15:11:29 MSK 2019
-CPU: ARMv7 Processor [413fc090] revision 0 (ARMv7), cr=18c5387d
-CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
-OF: fdt: Machine model: xlnx,zynq-7000
-earlycon: cdns0 at MMIO 0xe0000000 (options '115200n8')
-bootconsole [cdns0] enabled
-Memory policy: Data cache writealloc
-cma: Reserved 16 MiB at 0x3f000000
-random: fast init done
-percpu: Embedded 16 pages/cpu @ef7ce000 s34444 r8192 d22900 u65536
-Built 1 zonelists, mobility grouping on.  Total pages: 260608
-Kernel command line: console=ttyPS0,115200 root=/dev/ram0 rw rootwait earlyprintk earlycon spidev.bufsiz=32768
-PID hash table entries: 4096 (order: 2, 16384 bytes)
-Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
-Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
-Memory: 1008680K/1048576K available (5120K kernel code, 199K rwdata, 1220K rodata, 1024K init, 130K bss, 23512K reserved, 16384K cma-reserved, 245760K highmem)
-Virtual kernel memory layout:
-    vector  : 0xffff0000 - 0xffff1000   (   4 kB)
-    fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
-    vmalloc : 0xf0800000 - 0xff800000   ( 240 MB)
-    lowmem  : 0xc0000000 - 0xf0000000   ( 768 MB)
-    pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
-    modules : 0xbf000000 - 0xbfe00000   (  14 MB)
-      .text : 0xc0008000 - 0xc0600000   (6112 kB)
-      .init : 0xc0800000 - 0xc0900000   (1024 kB)
-      .data : 0xc0900000 - 0xc0931e80   ( 200 kB)
-       .bss : 0xc09372bc - 0xc0957d24   ( 131 kB)
-Preemptible hierarchical RCU implementation.
-	RCU restricting CPUs from NR_CPUS=4 to nr_cpu_ids=2.
-	Tasks RCU enabled.
-RCU: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=2
-NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
-efuse mapped to f0800000
-slcr mapped to f0802000
-L2C: platform modifies aux control register: 0x02060000 -> 0x32460000
-L2C: DT/platform modifies aux control register: 0x02060000 -> 0x32460000
-L2C-310 erratum 769419 enabled
-L2C-310 enabling early BRESP for Cortex-A9
-L2C-310 full line of zeros enabled for Cortex-A9
-L2C-310 dynamic clock gating enabled, standby mode enabled
-L2C-310 cache controller enabled, 8 ways, 512 kB
-L2C-310: CACHE_ID 0x410000c8, AUX_CTRL 0x46460001
-zynq_clock_init: clkc starts at f0802100
-Zynq clock init
-sched_clock: 64 bits at 333MHz, resolution 3ns, wraps every 4398046511103ns
-clocksource: arm_global_timer: mask: 0xffffffffffffffff max_cycles: 0x4ce07af025, max_idle_ns: 440795209040 ns
-Switching to timer-based delay loop, resolution 3ns
-clocksource: ttc_clocksource: mask: 0xffff max_cycles: 0xffff, max_idle_ns: 537538477 ns
-timer #0 at f080a000, irq=17
-Console: colour dummy device 80x30
-Calibrating delay loop (skipped), value calculated using timer frequency.. 666.66 BogoMIPS (lpj=3333333)
-pid_max: default: 32768 minimum: 301
-Mount-cache hash table entries: 2048 (order: 1, 8192 bytes)
-Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes)
-CPU: Testing write buffer coherency: ok
-CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
-Setting up static identity map for 0x100000 - 0x100060
-Hierarchical SRCU implementation.
-smp: Bringing up secondary CPUs ...
-CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
-smp: Brought up 1 node, 2 CPUs
-SMP: Total of 2 processors activated (1333.33 BogoMIPS).
-CPU: All CPU(s) started in SVC mode.
-devtmpfs: initialized
-VFP support v0.3: implementor 41 architecture 3 part 30 variant 9 rev 4
-clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
-futex hash table entries: 512 (order: 3, 32768 bytes)
-pinctrl core: initialized pinctrl subsystem
-NET: Registered protocol family 16
-DMA: preallocated 256 KiB pool for atomic coherent allocations
-cpuidle: using governor menu
-hw-breakpoint: found 5 (+1 reserved) breakpoint and 1 watchpoint registers.
-hw-breakpoint: maximum watchpoint size is 4 bytes.
-zynq-ocm f800c000.ocmc: ZYNQ OCM pool: 256 KiB @ 0xf0880000
-zynq-pinctrl 700.pinctrl: zynq pinctrl initialized
-e0000000.serial: ttyPS0 at MMIO 0xe0000000 (irq = 25, base_baud = 6249999) is a xuartps`¨ÀkΩ±ïÅm——ÂAM¡uÅïπÖâ±ïë5)çΩπÕΩ±ïÅm——ÂAM¡uÅïπÖâ±ïë5)âΩΩ—çΩπÕΩ±ïÅmçëπÕ¡uÅë•ÕÖâ±ïë5)âΩΩ—çΩπÕΩ±ïÅmçëπÕ¡uÅë•ÕÖâ±ïë5)ˇSCSI subsystem initialized
-pps_core: LinuxPPS API ver. 1 registered
-pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
-PTP clock support registered
-clocksource: Switched to clocksource arm_global_timer
-NET: Registered protocol family 2
-TCP established hash table entries: 8192 (order: 3, 32768 bytes)
-TCP bind hash table entries: 8192 (order: 4, 65536 bytes)
-TCP: Hash tables configured (established 8192 bind 8192)
-UDP hash table entries: 512 (order: 2, 16384 bytes)
-UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
-NET: Registered protocol family 1
-Trying to unpack rootfs image as initramfs...
-Freeing initrd memory: 5272K
-hw perfevents: no interrupt-affinity property for /pmu@f8891000, guessing.
-hw perfevents: enabled with armv7_cortex_a9 PMU driver, 7 counters available
-workingset: timestamp_bits=30 max_order=18 bucket_order=0
-jffs2: version 2.2. (NAND) (SUMMARY)  ¬© 2001-2006 Red Hat, Inc.
-bounce: pool size: 64 pages
-io scheduler noop registered
-io scheduler deadline registered
-io scheduler cfq registered (default)
-io scheduler mq-deadline registered
-io scheduler kyber registered
-dma-pl330 f8003000.dmac: Loaded driver for PL330 DMAC-241330
-dma-pl330 f8003000.dmac: 	DBUFF-128x8bytes Num_Chans-8 Num_Peri-4 Num_Events-16
-brd: module loaded
-loop: module loaded
-spidev spi3.0: buggy DT: spidev listed directly in DT
-------------[ cut here ]------------
-WARNING: CPU: 1 PID: 1 at drivers/spi/spidev.c:730 spidev_probe+0x16c/0x1a0
-Modules linked in:
-CPU: 1 PID: 1 Comm: swapper/0 Not tainted 4.14.0-mcsov #1
-Hardware name: Xilinx Zynq Platform
-[<c010debc>] (unwind_backtrace) from [<c010aa5c>] (show_stack+0x10/0x14)
-[<c010aa5c>] (show_stack) from [<c0535ea8>] (dump_stack+0x80/0xa0)
-[<c0535ea8>] (dump_stack) from [<c011a7a8>] (__warn+0xc8/0xf8)
-[<c011a7a8>] (__warn) from [<c011a87c>] (warn_slowpath_null+0x1c/0x24)
-[<c011a87c>] (warn_slowpath_null) from [<c03ceb08>] (spidev_probe+0x16c/0x1a0)
-[<c03ceb08>] (spidev_probe) from [<c03cbb1c>] (spi_drv_probe+0x84/0xa0)
-[<c03cbb1c>] (spi_drv_probe) from [<c0379900>] (driver_probe_device+0x1c0/0x3bc)
-[<c0379900>] (driver_probe_device) from [<c037808c>] (bus_for_each_drv+0x80/0x90)
-[<c037808c>] (bus_for_each_drv) from [<c0379670>] (__device_attach+0x88/0x118)
-[<c0379670>] (__device_attach) from [<c0378bd0>] (bus_probe_device+0x28/0x80)
-[<c0378bd0>] (bus_probe_device) from [<c0377118>] (device_add+0x404/0x520)
-[<c0377118>] (device_add) from [<c03cc614>] (spi_add_device+0xd0/0x124)
-[<c03cc614>] (spi_add_device) from [<c03cdd1c>] (spi_register_controller+0x634/0x864)
-[<c03cdd1c>] (spi_register_controller) from [<c03d03cc>] (cdns_spi_probe+0x2ec/0x360)
-[<c03d03cc>] (cdns_spi_probe) from [<c037b244>] (platform_drv_probe+0x50/0xa0)
-[<c037b244>] (platform_drv_probe) from [<c0379900>] (driver_probe_device+0x1c0/0x3bc)
-[<c0379900>] (driver_probe_device) from [<c0379ba4>] (__driver_attach+0xa8/0xdc)
-[<c0379ba4>] (__driver_attach) from [<c0377fd4>] (bus_for_each_dev+0x68/0x8c)
-[<c0377fd4>] (bus_for_each_dev) from [<c0378e0c>] (bus_add_driver+0xe8/0x204)
-[<c0378e0c>] (bus_add_driver) from [<c037a468>] (driver_register+0x9c/0xe0)
-[<c037a468>] (driver_register) from [<c0101940>] (do_one_initcall+0xa8/0x14c)
-[<c0101940>] (do_one_initcall) from [<c0800d74>] (kernel_init_freeable+0x10c/0x1cc)
-[<c0800d74>] (kernel_init_freeable) from [<c0546a2c>] (kernel_init+0x8/0x10c)
-[<c0546a2c>] (kernel_init) from [<c0107050>] (ret_from_fork+0x14/0x24)
----[ end trace 4cedf2018d18caa5 ]---
-xilinx_spi 41e00000.axi_quad_spi: can't setup spi1.0, status -13
-spi_master spi1: spi_device register error /amba_pl/axi_quad_spi@41e00000/spidev@0
-spi_master spi1: Failed to create SPI device for /amba_pl/axi_quad_spi@41e00000/spidev@0
-libphy: Fixed MDIO Bus: probed
-libphy: MACB_mii_bus: probed
-macb e000b000.ethernet eth0: Cadence GEM rev 0x00020118 at 0xe000b000 irq 29 (00:0a:35:00:00:02)
-Micrel KSZ9031 Gigabit PHY e000b000.ethernet-ffffffff:01: attached PHY driver [Micrel KSZ9031 Gigabit PHY] (mii_bus:phy_addr=e000b000.ethernet-ffffffff:01, irq=POLL)
-i2c /dev entries driver
-IR NEC protocol handler initialized
-IR RC5(x/sz) protocol handler initialized
-IR RC6 protocol handler initialized
-IR JVC protocol handler initialized
-IR Sony protocol handler initialized
-IR SANYO protocol handler initialized
-IR Sharp protocol handler initialized
-IR MCE Keyboard/mouse protocol handler initialized
-IR XMP protocol handler initialized
-cdns-wdt f8005000.watchdog: Xilinx Watchdog Timer at f087c000 with timeout 10s
-Xilinx Zynq CpuIdle Driver started
-sdhci: Secure Digital Host Controller Interface driver
-sdhci: Copyright(c) Pierre Ossman
-sdhci-pltfm: SDHCI platform and OF driver helper
-mmc0: SDHCI controller on e0100000.mmc [e0100000.mmc] using ADMA
-Netfilter messages via NETLINK v0.30.
-nf_conntrack version 0.5.0 (16384 buckets, 65536 max)
-ip_set: protocol 6
-IPVS: Registered protocols ()
-IPVS: Connection hash table configured (size=4096, memory=32Kbytes)
-IPVS: ipvs loaded.
-ip_tables: (C) 2000-2006 Netfilter Core Team
-arp_tables: arp_tables: (C) 2002 David S. Miller
-NET: Registered protocol family 17
-Bridge firewalling registered
-Ebtables v2.0 registered
-Registering SWP/SWPB emulation handler
-hctosys: unable to open rtc device (rtc0)
-Freeing unused kernel memory: 1024K
-mmc0: new high speed SDHC card at address 0007
-mmcblk0: mmc0:0007 SD4GB 3.71 GiB 
- mmcblk0: p1
-Starting logging: OK
-Initializing random number generator... done.
-Starting network: OK
-Starting sshd: OK
-
-Welcome to MCSOV board
-mcsov login: root
-Password: 
-# ls /dev/spi*
-[1;35m/dev/spidev3.0[0m
-# 
-U-Boot SPL 2016.01mcsov (Apr 11 2019 - 13:30:49)
-mmc boot
-Trying to boot from MMC
-reading fpga.bin
-spl_load_image_fat: error reading image fpga.bin, err - -1
-spl: error reading image fpga.bin, err - 1
-reading system.dtb
-spl_load_image_fat_os: error reading image system.dtb, err - -1
-reading u-boot.img
-reading u-boot.img
-
-
-U-Boot 2016.01mcsov (Apr 11 2019 - 13:30:49 +0300)
-
-Board: Xilinx Zynq
-DRAM:  ECC disabled 1 GiB
-MMC:   mmc@e0100000: 0
-SF: Detected N25Q1024 with page size 256 Bytes, erase size 4 KiB, total 128 MiB
-In:    serial@e0000000
-Out:   serial@e0000000
-Err:   serial@e0000000
-Board: Xilinx Zynq
-Net:   ZYNQ GEM: e000b000, phyaddr -1, interface rgmii-id
-eth0: ethernet@e000b000
-Hit any key to stop autoboot:  3  2  1  0 
-Booting UMCOS board...
-reading uImage
-3205728 bytes read in 183 ms (16.7 MiB/s)
-reading devicetree.dtb
-11184 bytes read in 17 ms (641.6 KiB/s)
-reading rootfs.cpio.uboot
-5395952 bytes read in 296 ms (17.4 MiB/s)
-reading top.bin
-5979916 bytes read in 329 ms (17.3 MiB/s)
-zynq_align_dma_buffer: Bitstream is not swapped(1) - swap it
-## Booting kernel from Legacy Image at 04000000 ...
-   Image Name:   Linux-4.14.0-mcsov
-   Image Type:   ARM Linux Kernel Image (uncompressed)
-   Data Size:    3205664 Bytes = 3.1 MiB
-   Load Address: 00008000
-   Entry Point:  00008000
-   Verifying Checksum ... OK
-## Loading init Ramdisk from Legacy Image at 02000000 ...
-   Image Name:   
-   Image Type:   ARM Linux RAMDisk Image (uncompressed)
-   Data Size:    5395888 Bytes = 5.1 MiB
-   Load Address: 00000000
-   Entry Point:  00000000
-   Verifying Checksum ... OK
-## Flattened Device Tree blob at 03e00000
-   Booting using the fdt blob at 0x3e00000
-   Loading Kernel Image ... OK
-   Loading Ramdisk to 1fada000, end 1ffff5b0 ... OK
-   Loading Device Tree to 1fad4000, end 1fad9baf ... OK
-
-Starting kernel ...
-
-Booting Linux on physical CPU 0x0
-Linux version 4.14.0-mcsov (zynq@server) (gcc version 5.5.0 (Buildroot 2018.02)) #1 SMP PREEMPT Thu Apr 11 15:11:29 MSK 2019
-CPU: ARMv7 Processor [413fc090] revision 0 (ARMv7), cr=18c5387d
-CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
-OF: fdt: Machine model: xlnx,zynq-7000
-earlycon: cdns0 at MMIO 0xe0000000 (options '115200n8')
-bootconsole [cdns0] enabled
-Memory policy: Data cache writealloc
-cma: Reserved 16 MiB at 0x3f000000
-random: fast init done
-percpu: Embedded 16 pages/cpu @ef7ce000 s34444 r8192 d22900 u65536
-Built 1 zonelists, mobility grouping on.  Total pages: 260608
-Kernel command line: console=ttyPS0,115200 root=/dev/ram0 rw rootwait earlyprintk earlycon spidev.bufsiz=32768
-PID hash table entries: 4096 (order: 2, 16384 bytes)
-Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
-Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
-Memory: 1008680K/1048576K available (5120K kernel code, 199K rwdata, 1220K rodata, 1024K init, 130K bss, 23512K reserved, 16384K cma-reserved, 245760K highmem)
-Virtual kernel memory layout:
-    vector  : 0xffff0000 - 0xffff1000   (   4 kB)
-    fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
-    vmalloc : 0xf0800000 - 0xff800000   ( 240 MB)
-    lowmem  : 0xc0000000 - 0xf0000000   ( 768 MB)
-    pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
-    modules : 0xbf000000 - 0xbfe00000   (  14 MB)
-      .text : 0xc0008000 - 0xc0600000   (6112 kB)
-      .init : 0xc0800000 - 0xc0900000   (1024 kB)
-      .data : 0xc0900000 - 0xc0931e80   ( 200 kB)
-       .bss : 0xc09372bc - 0xc0957d24   ( 131 kB)
-Preemptible hierarchical RCU implementation.
-	RCU restricting CPUs from NR_CPUS=4 to nr_cpu_ids=2.
-	Tasks RCU enabled.
-RCU: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=2
-NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
-efuse mapped to f0800000
-slcr mapped to f0802000
-L2C: platform modifies aux control register: 0x02060000 -> 0x32460000
-L2C: DT/platform modifies aux control register: 0x02060000 -> 0x32460000
-L2C-310 erratum 769419 enabled
-L2C-310 enabling early BRESP for Cortex-A9
-L2C-310 full line of zeros enabled for Cortex-A9
-L2C-310 dynamic clock gating enabled, standby mode enabled
-L2C-310 cache controller enabled, 8 ways, 512 kB
-L2C-310: CACHE_ID 0x410000c8, AUX_CTRL 0x46460001
-zynq_clock_init: clkc starts at f0802100
-Zynq clock init
-sched_clock: 64 bits at 333MHz, resolution 3ns, wraps every 4398046511103ns
-clocksource: arm_global_timer: mask: 0xffffffffffffffff max_cycles: 0x4ce07af025, max_idle_ns: 440795209040 ns
-Switching to timer-based delay loop, resolution 3ns
-clocksource: ttc_clocksource: mask: 0xffff max_cycles: 0xffff, max_idle_ns: 537538477 ns
-timer #0 at f080a000, irq=17
-Console: colour dummy device 80x30
-Calibrating delay loop (skipped), value calculated using timer frequency.. 666.66 BogoMIPS (lpj=3333333)
-pid_max: default: 32768 minimum: 301
-Mount-cache hash table entries: 2048 (order: 1, 8192 bytes)
-Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes)
-CPU: Testing write buffer coherency: ok
-CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
-Setting up static identity map for 0x100000 - 0x100060
-Hierarchical SRCU implementation.
-smp: Bringing up secondary CPUs ...
-CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
-smp: Brought up 1 node, 2 CPUs
-SMP: Total of 2 processors activated (1333.33 BogoMIPS).
-CPU: All CPU(s) started in SVC mode.
-devtmpfs: initialized
-VFP support v0.3: implementor 41 architecture 3 part 30 variant 9 rev 4
-clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
-futex hash table entries: 512 (order: 3, 32768 bytes)
-pinctrl core: initialized pinctrl subsystem
-NET: Registered protocol family 16
-DMA: preallocated 256 KiB pool for atomic coherent allocations
-cpuidle: using governor menu
-hw-breakpoint: found 5 (+1 reserved) breakpoint and 1 watchpoint registers.
-hw-breakpoint: maximum watchpoint size is 4 bytes.
-zynq-ocm f800c000.ocmc: ZYNQ OCM pool: 256 KiB @ 0xf0880000
-zynq-pinctrl 700.pinctrl: zynq pinctrl initialized
-e0000000.serial: ttyPS0 at MMIO 0xe0000000 (irq = 25, base_baud = 6249999) is a xuartps`¨ÀkΩ±ïÅm——ÂAM¡uÅïπÖâ±ïë5)çΩπÕΩ±ïÅm——ÂAM¡uÅïπÖâ±ïë5)âΩΩ—çΩπÕΩ±ïÅmçëπÕ¡uÅë•ÕÖâ±ïë5)âΩΩ—çΩπÕΩ±ïÅmçëπÕ¡uÅë•ÕÖâ±ïë5)ˇSCSI subsystem initialized
-pps_core: LinuxPPS API ver. 1 registered
-pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
-PTP clock support registered
-clocksource: Switched to clocksource arm_global_timer
-NET: Registered protocol family 2
-TCP established hash table entries: 8192 (order: 3, 32768 bytes)
-TCP bind hash table entries: 8192 (order: 4, 65536 bytes)
-TCP: Hash tables configured (established 8192 bind 8192)
-UDP hash table entries: 512 (order: 2, 16384 bytes)
-UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
-NET: Registered protocol family 1
-Trying to unpack rootfs image as initramfs...
-Freeing initrd memory: 5272K
-hw perfevents: no interrupt-affinity property for /pmu@f8891000, guessing.
-hw perfevents: enabled with armv7_cortex_a9 PMU driver, 7 counters available
-workingset: timestamp_bits=30 max_order=18 bucket_order=0
-jffs2: version 2.2. (NAND) (SUMMARY)  ¬© 2001-2006 Red Hat, Inc.
-bounce: pool size: 64 pages
-io scheduler noop registered
-io scheduler deadline registered
-io scheduler cfq registered (default)
-io scheduler mq-deadline registered
-io scheduler kyber registered
-dma-pl330 f8003000.dmac: Loaded driver for PL330 DMAC-241330
-dma-pl330 f8003000.dmac: 	DBUFF-128x8bytes Num_Chans-8 Num_Peri-4 Num_Events-16
-brd: module loaded
-loop: module loaded
-spidev spi2.0: buggy DT: spidev listed directly in DT
-------------[ cut here ]------------
-WARNING: CPU: 0 PID: 1 at drivers/spi/spidev.c:730 spidev_probe+0x16c/0x1a0
-Modules linked in:
-CPU: 0 PID: 1 Comm: swapper/0 Not tainted 4.14.0-mcsov #1
-Hardware name: Xilinx Zynq Platform
-[<c010debc>] (unwind_backtrace) from [<c010aa5c>] (show_stack+0x10/0x14)
-[<c010aa5c>] (show_stack) from [<c0535ea8>] (dump_stack+0x80/0xa0)
-[<c0535ea8>] (dump_stack) from [<c011a7a8>] (__warn+0xc8/0xf8)
-[<c011a7a8>] (__warn) from [<c011a87c>] (warn_slowpath_null+0x1c/0x24)
-[<c011a87c>] (warn_slowpath_null) from [<c03ceb08>] (spidev_probe+0x16c/0x1a0)
-[<c03ceb08>] (spidev_probe) from [<c03cbb1c>] (spi_drv_probe+0x84/0xa0)
-[<c03cbb1c>] (spi_drv_probe) from [<c0379900>] (driver_probe_device+0x1c0/0x3bc)
-[<c0379900>] (driver_probe_device) from [<c037808c>] (bus_for_each_drv+0x80/0x90)
-[<c037808c>] (bus_for_each_drv) from [<c0379670>] (__device_attach+0x88/0x118)
-[<c0379670>] (__device_attach) from [<c0378bd0>] (bus_probe_device+0x28/0x80)
-[<c0378bd0>] (bus_probe_device) from [<c0377118>] (device_add+0x404/0x520)
-[<c0377118>] (device_add) from [<c03cc614>] (spi_add_device+0xd0/0x124)
-[<c03cc614>] (spi_add_device) from [<c03cdd1c>] (spi_register_controller+0x634/0x864)
-[<c03cdd1c>] (spi_register_controller) from [<c03d03cc>] (cdns_spi_probe+0x2ec/0x360)
-[<c03d03cc>] (cdns_spi_probe) from [<c037b244>] (platform_drv_probe+0x50/0xa0)
-[<c037b244>] (platform_drv_probe) from [<c0379900>] (driver_probe_device+0x1c0/0x3bc)
-[<c0379900>] (driver_probe_device) from [<c0379ba4>] (__driver_attach+0xa8/0xdc)
-[<c0379ba4>] (__driver_attach) from [<c0377fd4>] (bus_for_each_dev+0x68/0x8c)
-[<c0377fd4>] (bus_for_each_dev) from [<c0378e0c>] (bus_add_driver+0xe8/0x204)
-[<c0378e0c>] (bus_add_driver) from [<c037a468>] (driver_register+0x9c/0xe0)
-[<c037a468>] (driver_register) from [<c0101940>] (do_one_initcall+0xa8/0x14c)
-[<c0101940>] (do_one_initcall) from [<c0800d74>] (kernel_init_freeable+0x10c/0x1cc)
-[<c0800d74>] (kernel_init_freeable) from [<c0546a2c>] (kernel_init+0x8/0x10c)
-[<c0546a2c>] (kernel_init) from [<c0107050>] (ret_from_fork+0x14/0x24)
----[ end trace 6a4b7fd920dbaf0e ]---
-xilinx_spi 41e00000.axi_quad_spi: can't setup spi1.0, status -13
-spi_master spi1: spi_device register error /amba_pl/axi_quad_spi@41e00000/spidev@0
-spi_master spi1: Failed to create SPI device for /amba_pl/axi_quad_spi@41e00000/spidev@0
-libphy: Fixed MDIO Bus: probed
-libphy: MACB_mii_bus: probed
-macb e000b000.ethernet eth0: Cadence GEM rev 0x00020118 at 0xe000b000 irq 28 (00:0a:35:00:00:02)
-Micrel KSZ9031 Gigabit PHY e000b000.ethernet-ffffffff:01: attached PHY driver [Micrel KSZ9031 Gigabit PHY] (mii_bus:phy_addr=e000b000.ethernet-ffffffff:01, irq=POLL)
-i2c /dev entries driver
-IR NEC protocol handler initialized
-IR RC5(x/sz) protocol handler initialized
-IR RC6 protocol handler initialized
-IR JVC protocol handler initialized
-IR Sony protocol handler initialized
-IR SANYO protocol handler initialized
-IR Sharp protocol handler initialized
-IR MCE Keyboard/mouse protocol handler initialized
-IR XMP protocol handler initialized
-cdns-wdt f8005000.watchdog: Xilinx Watchdog Timer at f087a000 with timeout 10s
-Xilinx Zynq CpuIdle Driver started
-sdhci: Secure Digital Host Controller Interface driver
-sdhci: Copyright(c) Pierre Ossman
-sdhci-pltfm: SDHCI platform and OF driver helper
-mmc0: SDHCI controller on e0100000.mmc [e0100000.mmc] using ADMA
-Netfilter messages via NETLINK v0.30.
-nf_conntrack version 0.5.0 (16384 buckets, 65536 max)
-ip_set: protocol 6
-IPVS: Registered protocols ()
-IPVS: Connection hash table configured (size=4096, memory=32Kbytes)
-IPVS: ipvs loaded.
-ip_tables: (C) 2000-2006 Netfilter Core Team
-arp_tables: arp_tables: (C) 2002 David S. Miller
-NET: Registered protocol family 17
-Bridge firewalling registered
-Ebtables v2.0 registered
-Registering SWP/SWPB emulation handler
-hctosys: unable to open rtc device (rtc0)
-Freeing unused kernel memory: 1024K
-mmc0: new high speed SDHC card at address 0007
-mmcblk0: mmc0:0007 SD4GB 3.71 GiB 
- mmcblk0: p1
-Starting logging: OK
-Initializing random number generator... done.
-Starting network: OK
-Starting sshd: OK
-
-Welcome to MCSOV board
-mcsov login: root
-Password: 
-# ls /dev/spi*
-[1;35m/dev/spidev2.0[0m
-# 
-U-Boot SPL 2016.01mcsov (Apr 11 2019 - 13:30:49)
-mmc boot
-Trying to boot from MMC
-reading fpga.bin
-spl_load_image_fat: error reading image fpga.bin, err - -1
-spl: error reading image fpga.bin, err - 1
-reading system.dtb
-spl_load_image_fat_os: error reading image system.dtb, err - -1
-reading u-boot.img
-reading u-boot.img
-
-
-U-Boot 2016.01mcsov (Apr 11 2019 - 13:30:49 +0300)
-
-Board: Xilinx Zynq
-DRAM:  ECC disabled 1 GiB
-MMC:   mmc@e0100000: 0
-SF: Detected N25Q1024 with page size 256 Bytes, erase size 4 KiB, total 128 MiB
-In:    serial@e0000000
-Out:   serial@e0000000
-Err:   serial@e0000000
-Board: Xilinx Zynq
-Net:   ZYNQ GEM: e000b000, phyaddr -1, interface rgmii-id
-eth0: ethernet@e000b000
-Hit any key to stop autoboot:  3  2  1  0 
-Booting UMCOS board...
-reading uImage
-3165600 bytes read in 181 ms (16.7 MiB/s)
-reading devicetree.dtb
-11002 bytes read in 17 ms (631.8 KiB/s)
-reading rootfs.cpio.uboot
-5395952 bytes read in 296 ms (17.4 MiB/s)
-reading top.bin
-5979916 bytes read in 328 ms (17.4 MiB/s)
-zynq_align_dma_buffer: Bitstream is not swapped(1) - swap it
-## Booting kernel from Legacy Image at 04000000 ...
-   Image Name:   Linux-4.14.0-mcsov
-   Image Type:   ARM Linux Kernel Image (uncompressed)
-   Data Size:    3165536 Bytes = 3 MiB
-   Load Address: 00008000
-   Entry Point:  00008000
-   Verifying Checksum ... OK
-## Loading init Ramdisk from Legacy Image at 02000000 ...
-   Image Name:   
-   Image Type:   ARM Linux RAMDisk Image (uncompressed)
-   Data Size:    5395888 Bytes = 5.1 MiB
-   Load Address: 00000000
-   Entry Point:  00000000
-   Verifying Checksum ... OK
-## Flattened Device Tree blob at 03e00000
-   Booting using the fdt blob at 0x3e00000
-   Loading Kernel Image ... OK
-   Loading Ramdisk to 1fada000, end 1ffff5b0 ... OK
-   Loading Device Tree to 1fad4000, end 1fad9af9 ... OK
-
-Starting kernel ...
-
-Booting Linux on physical CPU 0x0
-Linux version 4.14.0-mcsov (zynq@server) (gcc version 5.5.0 (Buildroot 2018.02)) #2 SMP PREEMPT Thu Apr 11 15:59:27 MSK 2019
-CPU: ARMv7 Processor [413fc090] revision 0 (ARMv7), cr=18c5387d
-CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
-OF: fdt: Machine model: xlnx,zynq-7000
-earlycon: cdns0 at MMIO 0xe0000000 (options '115200n8')
-bootconsole [cdns0] enabled
-Memory policy: Data cache writealloc
-cma: Reserved 16 MiB at 0x3f000000
-random: fast init done
-percpu: Embedded 16 pages/cpu @ef7cf000 s33868 r8192 d23476 u65536
-Built 1 zonelists, mobility grouping on.  Total pages: 260608
-Kernel command line: console=ttyPS0,115200 root=/dev/ram0 rw rootwait earlyprintk earlycon spidev.bufsiz=32768
-PID hash table entries: 4096 (order: 2, 16384 bytes)
-Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
-Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
-Memory: 1008684K/1048576K available (5120K kernel code, 197K rwdata, 1200K rodata, 1024K init, 130K bss, 23508K reserved, 16384K cma-reserved, 245760K highmem)
-Virtual kernel memory layout:
-    vector  : 0xffff0000 - 0xffff1000   (   4 kB)
-    fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
-    vmalloc : 0xf0800000 - 0xff800000   ( 240 MB)
-    lowmem  : 0xc0000000 - 0xf0000000   ( 768 MB)
-    pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
-    modules : 0xbf000000 - 0xbfe00000   (  14 MB)
-      .text : 0xc0008000 - 0xc0600000   (6112 kB)
-      .init : 0xc0800000 - 0xc0900000   (1024 kB)
-      .data : 0xc0900000 - 0xc0931780   ( 198 kB)
-       .bss : 0xc0936b68 - 0xc09574a4   ( 131 kB)
-Preemptible hierarchical RCU implementation.
-	RCU restricting CPUs from NR_CPUS=4 to nr_cpu_ids=2.
-	Tasks RCU enabled.
-RCU: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=2
-NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
-efuse mapped to f0800000
-slcr mapped to f0802000
-L2C: platform modifies aux control register: 0x02060000 -> 0x32460000
-L2C: DT/platform modifies aux control register: 0x02060000 -> 0x32460000
-L2C-310 erratum 769419 enabled
-L2C-310 enabling early BRESP for Cortex-A9
-L2C-310 full line of zeros enabled for Cortex-A9
-L2C-310 dynamic clock gating enabled, standby mode enabled
-L2C-310 cache controller enabled, 8 ways, 512 kB
-L2C-310: CACHE_ID 0x410000c8, AUX_CTRL 0x46460001
-zynq_clock_init: clkc starts at f0802100
-Zynq clock init
-sched_clock: 64 bits at 333MHz, resolution 3ns, wraps every 4398046511103ns
-clocksource: arm_global_timer: mask: 0xffffffffffffffff max_cycles: 0x4ce07af025, max_idle_ns: 440795209040 ns
-Switching to timer-based delay loop, resolution 3ns
-clocksource: ttc_clocksource: mask: 0xffff max_cycles: 0xffff, max_idle_ns: 537538477 ns
-timer #0 at f080a000, irq=17
-Console: colour dummy device 80x30
-Calibrating delay loop (skipped), value calculated using timer frequency.. 666.66 BogoMIPS (lpj=3333333)
-pid_max: default: 32768 minimum: 301
-Mount-cache hash table entries: 2048 (order: 1, 8192 bytes)
-Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes)
-CPU: Testing write buffer coherency: ok
-CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
-Setting up static identity map for 0x100000 - 0x10003c
-Hierarchical SRCU implementation.
-smp: Bringing up secondary CPUs ...
-CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
-smp: Brought up 1 node, 2 CPUs
-SMP: Total of 2 processors activated (1333.33 BogoMIPS).
-CPU: All CPU(s) started in SVC mode.
-devtmpfs: initialized
-VFP support v0.3: implementor 41 architecture 3 part 30 variant 9 rev 4
-clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
-futex hash table entries: 512 (order: 3, 32768 bytes)
-pinctrl core: initialized pinctrl subsystem
-NET: Registered protocol family 16
-DMA: preallocated 256 KiB pool for atomic coherent allocations
-cpuidle: using governor menu
-hw-breakpoint: found 5 (+1 reserved) breakpoint and 1 watchpoint registers.
-hw-breakpoint: maximum watchpoint size is 4 bytes.
-zynq-ocm f800c000.ocmc: ZYNQ OCM pool: 256 KiB @ 0xf0880000
-zynq-pinctrl 700.pinctrl: zynq pinctrl initialized
-e0000000.serial: ttyPS0 at MMIO 0xe0000000 (irq = 25, base_baud = 6249999) is a xuartps`¨ÀkΩ±ïÅm——ÂAM¡uÅïπÖâ±ïë5)çΩπÕΩ±ïÅm——ÂAM¡uÅïπÖâ±ïë5)âΩΩ—çΩπÕΩ±ïÅmçëπÕ¡uÅë•ÕÖâ±ïë5)âΩΩ—çΩπÕΩ±ïÅmçëπÕ¡uÅë•ÕÖâ±ïë5)ˇSCSI subsystem initialized
-pps_core: LinuxPPS API ver. 1 registered
-pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
-PTP clock support registered
-clocksource: Switched to clocksource arm_global_timer
-NET: Registered protocol family 2
-TCP established hash table entries: 8192 (order: 3, 32768 bytes)
-TCP bind hash table entries: 8192 (order: 4, 65536 bytes)
-TCP: Hash tables configured (established 8192 bind 8192)
-UDP hash table entries: 512 (order: 2, 16384 bytes)
-UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
-NET: Registered protocol family 1
-Trying to unpack rootfs image as initramfs...
-Freeing initrd memory: 5272K
-hw perfevents: no interrupt-affinity property for /pmu@f8891000, guessing.
-hw perfevents: enabled with armv7_cortex_a9 PMU driver, 7 counters available
-workingset: timestamp_bits=30 max_order=18 bucket_order=0
-jffs2: version 2.2. (NAND) (SUMMARY)  ¬© 2001-2006 Red Hat, Inc.
-bounce: pool size: 64 pages
-io scheduler noop registered
-io scheduler deadline registered
-io scheduler cfq registered (default)
-io scheduler mq-deadline registered
-io scheduler kyber registered
-dma-pl330 f8003000.dmac: Loaded driver for PL330 DMAC-241330
-dma-pl330 f8003000.dmac: 	DBUFF-128x8bytes Num_Chans-8 Num_Peri-4 Num_Events-16
-brd: module loaded
-loop: module loaded
-libphy: Fixed MDIO Bus: probed
-libphy: MACB_mii_bus: probed
-macb e000b000.ethernet eth0: Cadence GEM rev 0x00020118 at 0xe000b000 irq 28 (00:0a:35:00:00:02)
-Micrel KSZ9031 Gigabit PHY e000b000.ethernet-ffffffff:01: attached PHY driver [Micrel KSZ9031 Gigabit PHY] (mii_bus:phy_addr=e000b000.ethernet-ffffffff:01, irq=POLL)
-i2c /dev entries driver
-IR NEC protocol handler initialized
-IR RC5(x/sz) protocol handler initialized
-IR RC6 protocol handler initialized
-IR JVC protocol handler initialized
-IR Sony protocol handler initialized
-IR SANYO protocol handler initialized
-IR Sharp protocol handler initialized
-IR MCE Keyboard/mouse protocol handler initialized
-IR XMP protocol handler initialized
-cdns-wdt f8005000.watchdog: Xilinx Watchdog Timer at f087a000 with timeout 10s
-Xilinx Zynq CpuIdle Driver started
-sdhci: Secure Digital Host Controller Interface driver
-sdhci: Copyright(c) Pierre Ossman
-sdhci-pltfm: SDHCI platform and OF driver helper
-mmc0: SDHCI controller on e0100000.mmc [e0100000.mmc] using ADMA
-Netfilter messages via NETLINK v0.30.
-nf_conntrack version 0.5.0 (16384 buckets, 65536 max)
-ip_set: protocol 6
-IPVS: Registered protocols ()
-IPVS: Connection hash table configured (size=4096, memory=32Kbytes)
-IPVS: ipvs loaded.
-ip_tables: (C) 2000-2006 Netfilter Core Team
-arp_tables: arp_tables: (C) 2002 David S. Miller
-NET: Registered protocol family 17
-Bridge firewalling registered
-Ebtables v2.0 registered
-Registering SWP/SWPB emulation handler
-hctosys: unable to open rtc device (rtc0)
-Freeing unused kernel memory: 1024K
-mmc0: new high speed SDHC card at address 0007
-mmcblk0: mmc0:0007 SD4GB 3.71 GiB 
- mmcblk0: p1
-Starting logging: OK
-Initializing random number generator... done.
-Starting network: OK
-Starting sshd: OK
-
-Welcome to MCSOV board
-mcsov login: root
-Password: 
-# ls /dev/spi*
-ls: /dev/spi*: No such file or directory
-# ls /dev/spi*    
-[1;35mconsole[0m             [1;35mram8[0m                [1;35mtty4[0m
-[1;35mcpu_dma_latency[0m     [1;35mram9[0m                [1;35mtty40[0m
-[1;35mfull[0m                [1;35mrandom[0m              [1;35mtty41[0m
-[1;35mgpiochip0[0m           [1;34mshm[0m                 [1;35mtty42[0m
-[1;35miio:device0[0m         [1;35mtty[0m                 [1;35mtty43[0m
-[1;35mkmsg[0m                [1;35mtty0[0m                [1;35mtty44[0m
-[1;35mlog[0m                 [1;35mtty1[0m                [1;35mtty45[0m
-[1;35mloop-control[0m        [1;35mtty10[0m               [1;35mtty46[0m
-[1;35mloop0[0m               [1;35mtty11[0m               [1;35mtty47[0m
-[1;35mloop1[0m               [1;35mtty12[0m               [1;35mtty48[0m
-[1;35mloop2[0m               [1;35mtty13[0m               [1;35mtty49[0m
-[1;35mloop3[0m               [1;35mtty14[0m               [1;35mtty5[0m
-[1;35mloop4[0m               [1;35mtty15[0m               [1;35mtty50[0m
-[1;35mloop5[0m               [1;35mtty16[0m               [1;35mtty51[0m
-[1;35mloop6[0m               [1;35mtty17[0m               [1;35mtty52[0m
-[1;35mloop7[0m               [1;35mtty18[0m               [1;35mtty53[0m
-[1;35mmem[0m                 [1;35mtty19[0m               [1;35mtty54[0m
-[1;35mmemory_bandwidth[0m    [1;35mtty2[0m                [1;35mtty55[0m
-[1;35mmmcblk0[0m             [1;35mtty20[0m               [1;35mtty56[0m
-[1;35mmmcblk0p1[0m           [1;35mtty21[0m               [1;35mtty57[0m
-[1;35mnetwork_latency[0m     [1;35mtty22[0m               [1;35mtty58[0m
-[1;35mnetwork_throughput[0m  [1;35mtty23[0m               [1;35mtty59[0m
-[1;35mnull[0m                [1;35mtty24[0m               [1;35mtty6[0m
-[1;35mptmx[0m                [1;35mtty25[0m               [1;35mtty60[0m
-[1;34mpts[0m                 [1;35mtty26[0m               [1;35mtty61[0m
-[1;35mram0[0m                [1;35mtty27[0m               [1;35mtty62[0m
-[1;35mram1[0m                [1;35mtty28[0m               [1;35mtty63[0m
-[1;35mram10[0m               [1;35mtty29[0m               [1;35mtty7[0m
-[1;35mram11[0m               [1;35mtty3[0m                [1;35mtty8[0m
-[1;35mram12[0m               [1;35mtty30[0m               [1;35mtty9[0m
-[1;35mram13[0m               [1;35mtty31[0m               [1;35mttyPS0[0m
-[1;35mram14[0m               [1;35mtty32[0m               [1;35murandom[0m
-[1;35mram15[0m               [1;35mtty33[0m               [1;35mvcs[0m
-[1;35mram2[0m                [1;35mtty34[0m               [1;35mvcs1[0m
-[1;35mram3[0m                [1;35mtty35[0m               [1;35mvcsa[0m
-[1;35mram4[0m                [1;35mtty36[0m               [1;35mvcsa1[0m
-[1;35mram5[0m                [1;35mtty37[0m               [1;35mwatchdog[0m
-[1;35mram6[0m                [1;35mtty38[0m               [1;35mwatchdog0[0m
-[1;35mram7[0m                [1;35mtty39[0m               [1;35mzero[0m
-# 
-U-Boot SPL 2016.01mcsov (Apr 11 2019 - 13:30:49)
-mmc boot
-Trying to boot from MMC
-reading fpga.bin
-spl_load_image_fat: error reading image fpga.bin, err - -1
-spl: error reading image fpga.bin, err - 1
-reading system.dtb
-spl_load_image_fat_os: error reading image system.dtb, err - -1
-reading u-boot.img
-reading u-boot.img
-
-
-U-Boot 2016.01mcsov (Apr 11 2019 - 13:30:49 +0300)
-
-Board: Xilinx Zynq
-DRAM:  ECC disabled 1 GiB
-MMC:   mmc@e0100000: 0
-SF: Detected N25Q1024 with page size 256 Bytes, erase size 4 KiB, total 128 MiB
-In:    serial@e0000000
-Out:   serial@e0000000
-Err:   serial@e0000000
-Board: Xilinx Zynq
-Net:   ZYNQ GEM: e000b000, phyaddr -1, interface rgmii-id
-eth0: ethernet@e000b000
-Hit any key to stop autoboot:  3  2  1  0 
-Booting UMCOS board...
-reading uImage
-3165600 bytes read in 181 ms (16.7 MiB/s)
-reading devicetree.dtb
-11002 bytes read in 18 ms (596.7 KiB/s)
-reading rootfs.cpio.uboot
-5395952 bytes read in 296 ms (17.4 MiB/s)
-reading top.bin
-5979916 bytes read in 328 ms (17.4 MiB/s)
-zynq_align_dma_buffer: Bitstream is not swapped(1) - swap it
-## Booting kernel from Legacy Image at 04000000 ...
-   Image Name:   Linux-4.14.0-mcsov
-   Image Type:   ARM Linux Kernel Image (uncompressed)
-   Data Size:    3165536 Bytes = 3 MiB
-   Load Address: 00008000
-   Entry Point:  00008000
-   Verifying Checksum ... OK
-## Loading init Ramdisk from Legacy Image at 02000000 ...
-   Image Name:   
-   Image Type:   ARM Linux RAMDisk Image (uncompressed)
-   Data Size:    5395888 Bytes = 5.1 MiB
-   Load Address: 00000000
-   Entry Point:  00000000
-   Verifying Checksum ... OK
-## Flattened Device Tree blob at 03e00000
-   Booting using the fdt blob at 0x3e00000
-   Loading Kernel Image ... OK
-   Loading Ramdisk to 1fada000, end 1ffff5b0 ... OK
-   Loading Device Tree to 1fad4000, end 1fad9af9 ... OK
-
-Starting kernel ...
-
-Booting Linux on physical CPU 0x0
-Linux version 4.14.0-mcsov (zynq@server) (gcc version 5.5.0 (Buildroot 2018.02)) #2 SMP PREEMPT Thu Apr 11 15:59:27 MSK 2019
-CPU: ARMv7 Processor [413fc090] revision 0 (ARMv7), cr=18c5387d
-CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
-OF: fdt: Machine model: xlnx,zynq-7000
-earlycon: cdns0 at MMIO 0xe0000000 (options '115200n8')
-bootconsole [cdns0] enabled
-Memory policy: Data cache writealloc
-cma: Reserved 16 MiB at 0x3f000000
-random: fast init done
-percpu: Embedded 16 pages/cpu @ef7cf000 s33868 r8192 d23476 u65536
-Built 1 zonelists, mobility grouping on.  Total pages: 260608
-Kernel command line: console=ttyPS0,115200 root=/dev/ram0 rw rootwait earlyprintk earlycon spidev.bufsiz=32768
-PID hash table entries: 4096 (order: 2, 16384 bytes)
-Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
-Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
-Memory: 1008684K/1048576K available (5120K kernel code, 197K rwdata, 1200K rodata, 1024K init, 130K bss, 23508K reserved, 16384K cma-reserved, 245760K highmem)
-Virtual kernel memory layout:
-    vector  : 0xffff0000 - 0xffff1000   (   4 kB)
-    fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
-    vmalloc : 0xf0800000 - 0xff800000   ( 240 MB)
-    lowmem  : 0xc0000000 - 0xf0000000   ( 768 MB)
-    pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
-    modules : 0xbf000000 - 0xbfe00000   (  14 MB)
-      .text : 0xc0008000 - 0xc0600000   (6112 kB)
-      .init : 0xc0800000 - 0xc0900000   (1024 kB)
-      .data : 0xc0900000 - 0xc0931780   ( 198 kB)
-       .bss : 0xc0936b68 - 0xc09574a4   ( 131 kB)
-Preemptible hierarchical RCU implementation.
-	RCU restricting CPUs from NR_CPUS=4 to nr_cpu_ids=2.
-	Tasks RCU enabled.
-RCU: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=2
-NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
-efuse mapped to f0800000
-slcr mapped to f0802000
-L2C: platform modifies aux control register: 0x02060000 -> 0x32460000
-L2C: DT/platform modifies aux control register: 0x02060000 -> 0x32460000
-L2C-310 erratum 769419 enabled
-L2C-310 enabling early BRESP for Cortex-A9
-L2C-310 full line of zeros enabled for Cortex-A9
-L2C-310 dynamic clock gating enabled, standby mode enabled
-L2C-310 cache controller enabled, 8 ways, 512 kB
-L2C-310: CACHE_ID 0x410000c8, AUX_CTRL 0x46460001
-zynq_clock_init: clkc starts at f0802100
-Zynq clock init
-sched_clock: 64 bits at 333MHz, resolution 3ns, wraps every 4398046511103ns
-clocksource: arm_global_timer: mask: 0xffffffffffffffff max_cycles: 0x4ce07af025, max_idle_ns: 440795209040 ns
-Switching to timer-based delay loop, resolution 3ns
-clocksource: ttc_clocksource: mask: 0xffff max_cycles: 0xffff, max_idle_ns: 537538477 ns
-timer #0 at f080a000, irq=17
-Console: colour dummy device 80x30
-Calibrating delay loop (skipped), value calculated using timer frequency.. 666.66 BogoMIPS (lpj=3333333)
-pid_max: default: 32768 minimum: 301
-Mount-cache hash table entries: 2048 (order: 1, 8192 bytes)
-Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes)
-CPU: Testing write buffer coherency: ok
-CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
-Setting up static identity map for 0x100000 - 0x10003c
-Hierarchical SRCU implementation.
-smp: Bringing up secondary CPUs ...
-CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
-smp: Brought up 1 node, 2 CPUs
-SMP: Total of 2 processors activated (1333.33 BogoMIPS).
-CPU: All CPU(s) started in SVC mode.
-devtmpfs: initialized
-VFP support v0.3: implementor 41 architecture 3 part 30 variant 9 rev 4
-clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
-futex hash table entries: 512 (order: 3, 32768 bytes)
-pinctrl core: initialized pinctrl subsystem
-NET: Registered protocol family 16
-DMA: preallocated 256 KiB pool for atomic coherent allocations
-cpuidle: using governor menu
-hw-breakpoint: found 5 (+1 reserved) breakpoint and 1 watchpoint registers.
-hw-breakpoint: maximum watchpoint size is 4 bytes.
-zynq-ocm f800c000.ocmc: ZYNQ OCM pool: 256 KiB @ 0xf0880000
-zynq-pinctrl 700.pinctrl: zynq pinctrl initialized
-e0000000.serial: ttyPS0 at MMIO 0xe0000000 (irq = 25, base_baud = 6249999) is a xuartps`¨ÀkΩ±ïÅm——ÂAM¡uÅïπÖâ±ïë5)çΩπÕΩ±ïÅm——ÂAM¡uÅïπÖâ±ïë5)âΩΩ—çΩπÕΩ±ïÅmçëπÕ¡uÅë•ÕÖâ±ïë5)âΩΩ—çΩπÕΩ±ïÅmçëπÕ¡uÅë•ÕÖâ±ïë5)ˇSCSI subsystem initialized
-pps_core: LinuxPPS API ver. 1 registered
-pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
-PTP clock support registered
-clocksource: Switched to clocksource arm_global_timer
-NET: Registered protocol family 2
-TCP established hash table entries: 8192 (order: 3, 32768 bytes)
-TCP bind hash table entries: 8192 (order: 4, 65536 bytes)
-TCP: Hash tables configured (established 8192 bind 8192)
-UDP hash table entries: 512 (order: 2, 16384 bytes)
-UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
-NET: Registered protocol family 1
-Trying to unpack rootfs image as initramfs...
-Freeing initrd memory: 5272K
-hw perfevents: no interrupt-affinity property for /pmu@f8891000, guessing.
-hw perfevents: enabled with armv7_cortex_a9 PMU driver, 7 counters available
-workingset: timestamp_bits=30 max_order=18 bucket_order=0
-jffs2: version 2.2. (NAND) (SUMMARY)  ¬© 2001-2006 Red Hat, Inc.
-bounce: pool size: 64 pages
-io scheduler noop registered
-io scheduler deadline registered
-io scheduler cfq registered (default)
-io scheduler mq-deadline registered
-io scheduler kyber registered
-dma-pl330 f8003000.dmac: Loaded driver for PL330 DMAC-241330
-dma-pl330 f8003000.dmac: 	DBUFF-128x8bytes Num_Chans-8 Num_Peri-4 Num_Events-16
-brd: module loaded
-loop: module loaded
-libphy: Fixed MDIO Bus: probed
-libphy: MACB_mii_bus: probed
-macb e000b000.ethernet eth0: Cadence GEM rev 0x00020118 at 0xe000b000 irq 28 (00:0a:35:00:00:02)
-Micrel KSZ9031 Gigabit PHY e000b000.ethernet-ffffffff:01: attached PHY driver [Micrel KSZ9031 Gigabit PHY] (mii_bus:phy_addr=e000b000.ethernet-ffffffff:01, irq=POLL)
-i2c /dev entries driver
-IR NEC protocol handler initialized
-IR RC5(x/sz) protocol handler initialized
-IR RC6 protocol handler initialized
-IR JVC protocol handler initialized
-IR Sony protocol handler initialized
-IR SANYO protocol handler initialized
-IR Sharp protocol handler initialized
-IR MCE Keyboard/mouse protocol handler initialized
-IR XMP protocol handler initialized
-cdns-wdt f8005000.watchdog: Xilinx Watchdog Timer at f087a000 with timeout 10s
-Xilinx Zynq CpuIdle Driver started
-sdhci: Secure Digital Host Controller Interface driver
-sdhci: Copyright(c) Pierre Ossman
-sdhci-pltfm: SDHCI platform and OF driver helper
-mmc0: SDHCI controller on e0100000.mmc [e0100000.mmc] using ADMA
-Netfilter messages via NETLINK v0.30.
-nf_conntrack version 0.5.0 (16384 buckets, 65536 max)
-ip_set: protocol 6
-IPVS: Registered protocols ()
-IPVS: Connection hash table configured (size=4096, memory=32Kbytes)
-IPVS: ipvs loaded.
-ip_tables: (C) 2000-2006 Netfilter Core Team
-arp_tables: arp_tables: (C) 2002 David S. Miller
-NET: Registered protocol family 17
-Bridge firewalling registered
-Ebtables v2.0 registered
-Registering SWP/SWPB emulation handler
-hctosys: unable to open rtc device (rtc0)
-Freeing unused kernel memory: 1024K
-mmc0: new high speed SDHC card at address 0007
-mmcblk0: mmc0:0007 SD4GB 3.71 GiB 
- mmcblk0: p1
-Starting logging: OK
-Initializing random number generator... done.
-Starting network: OK
-Starting sshd: OK
-
-Welcome to MCSOV board
-mcsov login: root
-Password: 
-# ls /dev/spi*
-ls: /dev/spi*: No such file or directory
-# ls /dev/spi*    
-[1;35mconsole[0m             [1;35mram8[0m                [1;35mtty4[0m
-[1;35mcpu_dma_latency[0m     [1;35mram9[0m                [1;35mtty40[0m
-[1;35mfull[0m                [1;35mrandom[0m              [1;35mtty41[0m
-[1;35mgpiochip0[0m           [1;34mshm[0m                 [1;35mtty42[0m
-[1;35miio:device0[0m         [1;35mtty[0m                 [1;35mtty43[0m
-[1;35mkmsg[0m                [1;35mtty0[0m                [1;35mtty44[0m
-[1;35mlog[0m                 [1;35mtty1[0m                [1;35mtty45[0m
-[1;35mloop-control[0m        [1;35mtty10[0m               [1;35mtty46[0m
-[1;35mloop0[0m               [1;35mtty11[0m               [1;35mtty47[0m
-[1;35mloop1[0m               [1;35mtty12[0m               [1;35mtty48[0m
-[1;35mloop2[0m               [1;35mtty13[0m               [1;35mtty49[0m
-[1;35mloop3[0m               [1;35mtty14[0m               [1;35mtty5[0m
-[1;35mloop4[0m               [1;35mtty15[0m               [1;35mtty50[0m
-[1;35mloop5[0m               [1;35mtty16[0m               [1;35mtty51[0m
-[1;35mloop6[0m               [1;35mtty17[0m               [1;35mtty52[0m
-[1;35mloop7[0m               [1;35mtty18[0m               [1;35mtty53[0m
-[1;35mmem[0m                 [1;35mtty19[0m               [1;35mtty54[0m
-[1;35mmemory_bandwidth[0m    [1;35mtty2[0m                [1;35mtty55[0m
-[1;35mmmcblk0[0m             [1;35mtty20[0m               [1;35mtty56[0m
-[1;35mmmcblk0p1[0m           [1;35mtty21[0m               [1;35mtty57[0m
-[1;35mnetwork_latency[0m     [1;35mtty22[0m               [1;35mtty58[0m
-[1;35mnetwork_throughput[0m  [1;35mtty23[0m               [1;35mtty59[0m
-[1;35mnull[0m                [1;35mtty24[0m               [1;35mtty6[0m
-[1;35mptmx[0m                [1;35mtty25[0m               [1;35mtty60[0m
-[1;34mpts[0m                 [1;35mtty26[0m               [1;35mtty61[0m
-[1;35mram0[0m                [1;35mtty27[0m               [1;35mtty62[0m
-[1;35mram1[0m                [1;35mtty28[0m               [1;35mtty63[0m
-[1;35mram10[0m               [1;35mtty29[0m               [1;35mtty7[0m
-[1;35mram11[0m               [1;35mtty3[0m                [1;35mtty8[0m
-[1;35mram12[0m               [1;35mtty30[0m               [1;35mtty9[0m
-[1;35mram13[0m               [1;35mtty31[0m               [1;35mttyPS0[0m
-[1;35mram14[0m               [1;35mtty32[0m               [1;35murandom[0m
-[1;35mram15[0m               [1;35mtty33[0m               [1;35mvcs[0m
-[1;35mram2[0m                [1;35mtty34[0m               [1;35mvcs1[0m
-[1;35mram3[0m                [1;35mtty35[0m               [1;35mvcsa[0m
-[1;35mram4[0m                [1;35mtty36[0m               [1;35mvcsa1[0m
-[1;35mram5[0m                [1;35mtty37[0m               [1;35mwatchdog[0m
-[1;35mram6[0m                [1;35mtty38[0m               [1;35mwatchdog0[0m
-[1;35mram7[0m                [1;35mtty39[0m               [1;35mzero[0m
-# 
-U-Boot SPL 2016.01mcsov (Apr 11 2019 - 13:30:49)
-mmc boot
-Trying to boot from MMC
-reading fpga.bin
-spl_load_image_fat: error reading image fpga.bin, err - -1
-spl: error reading image fpga.bin, err - 1
-reading system.dtb
-spl_load_image_fat_os: error reading image system.dtb, err - -1
-reading u-boot.img
-reading u-boot.img
-
-
-U-Boot 2016.01mcsov (Apr 11 2019 - 13:30:49 +0300)
-
-Board: Xilinx Zynq
-DRAM:  ECC disabled 1 GiB
-MMC:   mmc@e0100000: 0
-SF: Detected N25Q1024 with page size 256 Bytes, erase size 4 KiB, total 128 MiB
-In:    serial@e0000000
-Out:   serial@e0000000
-Err:   serial@e0000000
-Board: Xilinx Zynq
-Net:   ZYNQ GEM: e000b000, phyaddr -1, interface rgmii-id
-eth0: ethernet@e000b000
-Hit any key to stop autoboot:  3  2  1  0 
-Booting UMCOS board...
-reading uImage
-3165600 bytes read in 181 ms (16.7 MiB/s)
-reading devicetree.dtb
-11184 bytes read in 17 ms (641.6 KiB/s)
-reading rootfs.cpio.uboot
-5395952 bytes read in 296 ms (17.4 MiB/s)
-reading top.bin
-5979916 bytes read in 328 ms (17.4 MiB/s)
-zynq_align_dma_buffer: Bitstream is not swapped(1) - swap it
-## Booting kernel from Legacy Image at 04000000 ...
-   Image Name:   Linux-4.14.0-mcsov
-   Image Type:   ARM Linux Kernel Image (uncompressed)
-   Data Size:    3165536 Bytes = 3 MiB
-   Load Address: 00008000
-   Entry Point:  00008000
-   Verifying Checksum ... OK
-## Loading init Ramdisk from Legacy Image at 02000000 ...
-   Image Name:   
-   Image Type:   ARM Linux RAMDisk Image (uncompressed)
-   Data Size:    5395888 Bytes = 5.1 MiB
-   Load Address: 00000000
-   Entry Point:  00000000
-   Verifying Checksum ... OK
-## Flattened Device Tree blob at 03e00000
-   Booting using the fdt blob at 0x3e00000
-   Loading Kernel Image ... OK
-   Loading Ramdisk to 1fada000, end 1ffff5b0 ... OK
-   Loading Device Tree to 1fad4000, end 1fad9baf ... OK
-
-Starting kernel ...
-
-Booting Linux on physical CPU 0x0
-Linux version 4.14.0-mcsov (zynq@server) (gcc version 5.5.0 (Buildroot 2018.02)) #2 SMP PREEMPT Thu Apr 11 15:59:27 MSK 2019
-CPU: ARMv7 Processor [413fc090] revision 0 (ARMv7), cr=18c5387d
-CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
-OF: fdt: Machine model: xlnx,zynq-7000
-earlycon: cdns0 at MMIO 0xe0000000 (options '115200n8')
-bootconsole [cdns0] enabled
-Memory policy: Data cache writealloc
-cma: Reserved 16 MiB at 0x3f000000
-random: fast init done
-percpu: Embedded 16 pages/cpu @ef7ce000 s33868 r8192 d23476 u65536
-Built 1 zonelists, mobility grouping on.  Total pages: 260608
-Kernel command line: console=ttyPS0,115200 root=/dev/ram0 rw rootwait earlyprintk earlycon spidev.bufsiz=32768
-PID hash table entries: 4096 (order: 2, 16384 bytes)
-Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
-Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
-Memory: 1008680K/1048576K available (5120K kernel code, 197K rwdata, 1200K rodata, 1024K init, 130K bss, 23512K reserved, 16384K cma-reserved, 245760K highmem)
-Virtual kernel memory layout:
-    vector  : 0xffff0000 - 0xffff1000   (   4 kB)
-    fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
-    vmalloc : 0xf0800000 - 0xff800000   ( 240 MB)
-    lowmem  : 0xc0000000 - 0xf0000000   ( 768 MB)
-    pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
-    modules : 0xbf000000 - 0xbfe00000   (  14 MB)
-      .text : 0xc0008000 - 0xc0600000   (6112 kB)
-      .init : 0xc0800000 - 0xc0900000   (1024 kB)
-      .data : 0xc0900000 - 0xc0931780   ( 198 kB)
-       .bss : 0xc0936b68 - 0xc09574a4   ( 131 kB)
-Preemptible hierarchical RCU implementation.
-	RCU restricting CPUs from NR_CPUS=4 to nr_cpu_ids=2.
-	Tasks RCU enabled.
-RCU: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=2
-NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
-efuse mapped to f0800000
-slcr mapped to f0802000
-L2C: platform modifies aux control register: 0x02060000 -> 0x32460000
-L2C: DT/platform modifies aux control register: 0x02060000 -> 0x32460000
-L2C-310 erratum 769419 enabled
-L2C-310 enabling early BRESP for Cortex-A9
-L2C-310 full line of zeros enabled for Cortex-A9
-L2C-310 dynamic clock gating enabled, standby mode enabled
-L2C-310 cache controller enabled, 8 ways, 512 kB
-L2C-310: CACHE_ID 0x410000c8, AUX_CTRL 0x46460001
-zynq_clock_init: clkc starts at f0802100
-Zynq clock init
-sched_clock: 64 bits at 333MHz, resolution 3ns, wraps every 4398046511103ns
-clocksource: arm_global_timer: mask: 0xffffffffffffffff max_cycles: 0x4ce07af025, max_idle_ns: 440795209040 ns
-Switching to timer-based delay loop, resolution 3ns
-clocksource: ttc_clocksource: mask: 0xffff max_cycles: 0xffff, max_idle_ns: 537538477 ns
-timer #0 at f080a000, irq=17
-Console: colour dummy device 80x30
-Calibrating delay loop (skipped), value calculated using timer frequency.. 666.66 BogoMIPS (lpj=3333333)
-pid_max: default: 32768 minimum: 301
-Mount-cache hash table entries: 2048 (order: 1, 8192 bytes)
-Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes)
-CPU: Testing write buffer coherency: ok
-CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
-Setting up static identity map for 0x100000 - 0x10003c
-Hierarchical SRCU implementation.
-smp: Bringing up secondary CPUs ...
-CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
-smp: Brought up 1 node, 2 CPUs
-SMP: Total of 2 processors activated (1333.33 BogoMIPS).
-CPU: All CPU(s) started in SVC mode.
-devtmpfs: initialized
-VFP support v0.3: implementor 41 architecture 3 part 30 variant 9 rev 4
-clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
-futex hash table entries: 512 (order: 3, 32768 bytes)
-pinctrl core: initialized pinctrl subsystem
-NET: Registered protocol family 16
-DMA: preallocated 256 KiB pool for atomic coherent allocations
-cpuidle: using governor menu
-hw-breakpoint: found 5 (+1 reserved) breakpoint and 1 watchpoint registers.
-hw-breakpoint: maximum watchpoint size is 4 bytes.
-zynq-ocm f800c000.ocmc: ZYNQ OCM pool: 256 KiB @ 0xf0880000
-zynq-pinctrl 700.pinctrl: zynq pinctrl initialized
-e0000000.serial: ttyPS0 at MMIO 0xe0000000 (irq = 25, base_baud = 6249999) is a xuartps`¨ÀkΩ±ïÅm——ÂAM¡uÅïπÖâ±ïë5)çΩπÕΩ±ïÅm——ÂAM¡uÅïπÖâ±ïë5)âΩΩ—çΩπÕΩ±ïÅmçëπÕ¡uÅë•ÕÖâ±ïë5)âΩΩ—çΩπÕΩ±ïÅmçëπÕ¡uÅë•ÕÖâ±ïë5)ˇSCSI subsystem initialized
-pps_core: LinuxPPS API ver. 1 registered
-pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
-PTP clock support registered
-clocksource: Switched to clocksource arm_global_timer
-NET: Registered protocol family 2
-TCP established hash table entries: 8192 (order: 3, 32768 bytes)
-TCP bind hash table entries: 8192 (order: 4, 65536 bytes)
-TCP: Hash tables configured (established 8192 bind 8192)
-UDP hash table entries: 512 (order: 2, 16384 bytes)
-UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
-NET: Registered protocol family 1
-Trying to unpack rootfs image as initramfs...
-Freeing initrd memory: 5272K
-hw perfevents: no interrupt-affinity property for /pmu@f8891000, guessing.
-hw perfevents: enabled with armv7_cortex_a9 PMU driver, 7 counters available
-workingset: timestamp_bits=30 max_order=18 bucket_order=0
-jffs2: version 2.2. (NAND) (SUMMARY)  ¬© 2001-2006 Red Hat, Inc.
-bounce: pool size: 64 pages
-io scheduler noop registered
-io scheduler deadline registered
-io scheduler cfq registered (default)
-io scheduler mq-deadline registered
-io scheduler kyber registered
-dma-pl330 f8003000.dmac: Loaded driver for PL330 DMAC-241330
-dma-pl330 f8003000.dmac: 	DBUFF-128x8bytes Num_Chans-8 Num_Peri-4 Num_Events-16
-brd: module loaded
-loop: module loaded
-spidev spi2.0: buggy DT: spidev listed directly in DT
-------------[ cut here ]------------
-WARNING: CPU: 0 PID: 1 at drivers/spi/spidev.c:730 spidev_probe+0x16c/0x1a0
-Modules linked in:
-CPU: 0 PID: 1 Comm: swapper/0 Not tainted 4.14.0-mcsov #2
-Hardware name: Xilinx Zynq Platform
-[<c010db74>] (unwind_backtrace) from [<c010aa58>] (show_stack+0x10/0x14)
-[<c010aa58>] (show_stack) from [<c05263e8>] (dump_stack+0x80/0xa0)
-[<c05263e8>] (dump_stack) from [<c011a0b8>] (__warn+0xc8/0xf8)
-[<c011a0b8>] (__warn) from [<c011a18c>] (warn_slowpath_null+0x1c/0x24)
-[<c011a18c>] (warn_slowpath_null) from [<c03c188c>] (spidev_probe+0x16c/0x1a0)
-[<c03c188c>] (spidev_probe) from [<c0375468>] (driver_probe_device+0x19c/0x364)
-[<c0375468>] (driver_probe_device) from [<c0373ca0>] (bus_for_each_drv+0x80/0x90)
-[<c0373ca0>] (bus_for_each_drv) from [<c0375220>] (__device_attach+0x70/0xdc)
-[<c0375220>] (__device_attach) from [<c03747e4>] (bus_probe_device+0x28/0x80)
-[<c03747e4>] (bus_probe_device) from [<c0372d60>] (device_add+0x3ec/0x4f8)
-[<c0372d60>] (device_add) from [<c03bf470>] (spi_add_device+0xd0/0x124)
-[<c03bf470>] (spi_add_device) from [<c03c0aa0>] (spi_register_controller+0x634/0x864)
-[<c03c0aa0>] (spi_register_controller) from [<c03c2fbc>] (cdns_spi_probe+0x2dc/0x34c)
-[<c03c2fbc>] (cdns_spi_probe) from [<c0376ac4>] (platform_drv_probe+0x38/0x6c)
-[<c0376ac4>] (platform_drv_probe) from [<c0375468>] (driver_probe_device+0x19c/0x364)
-[<c0375468>] (driver_probe_device) from [<c03756d8>] (__driver_attach+0xa8/0xdc)
-[<c03756d8>] (__driver_attach) from [<c0373be8>] (bus_for_each_dev+0x68/0x8c)
-[<c0373be8>] (bus_for_each_dev) from [<c0374a20>] (bus_add_driver+0xe8/0x204)
-[<c0374a20>] (bus_add_driver) from [<c0375d54>] (driver_register+0x9c/0xe0)
-[<c0375d54>] (driver_register) from [<c0101940>] (do_one_initcall+0xa8/0x14c)
-[<c0101940>] (do_one_initcall) from [<c0800d74>] (kernel_init_freeable+0x10c/0x1cc)
-[<c0800d74>] (kernel_init_freeable) from [<c0536f6c>] (kernel_init+0x8/0x10c)
-[<c0536f6c>] (kernel_init) from [<c0107050>] (ret_from_fork+0x14/0x24)
----[ end trace 41cf99eac4e5b591 ]---
-spidev spi1.0: buggy DT: spidev listed directly in DT
-------------[ cut here ]------------
-WARNING: CPU: 0 PID: 1 at drivers/spi/spidev.c:730 spidev_probe+0x16c/0x1a0
-Modules linked in:
-CPU: 0 PID: 1 Comm: swapper/0 Tainted: G        W       4.14.0-mcsov #2
-Hardware name: Xilinx Zynq Platform
-[<c010db74>] (unwind_backtrace) from [<c010aa58>] (show_stack+0x10/0x14)
-[<c010aa58>] (show_stack) from [<c05263e8>] (dump_stack+0x80/0xa0)
-[<c05263e8>] (dump_stack) from [<c011a0b8>] (__warn+0xc8/0xf8)
-[<c011a0b8>] (__warn) from [<c011a18c>] (warn_slowpath_null+0x1c/0x24)
-[<c011a18c>] (warn_slowpath_null) from [<c03c188c>] (spidev_probe+0x16c/0x1a0)
-[<c03c188c>] (spidev_probe) from [<c0375468>] (driver_probe_device+0x19c/0x364)
-[<c0375468>] (driver_probe_device) from [<c0373ca0>] (bus_for_each_drv+0x80/0x90)
-[<c0373ca0>] (bus_for_each_drv) from [<c0375220>] (__device_attach+0x70/0xdc)
-[<c0375220>] (__device_attach) from [<c03747e4>] (bus_probe_device+0x28/0x80)
-[<c03747e4>] (bus_probe_device) from [<c0372d60>] (device_add+0x3ec/0x4f8)
-[<c0372d60>] (device_add) from [<c03bf470>] (spi_add_device+0xd0/0x124)
-[<c03bf470>] (spi_add_device) from [<c03c0aa0>] (spi_register_controller+0x634/0x864)
-[<c03c0aa0>] (spi_register_controller) from [<c03c39ec>] (xilinx_spi_probe+0x424/0x4e0)
-[<c03c39ec>] (xilinx_spi_probe) from [<c0376ac4>] (platform_drv_probe+0x38/0x6c)
-[<c0376ac4>] (platform_drv_probe) from [<c0375468>] (driver_probe_device+0x19c/0x364)
-[<c0375468>] (driver_probe_device) from [<c03756d8>] (__driver_attach+0xa8/0xdc)
-[<c03756d8>] (__driver_attach) from [<c0373be8>] (bus_for_each_dev+0x68/0x8c)
-[<c0373be8>] (bus_for_each_dev) from [<c0374a20>] (bus_add_driver+0xe8/0x204)
-[<c0374a20>] (bus_add_driver) from [<c0375d54>] (driver_register+0x9c/0xe0)
-[<c0375d54>] (driver_register) from [<c0101940>] (do_one_initcall+0xa8/0x14c)
-[<c0101940>] (do_one_initcall) from [<c0800d74>] (kernel_init_freeable+0x10c/0x1cc)
-[<c0800d74>] (kernel_init_freeable) from [<c0536f6c>] (kernel_init+0x8/0x10c)
-[<c0536f6c>] (kernel_init) from [<c0107050>] (ret_from_fork+0x14/0x24)
----[ end trace 41cf99eac4e5b592 ]---
-libphy: Fixed MDIO Bus: probed
-libphy: MACB_mii_bus: probed
-macb e000b000.ethernet eth0: Cadence GEM rev 0x00020118 at 0xe000b000 irq 28 (00:0a:35:00:00:02)
-Micrel KSZ9031 Gigabit PHY e000b000.ethernet-ffffffff:01: attached PHY driver [Micrel KSZ9031 Gigabit PHY] (mii_bus:phy_addr=e000b000.ethernet-ffffffff:01, irq=POLL)
-i2c /dev entries driver
-IR NEC protocol handler initialized
-IR RC5(x/sz) protocol handler initialized
-IR RC6 protocol handler initialized
-IR JVC protocol handler initialized
-IR Sony protocol handler initialized
-IR SANYO protocol handler initialized
-IR Sharp protocol handler initialized
-IR MCE Keyboard/mouse protocol handler initialized
-IR XMP protocol handler initialized
-cdns-wdt f8005000.watchdog: Xilinx Watchdog Timer at f087a000 with timeout 10s
-Xilinx Zynq CpuIdle Driver started
-sdhci: Secure Digital Host Controller Interface driver
-sdhci: Copyright(c) Pierre Ossman
-sdhci-pltfm: SDHCI platform and OF driver helper
-mmc0: SDHCI controller on e0100000.mmc [e0100000.mmc] using ADMA
-Netfilter messages via NETLINK v0.30.
-nf_conntrack version 0.5.0 (16384 buckets, 65536 max)
-ip_set: protocol 6
-IPVS: Registered protocols ()
-IPVS: Connection hash table configured (size=4096, memory=32Kbytes)
-IPVS: ipvs loaded.
-ip_tables: (C) 2000-2006 Netfilter Core Team
-arp_tables: arp_tables: (C) 2002 David S. Miller
-NET: Registered protocol family 17
-Bridge firewalling registered
-Ebtables v2.0 registered
-Registering SWP/SWPB emulation handler
-hctosys: unable to open rtc device (rtc0)
-Freeing unused kernel memory: 1024K
-mmc0: new high speed SDHC card at address 0007
-mmcblk0: mmc0:0007 SD4GB 3.71 GiB 
- mmcblk0: p1
-Starting logging: OK
-Initializing random number generator... done.
-Starting network: OK
-Starting sshd: OK
-
-Welcome to MCSOV board
-mcsov login: root
-Password: 
-# ls /dev/spidev
-ls: /dev/spidev: No such file or directory
-# ls /dev/spidev*
-[1;35m/dev/spidev1.0[0m  [1;35m/dev/spidev2.0[0m
-# ifconfig eth0 192.168.0.  5.88 up
-# macb e000b000.ethernet eth0: link up (100/Full)
-cd /
-# ls
-[1;34mbin[0m        [1;32minit[0m       [1;36mlinuxrc[0m    [1;34mopt[0m        [1;34mrun[0m        [1;32mtest_code[0m  [1;34mvar[0m
-[1;34mdev[0m        [1;34mlib[0m        [1;34mmedia[0m      [1;34mproc[0m       [1;34msbin[0m       [1;34mtmp[0m
-[1;34metc[0m        [1;36mlib32[0m      [1;34mmnt[0m        [1;34mroot[0m       [1;34msys[0m        [1;34musr[0m
-# ./test_code 
-spidev spi1.0: SPI transfer timed out
-EXCEPTION: std::exception
-# ls
-[1;34mbin[0m         [1;34mlib[0m         [1;34mmnt[0m         [1;34mrun[0m         [1;32mtest_code2[0m
-[1;34mdev[0m         [1;36mlib32[0m       [1;34mopt[0m         [1;34msbin[0m        [1;34mtmp[0m
-[1;34metc[0m         [1;36mlinuxrc[0m     [1;34mproc[0m        [1;34msys[0m         [1;34musr[0m
-[1;32minit[0m        [1;34mmedia[0m       [1;34mroot[0m        [1;32mtest_code[0m   [1;34mvar[0m
-# ./test_code2 
-# ls /dev/spidev              uname
-Linux
-# uname -r
-4.14.0-mcsov
-# 
