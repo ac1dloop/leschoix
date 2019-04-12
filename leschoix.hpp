@@ -21,14 +21,14 @@ struct OptArg {
 
     /**
      * @brief OptArg() constructor
-     * @param string value to keep
+     * @param str value to keep
      */
-    OptArg(const string& str):opt(str){}
+    OptArg(const string& str):data(str){}
 
     /**
      * @brief actual value
      */
-    string opt;
+    string data;
 
     /**
      * @brief get value converted to T
@@ -37,23 +37,23 @@ struct OptArg {
     template <typename T>
     T get(){
         if (is_same<T, uint8_t>::value||is_same<T, uint16_t>::value||is_same<T, uint32_t>::value)
-            return stoul(opt);
+            return stoul(data);
         else if (is_same<T, uint64_t>::value||is_same<T, unsigned long long>::value)
-            return stoull(opt);
+            return stoull(data);
         else if (is_same<T, int8_t>::value||is_same<T, int16_t>::value||is_same<T, int32_t>::value)
-            return stoi(opt);
+            return stoi(data);
         else if (is_same<T, int64_t>::value)
-            return stol(opt);
+            return stol(data);
         else if (is_same<T, long long>::value)
-            return stoll(opt);
+            return stoll(data);
         else if (is_same<T, double>::value)
-            return stod(opt);
+            return stod(data);
         else if (is_same<T, long double>::value)
-            return stold(opt);
+            return stold(data);
         else if (is_same<T, long double>::value)
-            return stof(opt);
+            return stof(data);
         else if (is_same<T, char>::value)
-            return opt.at(0);
+            return data.at(0);
     }
 };
 
@@ -68,7 +68,7 @@ struct lesopt {
     /**
      * @brief Constructor
      * @param opt - option that we parse ( -p )
-     * @param alias - full oprtion name ( --port )
+     * @param alias - full option name ( --port )
      */
     lesopt(char opt=0, string alias=""):opt(opt), alias(alias){
         if (opt&&!::isalnum(opt))
@@ -100,7 +100,7 @@ struct lesopt {
      * @brief getArg
      * @return first argument from array
      */
-    string getArg(){ return args.at(0).opt; }
+    string getArg(){ return args.at(0).data; }
 
     /**
      * @brief getArg
@@ -114,10 +114,13 @@ struct lesopt {
      * @return array of arguments
      */
     vector<string> strArgs(){
+        if (args.empty()||args.at(0).data.empty())
+            return vector<string>{};
+
         vector<string> res;
 
         for (auto x: args)
-            res.push_back(x.opt);
+            res.push_back(x.data);
 
         return res;
     }
@@ -128,6 +131,9 @@ struct lesopt {
      */
     template<typename T>
     vector<T> getArgs(){
+        if (args.empty()||args.at(0).data.empty())
+            return vector<T>{};
+
         vector<T> res;
 
         for (auto x: args)
@@ -162,8 +168,6 @@ struct LesChoix {
      */
     LesChoix(int argc, char **argv){
         Parse(argc, argv);
-
-        cout << "LesChoix()" << endl;
 
         for (lesopt& it: values){
             if (it.args.empty())
