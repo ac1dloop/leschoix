@@ -1,6 +1,7 @@
 # LesChoix
 
 Simple one-header class to parse command line options for your program
+
 LesChoix is part of my Y namespace classes where **Y** stands 'for why the f*ck did you invent bycicle?'
 
 ### Why?
