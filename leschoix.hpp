@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <functional>
 #include <algorithm>
 
 namespace Y {
@@ -142,6 +143,7 @@ struct lesopt {
         return res;
     }
 
+    bool exist{false};
     char opt; ///< option name ( -p )
     string alias; ///< full option name ( --port-name )
     vector<OptArg> args; ///< array of arguments
@@ -174,6 +176,16 @@ struct LesChoix {
                 it.args.push_back(it.default_value);
         }
     }
+
+    LesChoix(int argc, char **argv, std::function<void(string, vector<string>)> handler){
+        this->handler=handler;
+
+        Parse(argc, argv);
+
+        handle();
+    }
+
+    void setHandler(std::function<void(string, vector<string>)> handler){ this->handler=handler; }
 
     /**
      * @brief Parse
@@ -213,13 +225,24 @@ struct LesChoix {
                     });
                 }
 
-                if (it!=values.end()&&!line.empty())
-                    (*it).args.push_back(line);
+                if (it!=values.end()&&!line.empty()){
+                    it->args.push_back(line);
+                    it->exist=true;
+                }
 
             } else {
-                if (it!=values.end())
-                    (*it).args.push_back(line);
+                if (it!=values.end()){
+                    it->args.push_back(line);
+                    it->exist=true;
+                }
             }
+        }
+    }
+
+    void handle(){
+        for (lesopt& x: values){
+            if (x.exist)
+                handler(x.getOpt(), x.strArgs());
         }
     }
 
@@ -251,6 +274,7 @@ struct LesChoix {
         else throw std::logic_error("no such option");
     }
 
+    function<void(string, std::vector<string>)> handler{ [](string, vector<string>){} };
     static vector<lesopt> values; ///< array that holds parsed values
 };
 
