@@ -9,7 +9,7 @@
 using namespace std;
 
 //define static member and how to parse
-vector<Y::lesopt> Y::LesChoix::values{
+Y::options Y::LesChoix::values{
     //short name    long name       default value
 //zero if no name
     {'p',           "port",         "9999"},

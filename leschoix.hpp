@@ -3,11 +3,16 @@
 
 #include <string>
 #include <vector>
-#include <map>
 #include <functional>
 #include <algorithm>
 
+#include <iostream>
+
 namespace Y {
+
+class lesopt;
+
+using options=std::vector<Y::lesopt>;
 
 using namespace std;
 
@@ -71,9 +76,8 @@ struct lesopt {
      * @param opt - option that we parse ( -p )
      * @param alias - full option name ( --port )
      */
-    lesopt(char opt=0, string alias=""):opt(opt), alias(alias){
-        if (opt&&!::isalnum(opt))
-            throw std::logic_error("option must be a valid ascii characted from latin alphabet");
+    lesopt(char opt, string alias):opt(opt), alias(alias){
+        check_opt(opt);
     }
 
     /**
@@ -82,9 +86,15 @@ struct lesopt {
      * @param alias - full oprtion name ( --port )
      * @param default_value - value that will be used if nothing is parsed
      */
-    lesopt(char opt=0, string alias="", string default_value=""):opt(opt), alias(alias), default_value(default_value){
-        if (opt&&!::isalnum(opt))
-            throw std::logic_error("option must be a valid ascii characted from latin alphabet");
+    lesopt(char opt, string alias, string default_value):opt(opt), alias(alias), default_value(default_value){
+        check_opt(opt);
+    }
+
+    lesopt(char opt, string alias, string default_value, bool argRequired):opt(opt), alias(alias),
+                                                                                         default_value(default_value),
+                                                                                         argRequired(argRequired){
+
+        check_opt(opt);
     }
 
     /**
@@ -101,14 +111,24 @@ struct lesopt {
      * @brief getArg
      * @return first argument from array
      */
-    string getArg(){ return args.at(0).data; }
+    string getArg(){
+        if (args.at(0).data.empty())
+            throw std::logic_error(string((opt?string(1, opt):alias) + ": Argument is required but not provided"));
+
+        return args.at(0).data;
+    }
 
     /**
      * @brief getArg
      * @return first argument from array converted to T
      */
     template<typename T>
-    T getArg(){ return args.at(0).get<T>(); }
+    T getArg(){
+        if (args.at(0).data.empty())
+            throw std::logic_error(string((opt?string(1, opt):alias) + ": Argument is required but not provided"));
+
+        return args.at(0).get<T>();
+    }
 
     /**
      * @brief strArgs
@@ -116,7 +136,9 @@ struct lesopt {
      */
     vector<string> strArgs(){
         if (args.empty()||args.at(0).data.empty())
-            return vector<string>{};
+            if (argRequired)
+                throw std::logic_error(string((opt?string(1, opt):alias) + ": Argument is required but not provided"));
+            else return vector<string>{};
 
         vector<string> res;
 
@@ -133,7 +155,9 @@ struct lesopt {
     template<typename T>
     vector<T> getArgs(){
         if (args.empty()||args.at(0).data.empty())
-            return vector<T>{};
+            if (argRequired)
+                throw std::logic_error(string((opt?string(1, opt):alias) + ": Argument is required but not provided"));
+            else return vector<T>{};
 
         vector<T> res;
 
@@ -143,11 +167,18 @@ struct lesopt {
         return res;
     }
 
+    bool argRequired{false};
     bool exist{false};
     char opt; ///< option name ( -p )
     string alias; ///< full option name ( --port-name )
     vector<OptArg> args; ///< array of arguments
     string default_value; ///< default_value that is used in case no args provided
+
+private:
+    void check_opt(char opt){
+        if (opt&&!::isalnum(opt))
+            throw std::logic_error("option must be a valid ascii characted from latin alphabet");
+    }
 };
 
 /**
@@ -275,7 +306,7 @@ struct LesChoix {
     }
 
     function<void(string, std::vector<string>)> handler{ [](string, vector<string>){} };
-    static vector<lesopt> values; ///< array that holds parsed values
+    static options values; ///< array that holds parsed values
 };
 
 }//YY testing namespace

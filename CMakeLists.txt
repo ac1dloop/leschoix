@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 
 project(leschoix)
-add_executable(${PROJECT_NAME} "examples/handler.cpp")
+add_executable("with_handler" "examples/handler.cpp")
 
 add_executable("simple_test" "examples/main.cpp")
 
