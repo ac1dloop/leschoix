@@ -22,7 +22,6 @@ using namespace std;
  * OptArg stands for options argument
  * This structure holds exactly one argument value
  */
-
 struct OptArg {
 
     /**
