@@ -1,5 +1,5 @@
-#ifndef LESCHOIX2_HPP
-#define LESCHOIX2_HPP
+#ifndef LESCHOIX_HPP
+#define LESCHOIX_HPP
 
 #include <string>
 #include <vector>
@@ -8,7 +8,7 @@
 
 #include <iostream>
 
-namespace YY {
+namespace Y {
 
 using namespace std;
 
@@ -29,8 +29,6 @@ struct lesopt {
 
 /* Добавить алиасы */
 /* Добавить хранение множества значений */
-/* сделать темплейты для базовых типов */
-/* сделать что-то с возвращением стандартного значения */
 
 template<>
 string lesopt::Get()
@@ -155,4 +153,4 @@ private:
 
 } //test YY namespace
 
-#endif // LESCHOIX2_HPP
+#endif // LESCHOIX_HPP

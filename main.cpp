@@ -1,11 +1,11 @@
 #include <iostream>
-#include <leschoix2.hpp>
+#include <leschoix.hpp>
 
 using namespace std;
 
 int main(int argc, char **argv)
 {
-    YY::LesChoix parser(argc, argv);
+    Y::LesChoix parser(argc, argv);
 
     uint16_t port;
     string user;
