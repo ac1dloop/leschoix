@@ -13,13 +13,9 @@ The main point is to have something to include fast in project and use as is for
 
 ### Docs
 
-to make docs you have to have doxygen installed
+to make docs doxygen has to be installed
 
 ```shell
 doxygen doxyconf
 ```
 I dont think they really needed
-
-### Example
-
-Example is in example directory
