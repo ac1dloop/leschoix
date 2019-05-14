@@ -10,6 +10,10 @@
 
 namespace Y {
 
+/**
+ * @brief The lesopt struct
+ * struct that holds option name and it's values
+ */
 struct lesopt {
 
     lesopt(const std::string& name):name(name),value({""}){}
@@ -168,8 +172,19 @@ std::vector<float> lesopt::GetArr()
     return res;
 }
 
+/**
+ * @brief The LesChoix struct
+ * Class that provides interface to parse and access values
+ */
 struct LesChoix {
 
+    /**
+     * @brief LesChoix
+     * @param argc
+     * @param argv
+     *
+     * Constructor
+     */
     LesChoix(int argc, char **argv){
         Parse2(argc, argv);
     }
@@ -227,20 +242,13 @@ struct LesChoix {
         return this->operator [](s);
     }
 
-    bool Exist(const std::string& name){
-        return std::find_if(options.begin(), options.end(), [&name](lesopt& op){
-            return op.name==name;
-        })!=options.end();
-    }
-
-    bool Exist(const char short_name){
-        std::string name=std::string(1, short_name);
-        return std::find_if(options.begin(), options.end(), [&name](lesopt& op){
-            return op.name==name;
-        })!=options.end();
-    }
-
 private:
+    /**
+     * @brief find
+     * @param name
+     * @return std::pair<bool, lesopt&>
+     * If option exists first is true so second is acessible
+     */
     std::pair<bool, lesopt&> find(const std::string& name){
         auto it=std::find_if(options.begin(), options.end(), [&name](lesopt& op){
             return op.name==name;
@@ -279,7 +287,6 @@ private:
                 size_t j=line.find('=');
 
                 if (j!=std::string::npos){
-//                    cout << "found '=' !\n";
                     value=line.substr(j+1, line.size()-j-1);
                     name=line.substr(line.rfind('-', j)+1, j-line.rfind('-', j)-1);
                     options.push_back({name, value});
@@ -293,6 +300,12 @@ private:
         }
     }
 
+    /**
+     * @brief Parse2
+     * @param argc
+     * @param argv
+     * Parse argc and argv and fill options array
+     */
     void Parse2(int argc, char **argv){
         std::string name;
         std::string value;
