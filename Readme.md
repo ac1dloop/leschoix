@@ -19,3 +19,15 @@ to make docs doxygen has to be installed
 doxygen doxyconf
 ```
 I dont think they really needed
+
+### Example
+
+Check main.cpp for example with comments
+
+### To-do:
+
+* Type checking
+* Default values
+..* Make it similiar to argparse
+..* --ver --help default outputs
+* Allow for custom handlers
