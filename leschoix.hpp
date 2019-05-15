@@ -27,6 +27,14 @@ struct lesopt {
     }
 
     template<typename T>
+    T Get(T def){
+        if (value.at(0).empty())
+            return def;
+
+        return this->Get<T>();
+    }
+
+    template<typename T>
     std::vector<T> GetArr(){
         return std::vector<T>{};
     }
