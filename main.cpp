@@ -19,12 +19,13 @@ int main(int argc, char **argv)
     vector<int> vec{0};
     vector<string> flowers;
     int aliased=0;
+    bool flag=false;
 
     //before accessing option it is better to check for existence
     //code doesn't make any assertions about returning type or containing value
     //if option doesn't exist or value cannot be converted it will result in undefined behaviour
     if (parser['p'])
-        port=parser['p'].Get<uint16_t>();
+        port=parser['p'].Get<uint16_t>(123);
     if (parser["username"])
         user=parser["username"].Get<string>();
     if (parser["values"])
@@ -33,6 +34,8 @@ int main(int argc, char **argv)
         aliased=parser.find(3, "aliased", "a", "ultravalue").Get<int>();
     if (parser["flowers"])
         flowers=parser["flowers"].GetArr<string>();
+
+    flag=parser['f'].Get<bool>();
 
     cout << "port: " << port << endl;
     cout << "user: " << user << endl;
@@ -47,6 +50,8 @@ int main(int argc, char **argv)
     for (auto x: flowers)
         cout << x << " ";
     cout << endl;
+
+    cout << "flag is " << (flag?"set":"unset") << endl;
 
 	return 0;
 }

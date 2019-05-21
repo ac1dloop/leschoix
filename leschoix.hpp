@@ -17,7 +17,9 @@ namespace Y {
  */
 struct lesopt {
 
-    lesopt(const std::string& name):name(name),value({""}){}
+    lesopt(const std::string& name):name(name){}
+
+//    lesopt(const std::string& name):name(name),value({""}){}
 
     lesopt(const std::string& name, const std::string& value):name(name),value({value}){}
 
@@ -51,6 +53,12 @@ struct lesopt {
 };
 
 template<>
+bool lesopt::Get()
+{
+    return !name.empty();
+}
+
+template<>
 std::string lesopt::Get()
 {
     return value.back();
@@ -65,6 +73,7 @@ int lesopt::Get()
 template<>
 uint16_t lesopt::Get()
 {
+    static_assert (std::is_arithmetic<uint16_t>::value, "");
     return static_cast<uint16_t>(std::stol(value.back()));
 }
 
@@ -195,7 +204,7 @@ struct LesChoix {
      * Constructor
      */
     LesChoix(int argc, char **argv){
-        Parse2(argc, argv);
+        Parse3(argc, argv);
     }
 
     /**
@@ -212,8 +221,9 @@ struct LesChoix {
         if (p.first)
             return p.second;
 
-        options.push_back({name});
-        return options.back();
+        return empty;
+//        options.push_back({name});
+//        return options.back();
     }
 
     /**
@@ -270,55 +280,15 @@ private:
     }
 
     /**
-     * @brief Parse
-     * @param argc - argument count
-     * @param argv - pointer to corresponding argument values
-     * function doesnt handle arguments with multiple values such as -p=100 200 300
-     */
-    void Parse(int argc, char **argv){
-        std::string name;
-        std::string value;
-        std::string line;
-        for (int i=1;i<argc;++i){
-
-            line=std::string(argv[i], strlen(argv[i]));
-
-			//if it is an option
-            if (line.at(0)=='-'){
-                if (line.at(1)=='-'){
-                    //long option
-					name=line.substr(2, line.size()-1);
-               } else {
-                    //short option
-                    name=std::string(1, line.at(1));
-                }
-
-                size_t j=line.find('=');
-
-                if (j!=std::string::npos){
-                    value=line.substr(j+1, line.size()-j-1);
-                    name=line.substr(line.rfind('-', j)+1, j-line.rfind('-', j)-1);
-                    options.push_back({name, value});
-                    continue;
-                } else continue;
-            }
-
-            value=std::string(argv[i], strlen(argv[i]));
-
-            options.push_back({name, value});
-        }
-    }
-
-    /**
-     * @brief Parse2
+     * @brief Parse3
      * @param argc
      * @param argv
-     * Parse argc and argv and fill options array
+     * Same as Parse2 but works better
      */
-    void Parse2(int argc, char **argv){
-        std::string name;
-        std::string value;
-        std::string line;
+    void Parse3(int argc, char **argv){
+        std::string name{""};
+        std::string value{""};
+        std::string line{""};
         for (int i=1;i<argc;++i){
 
             line=std::string(argv[i], strlen(argv[i]));
@@ -328,7 +298,7 @@ private:
                 if (line.at(1)=='-'){
                     //long option
                     name=line.substr(2, line.size()-1);
-               } else {
+                } else {
                     //short option
                     name=std::string(1, line.at(1));
                 }
@@ -340,7 +310,10 @@ private:
                     name=line.substr(line.rfind('-', j)+1, j-line.rfind('-', j)-1);
                     options.push_back({name, value});
                     continue;
-                } else continue;
+                } else {
+                    options.push_back({name});
+                    continue;
+                }
             }
 
             value=std::string(argv[i], strlen(argv[i]));
@@ -349,6 +322,7 @@ private:
         }
     }
 
+    lesopt empty{"", ""};
     std::vector<lesopt> options;
 };
 
