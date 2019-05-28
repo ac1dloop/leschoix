@@ -6,35 +6,40 @@
 
 using namespace std;
 
-//output with parameters -a=123 -p=9999 --values=1 2 3 4 5 --flowers=lillie dandelion tulip
+//try output with parameters -a=123 -p=9999 --values=1 2 3 4 5 --flowers=lillie dandelion tulip
 
 int main(int argc, char **argv)
 {
     //Create instance of LesChoix
     Y::LesChoix parser(argc, argv);
 
-    //parameters that we want to parse
-    uint16_t port=0;
-    string user="";
-    vector<int> vec{0};
+    //create parameters that we want to parse
+    uint16_t port;
+    string user;
+    vector<int> vec;
     vector<string> flowers;
-    int aliased=0;
+    int aliased;
     bool flag=false;
 
-    //before accessing option it is better to check for existence
-    //code doesn't make any assertions about returning type or containing value
-    //if option doesn't exist or value cannot be converted it will result in undefined behaviour
-    if (parser['p'])
-        port=parser['p'].Get<uint16_t>(123);
-    if (parser["username"])
-        user=parser["username"].Get<string>();
-    if (parser["values"])
-        vec=parser["values"].GetArr<int>();
-    if (parser.find(3, "aliased", "a", "ultravalue"))
-        aliased=parser.find(3, "aliased", "a", "ultravalue").Get<int>();
-    if (parser["flowers"])
-        flowers=parser["flowers"].GetArr<string>();
+    //then just get it.
+    //dont forget to provide default values if you dont want program to throw
 
+    /* get array of strings */
+    flowers=parser["flowers"].GetArr<string>({""});
+
+    /* find element of any of three */
+    aliased=parser.find(3, "aliased", "a", "ultravalue").Get<int>(0);
+
+    /* get array of ints. throws if not found */
+    vec=parser["values"].GetArr<int>({-10, -20});
+
+    /* get string */
+    user=parser["username"].Get<string>("Dmitry");
+
+    /* get uint16_t. */
+    port=parser['p'].Get<uint16_t>(0);
+
+    /* check flag. nothrow anytime */
     flag=parser['f'].Get<bool>();
 
     cout << "port: " << port << endl;
