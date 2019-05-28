@@ -1,15 +1,27 @@
 # LesChoix
 
-Simple one-header class to parse command line options for your program
-
-LesChoix is part of my Y namespace classes where **Y** stands 'for why the f*ck did you invent bycicle?'
+Probably simplest command line arguments parser.
 
 ### Why?
 
 The main point is to have something to include fast in project and use as is for testing purposes.
 **LesChoix** Lacks of any type checking and not optimized at all
+**LesChoix** Is ready for best C++ package management practices
 
 **It is simple and it parses** !
+
+### Usage
+
+**Three steps to segfault**
+
+1. Include header
+`#include "leschoix.hpp"`
+2. Create instance
+`Y::LesChoix parser(argc, argv)`
+3. Access arguments
+`int port = parser['p'].Get<int>(8081)`
+
+See main.cpp for example.
 
 ### Docs
 
@@ -20,14 +32,9 @@ doxygen doxyconf
 ```
 I dont think they really needed
 
-### Example
-
-Check main.cpp for example with comments
-
 ### To-do:
 
 * Type checking
-* Default values
-..* Make it similiar to argparse
-..* --ver --help default outputs
+* Make it similiar to argparse
+* --ver --help default outputs
 * Allow for custom handlers
