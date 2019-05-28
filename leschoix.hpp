@@ -13,19 +13,17 @@ namespace Y {
 
 /**
  * @brief The lesopt struct
- * struct that holds option name and it's values
+ * struct that holds option name and it's value(s)
  */
 struct lesopt {
 
     lesopt(const std::string& name):name(name){}
 
-//    lesopt(const std::string& name):name(name),value({""}){}
-
     lesopt(const std::string& name, const std::string& value):name(name),value({value}){}
 
     template<typename T>
     T Get(){
-        return T{};
+        return T();
     }
 
     template<typename T>
@@ -39,6 +37,14 @@ struct lesopt {
     template<typename T>
     std::vector<T> GetArr(){
         return std::vector<T>{};
+    }
+
+    template<typename T>
+    std::vector<T> GetArr(std::vector<T> def){
+        if (value.empty())
+            return def;
+
+        return this->GetArr<T>();
     }
 
     operator bool(){
@@ -294,7 +300,7 @@ private:
             line=std::string(argv[i], strlen(argv[i]));
 
             //if it is an option
-            if (line.at(0)=='-'){
+            if (line.at(0)=='-'&& (::isalpha(line.at(1)) || line.at(1)=='-') ){
                 if (line.at(1)=='-'){
                     //long option
                     name=line.substr(2, line.size()-1);
