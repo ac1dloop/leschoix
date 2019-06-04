@@ -19,7 +19,7 @@ The main point is to have something to include fast in project and use as is for
 2. Create instance
 `Y::LesChoix parser(argc, argv)`
 3. Access arguments
-`int port = parser['p'].Get<int>(8081)`
+`uint16_t port = parser['p'].Get<uint16_t>(8081)`
 
 See main.cpp for example.
 
