@@ -31,10 +31,3 @@ to make docs doxygen has to be installed
 doxygen doxyconf
 ```
 I dont think they really needed
-
-### To-do:
-
-* Type checking
-* Make it similiar to argparse
-* --ver --help default outputs
-* Allow for custom handlers
