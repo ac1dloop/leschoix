@@ -19,7 +19,7 @@ struct lesopt {
 
     lesopt(const std::string& name):name(name){}
 
-    lesopt(const std::string& name, const std::string& value):name(name),value({value}){}
+    lesopt(const std::string& name, const std::string& value):name(name),values({value}){}
 
     template<typename T>
     T Get(){
@@ -28,7 +28,7 @@ struct lesopt {
 
     template<typename T>
     T Get(T def){
-        if (value.at(0).empty())
+        if (values.at(0).empty())
             return def;
 
         return this->Get<T>();
@@ -41,156 +41,264 @@ struct lesopt {
 
     template<typename T>
     std::vector<T> GetArr(std::vector<T> def){
-        if (value.empty())
+        if (values.empty())
             return def;
 
         return this->GetArr<T>();
     }
 
+    /* если есть хотя бы одно значение то возвращаем true если оно не пустое */
     operator bool(){
-        if (!value.empty())
-            return !value[0].empty();
+        return values.empty()?false:!values[0].empty();
+    }
 
-        return !value.empty();
+    bool empty(){
+        return values.empty()?true:values[0].empty();
+    }
+
+    template<typename T>
+    operator T(){
+        return this->Get<T>();
     }
 
     std::string name;
-    std::vector<std::string> value;
+    std::vector<std::string> values;
 };
 
 template<>
-bool lesopt::Get()
+inline bool lesopt::Get()
 {
     return !name.empty();
 }
 
 template<>
-std::string lesopt::Get()
+inline std::string lesopt::Get()
 {
-    return value.back();
+    return values.back();
 }
 
 template<>
-int lesopt::Get()
+inline unsigned char lesopt::Get()
 {
-    return std::stoi(value.back());
+    return static_cast<unsigned char>(std::stoul(values.back()));
 }
 
 template<>
-uint16_t lesopt::Get()
+inline char lesopt::Get()
 {
-    static_assert (std::is_arithmetic<uint16_t>::value, "");
-    return static_cast<uint16_t>(std::stol(value.back()));
+    return static_cast<char>(std::stoi(values.back()));
 }
 
 template<>
-double lesopt::Get()
+inline unsigned short lesopt::Get()
 {
-    return std::stod(value.back());
+    return static_cast<unsigned short>(std::stoul(values.back()));
 }
 
 template<>
-long double lesopt::Get()
+inline short lesopt::Get()
 {
-    return std::stold(value.back());
+    return static_cast<short>(std::stoi(values.back()));
 }
 
 template<>
-unsigned long int lesopt::Get()
+inline int lesopt::Get()
 {
-    return static_cast<uint32_t>(std::stoul(value.back()));
+    return std::stoi(values.back());
 }
 
 template<>
-unsigned long long int lesopt::Get()
+inline unsigned int lesopt::Get()
 {
-    return std::stoull(value.back());
+    return static_cast<unsigned int>(std::stoul(values.back()));
 }
 
 template<>
-float lesopt::Get()
+inline unsigned long int lesopt::Get()
 {
-    return std::stof(value.back());
+    return static_cast<unsigned long int>(std::stoul(values.back()));
 }
 
 template<>
-std::vector<std::string> lesopt::GetArr()
+inline long int lesopt::Get()
 {
-    return value;
+    return static_cast<long int>(std::stol(values.back()));
 }
 
 template<>
-std::vector<int> lesopt::GetArr()
+inline unsigned long long int lesopt::Get()
+{
+    return static_cast<unsigned long long int>(std::stoull(values.back()));
+}
+
+template<>
+inline long long int lesopt::Get()
+{
+    return static_cast<long long int>(std::stoll(values.back()));
+}
+
+template<>
+inline double lesopt::Get()
+{
+    return std::stod(values.back());
+}
+
+template<>
+inline long double lesopt::Get()
+{
+    return std::stold(values.back());
+}
+
+template<>
+inline float lesopt::Get()
+{
+    return std::stof(values.back());
+}
+
+template<>
+inline std::vector<std::string> lesopt::GetArr()
+{
+    return values;
+}
+
+template<>
+inline std::vector<char> lesopt::GetArr()
+{
+    std::vector<char> res;
+
+    for (auto x: values)
+        res.push_back(static_cast<char>(std::stoi(x)));
+
+    return res;
+}
+
+template<>
+inline std::vector<unsigned char> lesopt::GetArr()
+{
+    std::vector<unsigned char> res;
+
+    for (auto x: values)
+        res.push_back(static_cast<unsigned char>(std::stoul(x)));
+
+    return res;
+}
+
+template<>
+inline std::vector<short> lesopt::GetArr()
+{
+    std::vector<short> res;
+
+    for (auto x: values)
+        res.push_back(static_cast<short>(std::stoi(x)));
+
+    return res;
+}
+
+template<>
+inline std::vector<unsigned short> lesopt::GetArr()
+{
+    std::vector<unsigned short> res;
+
+    for (auto x: values)
+        res.push_back(static_cast<unsigned short>(std::stoul(x)));
+
+    return res;
+}
+
+template<>
+inline std::vector<int> lesopt::GetArr()
 {
     std::vector<int> res;
 
-    for (auto x: value)
+    for (auto x: values)
         res.push_back(std::stoi(x));
 
     return res;
 }
 
 template<>
-std::vector<uint16_t> lesopt::GetArr()
+inline std::vector<unsigned int> lesopt::GetArr()
 {
-    std::vector<uint16_t> res;
+    std::vector<unsigned int> res;
 
-    for (auto x: value)
-        res.push_back(std::stol(x));
-
-    return res;
-}
-
-template<>
-std::vector<double> lesopt::GetArr()
-{
-    std::vector<double> res;
-
-    for (auto x: value)
-        res.push_back(std::stod(x));
-
-    return res;
-}
-
-template<>
-std::vector<long double> lesopt::GetArr()
-{
-    std::vector<long double> res;
-
-    for (auto x: value)
-        res.push_back(std::stold(x));
-
-    return res;
-}
-
-template<>
-std::vector<unsigned long int> lesopt::GetArr()
-{
-    std::vector<unsigned long int> res;
-
-    for (auto x: value)
+    for (auto x: values)
         res.push_back(std::stoul(x));
 
     return res;
 }
 
 template<>
-std::vector<unsigned long long int> lesopt::GetArr()
+inline std::vector<long int> lesopt::GetArr()
+{
+    std::vector<long int> res;
+
+    for (auto x: values)
+        res.push_back(std::stol(x));
+
+    return res;
+}
+
+template<>
+inline std::vector<unsigned long int> lesopt::GetArr()
+{
+    std::vector<unsigned long int> res;
+
+    for (auto x: values)
+        res.push_back(std::stoul(x));
+
+    return res;
+}
+
+template<>
+inline std::vector<long long int> lesopt::GetArr()
+{
+    std::vector<long long int> res;
+
+    for (auto x: values)
+        res.push_back(std::stoll(x));
+
+    return res;
+}
+
+template<>
+inline std::vector<unsigned long long int> lesopt::GetArr()
 {
     std::vector<unsigned long long int> res;
 
-    for (auto x: value)
+    for (auto x: values)
         res.push_back(std::stoull(x));
 
     return res;
 }
 
 template<>
-std::vector<float> lesopt::GetArr()
+inline std::vector<double> lesopt::GetArr()
+{
+    std::vector<double> res;
+
+    for (auto x: values)
+        res.push_back(std::stod(x));
+
+    return res;
+}
+
+template<>
+inline std::vector<long double> lesopt::GetArr()
+{
+    std::vector<long double> res;
+
+    for (auto x: values)
+        res.push_back(std::stold(x));
+
+    return res;
+}
+
+template<>
+inline std::vector<float> lesopt::GetArr()
 {
     std::vector<float> res;
 
-    for (auto x: value)
+    for (auto x: values)
         res.push_back(std::stof(x));
 
     return res;
@@ -201,7 +309,6 @@ std::vector<float> lesopt::GetArr()
  * Class that provides interface to parse and access values
  */
 struct LesChoix {
-
     /**
      * @brief LesChoix
      * @param argc
@@ -228,8 +335,6 @@ struct LesChoix {
             return p.second;
 
         return empty;
-//        options.push_back({name});
-//        return options.back();
     }
 
     /**
@@ -324,7 +429,7 @@ private:
 
             value=std::string(argv[i], strlen(argv[i]));
 
-            options.back().value.push_back(value);
+            options.back().values.push_back(value);
         }
     }
 
