@@ -49,7 +49,7 @@ struct lesopt {
 
     /* если есть хотя бы одно значение то возвращаем true если оно не пустое */
     operator bool(){
-        return values.empty()?false:!values[0].empty();
+        return !name.empty();
     }
 
     bool empty(){
@@ -68,7 +68,7 @@ struct lesopt {
 template<>
 inline bool lesopt::Get()
 {
-    return !name.empty();
+    return !values.empty();
 }
 
 template<>
@@ -402,7 +402,7 @@ private:
         std::string line{""};
         for (int i=1;i<argc;++i){
 
-            line=std::string(argv[i], strlen(argv[i]));
+            line=std::string(argv[i]);
 
             //if it is an option
             if (line.at(0)=='-'&& (::isalpha(line.at(1)) || line.at(1)=='-') ){
