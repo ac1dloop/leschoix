@@ -6,10 +6,17 @@
 #include <cstring>
 #include <algorithm>
 #include <cstdarg>
+#include <array>
 
 #include <iostream>
 
 namespace Y {
+
+static std::vector<std::string> booleanTrue{
+    {"true"},
+    {"yes"},
+    {"y"}
+};
 
 /**
  * @brief The lesopt struct
@@ -68,7 +75,20 @@ struct lesopt {
 template<>
 inline bool lesopt::Get()
 {
-    return !values.empty();
+    if (!values.empty()){
+        auto s=values.at(0);
+
+        std::transform(s.begin(), s.end(), s.begin(), ::tolower);
+        if (std::find_if(booleanTrue.begin(), booleanTrue.end(), [&s](std::string op){
+                         return s.find(op.c_str())!=std::string::npos;
+        })!=booleanTrue.end()){
+            return true;
+        } else return false;
+    }
+
+    std::cout << "returning name\n";
+
+    return !name.empty();
 }
 
 template<>
