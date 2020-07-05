@@ -345,8 +345,6 @@ struct LesChoix {
      * @param name
      * @return lesopt&
      * tries to find an option with this name
-     * if option not parsed adds option name to options array
-     * and returns reference to it.
      */
     lesopt& operator[](const std::string& name){
         auto p=this->find(name);
@@ -391,6 +389,8 @@ struct LesChoix {
 
         return this->operator [](s);
     }
+
+    size_t size(){ return options.size(); }
 
 private:
     /**
